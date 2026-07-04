@@ -32,7 +32,7 @@ sealed interface Action {
     ) : Action
 }
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 suspend fun determineAction(args: GitHubIssueArgs): Either<String, Action> = either {
     val issueNumber = args.issueNumber
     val intention = checkCommentsForIntention(issueNumber).bind()
@@ -44,7 +44,7 @@ suspend fun determineAction(args: GitHubIssueArgs): Either<String, Action> = eit
     }
 }
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 private suspend fun CommentIntention.TakeIssue.toAction(
     issueNumber: GitHubIssueNumber,
 ): Either<String, Action> = either {
@@ -61,11 +61,11 @@ private suspend fun CommentIntention.TakeIssue.toAction(
     Action.AssignIssue(issueNumber, user)
 }
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 private suspend fun checkCommentsForIntention(
     issueNumber: GitHubIssueNumber
 ): Either<String, CommentIntention?> = either {
-    val comments = fetchIssueComments(issueNumber)
+    val comments = gitHubService.fetchIssueComments(issueNumber)
         .mapLeft { "Failed to fetch comments: $it." }
         .bind()
 
@@ -78,22 +78,22 @@ private suspend fun checkCommentsForIntention(
     analyzeCommentIntention(lastComment)
 }
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 private suspend fun checkIfIssueIsAssigned(
     issueNumber: GitHubIssueNumber
 ): Either<String, GitHubUser?> = either {
-    val issueInfo = fetchIssue(issueNumber)
+    val issueInfo = gitHubService.fetchIssue(issueNumber)
         .mapLeft { "Failed to fetch issue: $it." }
         .bind()
 
     issueInfo.assignee
 }
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 private suspend fun checkLabelsForApproved(
     issueNumber: GitHubIssueNumber
 ): Either<String, Boolean> = either {
-    val labels = fetchIssueLabels(issueNumber)
+    val labels = gitHubService.fetchIssueLabels(issueNumber)
         .mapLeft { "Failed to fetch labels: $it." }
         .bind()
 

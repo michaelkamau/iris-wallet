@@ -1,3 +1,6 @@
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.10.0"
+}
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 dependencyResolutionManagement {
@@ -40,7 +43,6 @@ include(":screen:search")
 include(":screen:settings")
 include(":screen:transactions")
 include(":shared:base")
-include(":shared:common-ui")
 include(":shared:data:core")
 include(":shared:data:core-testing")
 include(":shared:data:model")

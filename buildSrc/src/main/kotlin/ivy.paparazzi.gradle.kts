@@ -3,6 +3,13 @@ plugins {
     id("app.cash.paparazzi")
 }
 
+tasks.withType<Test>().configureEach {
+    // https://github.com/cashapp/paparazzi/issues/2111
+    // Paparazzi <= 2.0.0-alpha04 uses internal Gradle APIs for HTML reports that
+    // were removed in Gradle 9; disabling HTML reports avoids the breakage.
+    reports.html.required = false
+}
+
 // TODO Remove when https://github.com/google/guava/issues/6567 is fixed.
 // See also: https://github.com/google/guava/issues/6801.
 dependencies.constraints {

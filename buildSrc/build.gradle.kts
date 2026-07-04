@@ -23,7 +23,6 @@ dependencies {
     implementation(libs.detekt.gradle.plugin)
     implementation(libs.kotlinx.serialization.plugin)
     implementation(libs.ksp.plugin)
-    implementation(libs.cashapp.molecule.plugin)
     implementation(libs.room.plugin)
     implementation(libs.paparazzi.plugin)
     implementation(libs.module.graph.plugin)

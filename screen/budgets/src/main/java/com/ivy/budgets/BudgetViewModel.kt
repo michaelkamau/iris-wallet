@@ -252,7 +252,7 @@ class BudgetViewModel @Inject constructor(
                                 ),
                                 amount = it.getValue()
                             )
-                        ).orNull()?.toDouble() ?: 0.0
+                        ).getOrNull()?.toDouble() ?: 0.0
                     }
 
                     is Transfer -> {

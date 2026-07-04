@@ -30,7 +30,7 @@ fun main(args: Array<String>): Unit = runBlocking {
     }
 }
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 private suspend fun execute(argsArr: Array<String>): Either<String, String> = either {
     val args = parseArgs(argsArr.toList()).bind()
     when (val action = determineAction(args).bind()) {

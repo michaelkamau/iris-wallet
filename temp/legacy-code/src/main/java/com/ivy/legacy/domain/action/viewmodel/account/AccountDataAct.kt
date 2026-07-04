@@ -38,7 +38,7 @@ class AccountDataAct @Inject constructor(
                     ),
                     amount = balance
                 )
-            ).orNull()
+            ).getOrNull()
         } else {
             null
         }

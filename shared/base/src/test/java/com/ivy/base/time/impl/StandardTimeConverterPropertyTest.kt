@@ -2,7 +2,7 @@ package com.ivy.base.time.impl
 
 import com.ivy.base.time.TimeConverter
 import com.ivy.base.time.TimeProvider
-import io.kotest.common.runBlocking
+import kotlinx.coroutines.runBlocking
 import io.kotest.matchers.shouldBe
 import io.kotest.property.Arb
 import io.kotest.property.arbitrary.instant

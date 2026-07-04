@@ -24,7 +24,7 @@ class NonZeroDoubleTest {
     @Test
     fun `property - valid for all non-zero finite doubles`() = runTest {
         forAll(
-            Arb.double(includeNonFiniteEdgeCases = false)
+            Arb.double(includeNaNs = false)
             .filter { it != 0.0 }
         ) { double ->
             NonZeroDouble.from(double).getOrNull()?.value == double

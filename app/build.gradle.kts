@@ -1,7 +1,5 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
-    id("org.jetbrains.kotlin.android")
     org.jetbrains.kotlin.plugin.compose
     id("dagger.hilt.android.plugin")
     id("org.jetbrains.kotlin.plugin.serialization")
@@ -9,6 +7,20 @@ plugins {
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
     id("io.gitlab.arturbosch.detekt")
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(libs.versions.jvm.target.get()))
+    }
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt> {
+    // Detekt's `jvmTarget` defaults to `JavaVersion.current()`, which fails when the running
+    // JDK (e.g. 25) is newer than what detekt's bundled compiler frontend understands. Pin it
+    // explicitly to the project's target JVM version, same as the `ivy.detekt` convention
+    // plugin used by other modules.
+    jvmTarget = libs.versions.jvm.target.get()
 }
 
 android {
@@ -94,9 +106,6 @@ android {
     }
 
     val javaVersion = libs.versions.jvm.target.get()
-    kotlinOptions {
-        jvmTarget = javaVersion
-    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.valueOf("VERSION_$javaVersion")
@@ -106,6 +115,7 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+        resValues = true
     }
 
     lint {

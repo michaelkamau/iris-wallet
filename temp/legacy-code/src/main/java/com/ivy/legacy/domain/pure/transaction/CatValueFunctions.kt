@@ -101,7 +101,7 @@ object CategoryValueFunctions {
         return this.convertToBaseCurrency(
             arg = arg,
             accountId = accountId
-        ).orNull() ?: BigDecimal.ZERO
+        ).getOrNull() ?: BigDecimal.ZERO
     }
 
     private suspend fun BigDecimal.convertToBaseCurrency(

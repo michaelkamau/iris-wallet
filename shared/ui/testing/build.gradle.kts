@@ -13,4 +13,9 @@ dependencies {
     // because it'll be added as "testImplementation"
     implementation(libs.bundles.testing)
     implementation(libs.paparazzi)
+    // Used directly (not via the app.cash.molecule Gradle plugin) since that plugin hardcodes
+    // an incompatible, no-longer-updated Compose compiler artifact
+    // (org.jetbrains.compose.compiler:compiler) that clashes with the official
+    // org.jetbrains.kotlin.plugin.compose plugin already applied via ivy.compose.
+    implementation(libs.cashapp.molecule.runtime)
 }

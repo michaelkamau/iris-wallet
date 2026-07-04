@@ -4,11 +4,8 @@ plugins {
     id("com.google.devtools.ksp")
 }
 
-kotlin {
-    sourceSets.all {
-        kotlin.srcDir("build/generated/ksp/$name/kotlin")
-    }
-}
+// KSP automatically registers its generated-sources directory with the built-in
+// Kotlin compilation, so no manual kotlin.sourceSets wiring is needed anymore.
 
 dependencies {
     implementation(libs.bundles.hilt)

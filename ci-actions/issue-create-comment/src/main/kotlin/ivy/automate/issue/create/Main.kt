@@ -35,11 +35,11 @@ fun main(args: Array<String>): Unit = runBlocking {
     }
 }
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 private suspend fun execute(argsArr: Array<String>): Either<String, String> = either {
     val args = parseArgs(argsArr.toList()).bind()
 
-    val issue = fetchIssue(args.issueNumber).mapLeft {
+    val issue = gitHubService.fetchIssue(args.issueNumber).mapLeft {
         "Failed to fetch Issue #${args.issueNumber.value}"
     }.bind()
     comment(args, commentText(issue))
@@ -56,12 +56,12 @@ fun commentText(
     append("_Tagging @${Constants.IVY_ADMIN} for review & approval \uD83D\uDC40_")
 }
 
-context(Raise<String>, GitHubService)
+context(raise: Raise<String>, gitHubService: GitHubService)
 private suspend fun comment(
     args: GitHubIssueArgs,
     text: String
-): String {
-    return commentIssue(
+): String = with(raise) {
+    gitHubService.commentIssue(
         pat = args.pat,
         issueNumber = args.issueNumber,
         text = NotBlankTrimmedString(text)

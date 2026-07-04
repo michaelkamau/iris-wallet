@@ -40,7 +40,7 @@ fun Arb.Companion.positiveDoubleExact(
     max: Double = Double.MAX_VALUE,
 ): Arb<PositiveDouble> = Arb.positiveDouble(
     max = max,
-    includeNonFiniteEdgeCases = false,
+    includeNaNs = false,
 ).map(PositiveDouble::unsafe)
 
 fun Arb.Companion.colorInt(): Arb<ColorInt> = Arb.int().map(::ColorInt)

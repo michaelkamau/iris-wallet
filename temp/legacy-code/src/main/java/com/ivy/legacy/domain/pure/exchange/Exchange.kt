@@ -3,7 +3,7 @@ package com.ivy.wallet.domain.pure.exchange
 import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
-import arrow.core.computations.option
+import arrow.core.raise.option
 import arrow.core.toOption
 import com.ivy.frp.Pure
 import com.ivy.frp.SideEffect

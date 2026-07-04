@@ -9,7 +9,7 @@ import ivy.automate.base.github.GitHubService
 import ivy.automate.base.github.model.GitHubUser
 import ivy.automate.base.github.model.NotBlankTrimmedString
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 suspend fun Action.AlreadyTaken.execute(
     args: GitHubIssueArgs
 ): Either<String, String> = either {
@@ -24,7 +24,7 @@ suspend fun Action.AlreadyTaken.execute(
     commentText
 }
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 suspend fun Action.NotApproved.execute(
     args: GitHubIssueArgs
 ): Either<String, String> = either {
@@ -38,11 +38,11 @@ suspend fun Action.NotApproved.execute(
     commentText
 }
 
-context(GitHubService)
+context(gitHubService: GitHubService)
 suspend fun Action.AssignIssue.execute(
     args: GitHubIssueArgs
 ): Either<String, String> = either {
-    assignIssue(
+    gitHubService.assignIssue(
         pat = args.pat,
         issueNumber = issueNumber,
         assignee = user.username
@@ -61,12 +61,12 @@ suspend fun Action.AssignIssue.execute(
     commentText
 }
 
-context(Raise<String>, GitHubService)
+context(raise: Raise<String>, gitHubService: GitHubService)
 private suspend fun comment(
     args: GitHubIssueArgs,
     text: String
-) {
-    commentIssue(
+): Unit = with(raise) {
+    gitHubService.commentIssue(
         pat = args.pat,
         issueNumber = args.issueNumber,
         text = NotBlankTrimmedString(text)

@@ -363,7 +363,7 @@ class TransactionsViewModel @Inject constructor(
                     ),
                     amount = balanceValue.toBigDecimal()
                 )
-            ).orNull()?.toDouble()
+            ).getOrNull()?.toDouble()
         }
 
         val includeTransfersInCalc =

@@ -121,7 +121,7 @@ fun CurrencyPicker(
         Spacer(Modifier.height(20.dp))
 
         CurrencyList(
-            searchQueryLowercase = searchTextFieldValue.text.toLowerCase(Locale.getDefault()),
+            searchQueryLowercase = searchTextFieldValue.text.lowercase(Locale.getDefault()),
             selectedCurrency = selectedCurrency,
             lastItemSpacer = if (includeKeyboardShownInsetSpacer) {
                 keyboardShownInsetDp + lastItemSpacer

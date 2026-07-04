@@ -50,7 +50,7 @@ suspend fun List<Transaction>.withDateDividers(
         exchange = { data, amount ->
             exchangeRatesLogic.convertAmount(
                 baseCurrency = data.baseCurrency,
-                fromCurrency = data.fromCurrency.orNull() ?: "",
+                fromCurrency = data.fromCurrency.getOrNull() ?: "",
                 toCurrency = data.toCurrency,
                 amount = amount.toDouble()
             ).toBigDecimal().toOption()
@@ -127,7 +127,7 @@ object LegacyTrnDateDividers {
             exchange = { data, amount ->
                 exchangeRatesLogic.convertAmount(
                     baseCurrency = data.baseCurrency,
-                    fromCurrency = data.fromCurrency.orNull() ?: "",
+                    fromCurrency = data.fromCurrency.getOrNull() ?: "",
                     toCurrency = data.toCurrency,
                     amount = amount.toDouble()
                 ).toBigDecimal().toOption()

@@ -1,7 +1,12 @@
 plugins {
     id("com.android.library")
-    id("kotlin-android")
-    id("org.jetbrains.kotlin.android")
+    // Kotlin is built into AGP 9+, so the kotlin-android plugin is no longer applied here.
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(catalog.version("jvm-target")))
+    }
 }
 
 android {
@@ -10,10 +15,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.valueOf("VERSION_$javaVersion")
         targetCompatibility = JavaVersion.valueOf("VERSION_$javaVersion")
-    }
-
-    kotlinOptions {
-        jvmTarget = javaVersion
     }
 
     // Android
