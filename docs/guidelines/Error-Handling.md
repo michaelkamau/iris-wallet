@@ -1,7 +1,7 @@
 # Error Handling
 
 It's common for operations to fail and we should expect that.
-In Ivy Wallet we **do not throw exceptions** but rather make functions that can fail to return [Either<Error, Data>](https://arrow-kt.io/learn/typed-errors/working-with-typed-errors/).
+In IrisWallet we **do not throw exceptions** but rather make functions that can fail to return [Either<Error, Data>](https://arrow-kt.io/learn/typed-errors/working-with-typed-errors/).
 
 Either is a generic data type that models two possible cases:
 - `Either.Left` for the unhappy path (e.g., request failing, invalid input, no network connection)
@@ -26,7 +26,7 @@ fun <E,A,B> Either<E, A>.fold(
 // a bunch of more extension functions and utils
 ```
 
-So in Ivy, operations that can fail (logically or for some other reason) we'll model using **Either**.
+So in Iris, operations that can fail (logically or for some other reason) we'll model using **Either**.
 
 ## Data Layer example
 
@@ -81,7 +81,7 @@ Let's analyze, simplified:
 
 ## Useful `Either` functions
 
-We won't cover all but I'll list the ones that we often use in Ivy Wallet and find the most useful.
+We won't cover all but I'll list the ones that we often use in IrisWallet and find the most useful.
 
 - either {}
   - Either.bind()

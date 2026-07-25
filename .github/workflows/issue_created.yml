@@ -21,4 +21,4 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Execute the "Issue Created" automation
-        run: ./gradlew :ci-actions:issue-create-comment:run --args='issueNumber=${{ github.event.issue.number }} gitHubPAT=${{ secrets.IVYWALLET_BOT_GITHUB_PAT_2 }}'
+        run: ./gradlew :ci-actions:issue-create-comment:run --args='issueNumber=${{ github.event.issue.number }} gitHubPAT=${{ secrets.IRISWALLET_BOT_GITHUB_PAT_2 }}'

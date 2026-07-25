@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ivy.wallet">
+    package="com.iris.wallet">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -21,7 +21,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name=".IvyAndroidApp"
+        android:name=".IrisAndroidApp"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -43,7 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="ivy.wallet.intent.action.add_transaction" />
+                <action android:name="iris.wallet.intent.action.add_transaction" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -58,7 +58,7 @@
             tools:node="remove" />
 
         <receiver
-            android:name="com.ivy.widget.transaction.AddTransactionWidget"
+            android:name="com.iris.widget.transaction.AddTransactionWidget"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -69,7 +69,7 @@
         </receiver>
 
         <receiver
-            android:name="com.ivy.widget.transaction.AddTransactionWidgetCompact"
+            android:name="com.iris.widget.transaction.AddTransactionWidgetCompact"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -80,7 +80,7 @@
         </receiver>
 
         <receiver
-            android:name="com.ivy.widget.balance.WalletBalanceWidgetReceiver"
+            android:name="com.iris.widget.balance.WalletBalanceWidgetReceiver"
             android:enabled="@bool/glance_appwidget_available"
             android:exported="true"
             android:label="@string/wallet_balance"

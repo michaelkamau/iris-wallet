@@ -7,7 +7,7 @@
         android:shortcutShortLabel="@string/add_expense"
         android:shortcutLongLabel="@string/add_expense"
         android:shortcutDisabledMessage="@string/add_expense">
-        <intent android:action="ivy.wallet.intent.action.add_transaction">
+        <intent android:action="iris.wallet.intent.action.add_transaction">
             <extra
                 android:name="add_transaction_type_extra"
                 android:value="EXPENSE" />
@@ -20,7 +20,7 @@
         android:shortcutShortLabel="@string/add_income"
         android:shortcutLongLabel="@string/add_income"
         android:shortcutDisabledMessage="@string/add_income">
-        <intent android:action="ivy.wallet.intent.action.add_transaction">
+        <intent android:action="iris.wallet.intent.action.add_transaction">
             <extra
                 android:name="add_transaction_type_extra"
                 android:value="INCOME" />
@@ -33,7 +33,7 @@
         android:shortcutShortLabel="@string/account_transfers"
         android:shortcutLongLabel="@string/account_transfers"
         android:shortcutDisabledMessage="@string/account_transfers">
-        <intent android:action="ivy.wallet.intent.action.add_transaction">
+        <intent android:action="iris.wallet.intent.action.add_transaction">
             <extra
                 android:name="add_transaction_type_extra"
                 android:value="TRANSFER" />

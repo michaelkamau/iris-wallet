@@ -1,6 +1,6 @@
 # Architecture
 
-Ivy Wallet follows a less constrained version of [the official Android Developer's guide to app architecture by Google](https://developer.android.com/topic/architecture).
+IrisWallet follows a less constrained version of [the official Android Developer's guide to app architecture by Google](https://developer.android.com/topic/architecture).
 
 **Data Mapping:** _Raw model → Domain model → ViewState model_
 
@@ -32,7 +32,7 @@ Combines one or many data sources to implement [CRUD operations](https://en.wiki
 
 ## Domain Layer (optional)
 
-Optional architecture layer for more complex domain logic that combines one or many repositories with business logic and rules (e.g., calculating the balance in Ivy Wallet).
+Optional architecture layer for more complex domain logic that combines one or many repositories with business logic and rules (e.g., calculating the balance in IrisWallet).
 
 ### UseCases
 

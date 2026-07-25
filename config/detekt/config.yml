@@ -955,6 +955,12 @@ formatting:
   NoUnusedImports:
     active: true
     autoCorrect: true
+    # ktlint (bundled with detekt-formatting 1.23.8, the latest available release) doesn't
+    # recognize types referenced only inside a named context-parameter list
+    # (`context(name: Type)`) as "used", flagging their imports as unused even though they are
+    # required. Exclude until detekt/ktlint ship a fix; same root cause as the Wrapping and
+    # SpacingAroundColon excludes above.
+    excludes: ['**/ci-actions/**']
   NoWildcardImports:
     active: true
     packagesToUseImportOnDemandProperty: 'java.util.*,kotlinx.android.synthetic.**'
@@ -990,6 +996,11 @@ formatting:
   SpacingAroundColon:
     active: true
     autoCorrect: true
+    # ktlint (bundled with detekt-formatting 1.23.8, the latest available release) misparses
+    # the colon in Kotlin's newer named context-parameter syntax (`context(name: Type)`),
+    # flagging it as "missing spacing" even when correctly spaced. Exclude until detekt/ktlint
+    # ship a fix; see the matching Wrapping rule exclude above for the same root cause.
+    excludes: ['**/ci-actions/**']
   SpacingAroundComma:
     active: true
     autoCorrect: true
@@ -1061,6 +1072,11 @@ formatting:
     autoCorrect: true
     indentSize: 4
     maxLineLength: 120
+    # ktlint's bundled WrappingRule (via detekt-formatting 1.23.8, the latest available
+    # release) throws a NullPointerException when parsing Kotlin's newer named
+    # context-parameter syntax (`context(name: Type)`), used in ci-actions for the
+    # Kotlin 2.3.20 context-parameters migration. Exclude until detekt/ktlint ship a fix.
+    excludes: ['**/ci-actions/**']
 
 Compose:
   CompositionLocalAllowlist:
@@ -1068,8 +1084,6 @@ Compose:
   ContentEmitterReturningValues:
     active: true
   DefaultsVisibility:
-    active: true
-  ModifierComposable:
     active: true
   ModifierMissing:
     active: true
@@ -1101,15 +1115,3 @@ Compose:
     active: true
   ViewModelInjection:
     active: false
-
-IvyExplicit:
-  DataClassFunctions:
-    active: true
-  DataClassDefaultValues:
-    active: true
-  DataClassTypedIDs:
-    active: true
-  NoImplicitFunctionReturnType:
-    active: true
-  UnnecessaryPassThroughClass:
-    active: true

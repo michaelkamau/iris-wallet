@@ -1,7 +1,7 @@
 plugins {
-    id("ivy.feature")
+    id("iris.feature")
 }
 
 android {
-    namespace = "com.ivy.base"
+    namespace = "com.iris.base"
 }
