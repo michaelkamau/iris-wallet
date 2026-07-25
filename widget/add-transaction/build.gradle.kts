@@ -1,9 +1,9 @@
 plugins {
-    id("ivy.widget")
+    id("iris.widget")
 }
 
 android {
-    namespace = "com.ivy.widget.transaction"
+    namespace = "com.iris.widget.transaction"
 }
 
 dependencies {

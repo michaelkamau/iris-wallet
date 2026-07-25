@@ -212,14 +212,14 @@
     <ID>ArgumentListWrapping:TestRuntimeOnlyConfigurationAccessors.kt$( this, "testRuntimeOnly", dependencyNotation, dependencyConfiguration )</ID>
     <ID>ArgumentListWrapping:TestWearAppConfigurationAccessors.kt$( this, "testWearApp", dependencyNotation, dependencyConfiguration )</ID>
     <ID>ArgumentListWrapping:WearAppConfigurationAccessors.kt$( this, "wearApp", dependencyNotation, dependencyConfiguration )</ID>
-    <ID>ClassNaming:Ivy_composePlugin.kt$Ivy_composePlugin : Plugin</ID>
-    <ID>ClassNaming:Ivy_detektPlugin.kt$Ivy_detektPlugin : Plugin</ID>
-    <ID>ClassNaming:Ivy_featurePlugin.kt$Ivy_featurePlugin : Plugin</ID>
-    <ID>ClassNaming:Ivy_integration_testingPlugin.kt$Ivy_integration_testingPlugin : Plugin</ID>
-    <ID>ClassNaming:Ivy_modulePlugin.kt$Ivy_modulePlugin : Plugin</ID>
-    <ID>ClassNaming:Ivy_roomPlugin.kt$Ivy_roomPlugin : Plugin</ID>
-    <ID>ClassNaming:Ivy_scriptPlugin.kt$Ivy_scriptPlugin : Plugin</ID>
-    <ID>ClassNaming:Ivy_widgetPlugin.kt$Ivy_widgetPlugin : Plugin</ID>
+    <ID>ClassNaming:Iris_composePlugin.kt$Iris_composePlugin : Plugin</ID>
+    <ID>ClassNaming:Iris_detektPlugin.kt$Iris_detektPlugin : Plugin</ID>
+    <ID>ClassNaming:Iris_featurePlugin.kt$Iris_featurePlugin : Plugin</ID>
+    <ID>ClassNaming:Iris_integration_testingPlugin.kt$Iris_integration_testingPlugin : Plugin</ID>
+    <ID>ClassNaming:Iris_modulePlugin.kt$Iris_modulePlugin : Plugin</ID>
+    <ID>ClassNaming:Iris_roomPlugin.kt$Iris_roomPlugin : Plugin</ID>
+    <ID>ClassNaming:Iris_scriptPlugin.kt$Iris_scriptPlugin : Plugin</ID>
+    <ID>ClassNaming:Iris_widgetPlugin.kt$Iris_widgetPlugin : Plugin</ID>
     <ID>ClassNaming:Migration105to106_TrnRecurringRules.kt$Migration105to106_TrnRecurringRules : Migration</ID>
     <ID>ClassNaming:Migration106to107_Wishlist.kt$Migration106to107_Wishlist : Migration</ID>
     <ID>ClassNaming:Migration107to108_Sync.kt$Migration107to108_Sync : Migration</ID>
@@ -279,29 +279,29 @@
     <ID>ComposableParamOrder:ItemIcon.kt$ItemIconMDefaultIcon</ID>
     <ID>ComposableParamOrder:ItemIcon.kt$ItemIconS</ID>
     <ID>ComposableParamOrder:ItemIcon.kt$ItemIconSDefaultIcon</ID>
-    <ID>ComposableParamOrder:IvyBasicTextField.kt$IvyBasicTextField</ID>
-    <ID>ComposableParamOrder:IvyBorderButton.kt$IvyBorderButton</ID>
-    <ID>ComposableParamOrder:IvyButton.kt$IvyButton</ID>
-    <ID>ComposableParamOrder:IvyCheckbox.kt$IvyCheckbox</ID>
-    <ID>ComposableParamOrder:IvyCheckbox.kt$IvyCheckboxWithText</ID>
-    <ID>ComposableParamOrder:IvyChecklistTextField.kt$IvyChecklistTextField</ID>
-    <ID>ComposableParamOrder:IvyCircleButton.kt$IvyCircleButton</ID>
-    <ID>ComposableParamOrder:IvyDescriptionTextField.kt$IvyDescriptionTextField</ID>
-    <ID>ComposableParamOrder:IvyIcon.kt$IvyIcon</ID>
-    <ID>ComposableParamOrder:IvyIcon.kt$IvyIconScaled</ID>
-    <ID>ComposableParamOrder:IvyLineChart.kt$IvyLineChart</ID>
-    <ID>ComposableParamOrder:IvyModal.kt$IvyModal</ID>
-    <ID>ComposableParamOrder:IvyModalComponents.kt$ModalCheck</ID>
-    <ID>ComposableParamOrder:IvyModalComponents.kt$ModalDynamicPrimaryAction</ID>
-    <ID>ComposableParamOrder:IvyModalComponents.kt$ModalPositiveButton</ID>
-    <ID>ComposableParamOrder:IvyNameTextFieldValue.kt$IvyNameTextField</ID>
-    <ID>ComposableParamOrder:IvyNumberTextField.kt$IvyNumberTextField</ID>
-    <ID>ComposableParamOrder:IvyOutlinedButton.kt$IvyOutlinedButton</ID>
-    <ID>ComposableParamOrder:IvyOutlinedButton.kt$IvyOutlinedButtonFillMaxWidth</ID>
-    <ID>ComposableParamOrder:IvyOutlinedTextField.kt$IvyOutlinedTextField</ID>
-    <ID>ComposableParamOrder:IvySwitch.kt$IvySwitch</ID>
-    <ID>ComposableParamOrder:IvyText.kt$IvyText</ID>
-    <ID>ComposableParamOrder:IvyTitleTextField.kt$IvyTitleTextField</ID>
+    <ID>ComposableParamOrder:IrisBasicTextField.kt$IrisBasicTextField</ID>
+    <ID>ComposableParamOrder:IrisBorderButton.kt$IrisBorderButton</ID>
+    <ID>ComposableParamOrder:IrisButton.kt$IrisButton</ID>
+    <ID>ComposableParamOrder:IrisCheckbox.kt$IrisCheckbox</ID>
+    <ID>ComposableParamOrder:IrisCheckbox.kt$IrisCheckboxWithText</ID>
+    <ID>ComposableParamOrder:IrisChecklistTextField.kt$IrisChecklistTextField</ID>
+    <ID>ComposableParamOrder:IrisCircleButton.kt$IrisCircleButton</ID>
+    <ID>ComposableParamOrder:IrisDescriptionTextField.kt$IrisDescriptionTextField</ID>
+    <ID>ComposableParamOrder:IrisIcon.kt$IrisIcon</ID>
+    <ID>ComposableParamOrder:IrisIcon.kt$IrisIconScaled</ID>
+    <ID>ComposableParamOrder:IrisLineChart.kt$IrisLineChart</ID>
+    <ID>ComposableParamOrder:IrisModal.kt$IrisModal</ID>
+    <ID>ComposableParamOrder:IrisModalComponents.kt$ModalCheck</ID>
+    <ID>ComposableParamOrder:IrisModalComponents.kt$ModalDynamicPrimaryAction</ID>
+    <ID>ComposableParamOrder:IrisModalComponents.kt$ModalPositiveButton</ID>
+    <ID>ComposableParamOrder:IrisNameTextFieldValue.kt$IrisNameTextField</ID>
+    <ID>ComposableParamOrder:IrisNumberTextField.kt$IrisNumberTextField</ID>
+    <ID>ComposableParamOrder:IrisOutlinedButton.kt$IrisOutlinedButton</ID>
+    <ID>ComposableParamOrder:IrisOutlinedButton.kt$IrisOutlinedButtonFillMaxWidth</ID>
+    <ID>ComposableParamOrder:IrisOutlinedTextField.kt$IrisOutlinedTextField</ID>
+    <ID>ComposableParamOrder:IrisSwitch.kt$IrisSwitch</ID>
+    <ID>ComposableParamOrder:IrisText.kt$IrisText</ID>
+    <ID>ComposableParamOrder:IrisTitleTextField.kt$IrisTitleTextField</ID>
     <ID>ComposableParamOrder:LoanDetailsScreen.kt$Header</ID>
     <ID>ComposableParamOrder:LoanModal.kt$AccountsRow</ID>
     <ID>ComposableParamOrder:LoanModal.kt$LoanModal</ID>
@@ -312,7 +312,7 @@
     <ID>ComposableParamOrder:OnboardingProgressSlider.kt$OnboardingProgressSlider</ID>
     <ID>ComposableParamOrder:PeriodSelector.kt$PeriodSelector</ID>
     <ID>ComposableParamOrder:PlannedPaymentsBottomBar.kt$PlannedPaymentsBottomBar</ID>
-    <ID>ComposableParamOrder:Preview.kt$IvyPreview</ID>
+    <ID>ComposableParamOrder:Preview.kt$IrisPreview</ID>
     <ID>ComposableParamOrder:PrimaryAttributeColumn.kt$PrimaryAttributeColumn</ID>
     <ID>ComposableParamOrder:ProgressBar.kt$ProgressBar</ID>
     <ID>ComposableParamOrder:ProgressModal.kt$ProgressModal</ID>
@@ -324,10 +324,10 @@
     <ID>ComposableParamOrder:Switch.kt$Switch</ID>
     <ID>ComposableParamOrder:Title.kt$Title</ID>
     <ID>ComposableParamOrder:WrapContentRow.kt$WrapContentRow</ID>
-    <ID>CompositionLocalAllowlist:IvyTheme.kt$LocalIvyColors</ID>
-    <ID>CompositionLocalAllowlist:IvyTheme.kt$LocalIvyShapes</ID>
-    <ID>CompositionLocalAllowlist:IvyTheme.kt$LocalIvyTypography</ID>
-    <ID>CompositionLocalAllowlist:IvyUI.kt$LocalIvyContext</ID>
+    <ID>CompositionLocalAllowlist:IrisTheme.kt$LocalIrisColors</ID>
+    <ID>CompositionLocalAllowlist:IrisTheme.kt$LocalIrisShapes</ID>
+    <ID>CompositionLocalAllowlist:IrisTheme.kt$LocalIrisTypography</ID>
+    <ID>CompositionLocalAllowlist:IrisUI.kt$LocalIrisContext</ID>
     <ID>CompositionLocalAllowlist:NavigationRoot.kt$LocalNavigation</ID>
     <ID>ConstructorParameterNaming:LoanTransactionsLogic.kt$LoanTransactionsLogic$val Loan: LTLoanMapper</ID>
     <ID>ConstructorParameterNaming:LoanTransactionsLogic.kt$LoanTransactionsLogic$val LoanRecord: LTLoanRecordMapper</ID>
@@ -336,9 +336,9 @@
     <ID>CyclomaticComplexMethod:EditPlannedViewModel.kt$EditPlannedViewModel$override fun onEvent(event: EditPlannedScreenEvent)</ID>
     <ID>CyclomaticComplexMethod:EditTransactionScreen.kt$@ExperimentalFoundationApi @Composable private fun BoxWithConstraintsScope.UI( screen: EditTransactionScreen, transactionType: TransactionType, baseCurrency: String, initialTitle: String?, titleSuggestions: ImmutableSet&lt;String&gt;, description: String?, category: Category?, dateTime: LocalDateTime?, account: Account?, toAccount: Account?, dueDate: LocalDateTime?, amount: Double, customExchangeRateState: CustomExchangeRateState, categories: ImmutableList&lt;Category&gt;, accounts: ImmutableList&lt;Account&gt;, onTitleChanged: (String?) -&gt; Unit, onDescriptionChanged: (String?) -&gt; Unit, onAmountChanged: (Double) -&gt; Unit, onCategoryChanged: (Category?) -&gt; Unit, onAccountChanged: (Account) -&gt; Unit, onToAccountChanged: (Account) -&gt; Unit, onDueDateChanged: (LocalDateTime?) -&gt; Unit, onSetDate: (LocalDate) -&gt; Unit, onSetTime: (LocalTime) -&gt; Unit, onSetTransactionType: (TransactionType) -&gt; Unit, onCreateCategory: (CreateCategoryData) -&gt; Unit, onEditCategory: (Category) -&gt; Unit, onPayPlannedPayment: () -&gt; Unit, onSave: (closeScreen: Boolean) -&gt; Unit, onSetHasChanges: (hasChanges: Boolean) -&gt; Unit, onDelete: () -&gt; Unit, onCreateAccount: (CreateAccountData) -&gt; Unit, onExchangeRateChanged: (Double?) -&gt; Unit = { }, loanData: EditTransactionDisplayLoan = EditTransactionDisplayLoan(), backgroundProcessing: Boolean = false, hasChanges: Boolean = false, )</ID>
     <ID>CyclomaticComplexMethod:EditTransactionViewModel.kt$EditTransactionViewModel$override fun onEvent(event: EditTransactionEvent)</ID>
-    <ID>CyclomaticComplexMethod:IvyNavGraph.kt$@ExperimentalFoundationApi @ExperimentalAnimationApi @Composable fun BoxWithConstraintsScope.IvyNavGraph(screen: Screen?)</ID>
-    <ID>CyclomaticComplexMethod:LoanModal.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun BoxWithConstraintsScope.LoanModal( accounts: List&lt;Account&gt; = emptyList(), onCreateAccount: (CreateAccountData) -&gt; Unit = {}, modal: LoanModalData?, onCreateLoan: (CreateLoanData) -&gt; Unit, onEditLoan: (Loan, Boolean) -&gt; Unit, onPerformCalculations: () -&gt; Unit = {}, dismiss: () -&gt; Unit, )</ID>
-    <ID>CyclomaticComplexMethod:LoanRecordModal.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun BoxWithConstraintsScope.LoanRecordModal( modal: LoanRecordModalData?, accounts: List&lt;Account&gt; = emptyList(), onCreateAccount: (CreateAccountData) -&gt; Unit = {}, onCreate: (CreateLoanRecordData) -&gt; Unit, onEdit: (EditLoanRecordData) -&gt; Unit, onDelete: (LoanRecord) -&gt; Unit, dismiss: () -&gt; Unit )</ID>
+    <ID>CyclomaticComplexMethod:IrisNavGraph.kt$@ExperimentalFoundationApi @ExperimentalAnimationApi @Composable fun BoxWithConstraintsScope.IrisNavGraph(screen: Screen?)</ID>
+    <ID>CyclomaticComplexMethod:LoanModal.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun BoxWithConstraintsScope.LoanModal( accounts: List&lt;Account&gt; = emptyList(), onCreateAccount: (CreateAccountData) -&gt; Unit = {}, modal: LoanModalData?, onCreateLoan: (CreateLoanData) -&gt; Unit, onEditLoan: (Loan, Boolean) -&gt; Unit, onPerformCalculations: () -&gt; Unit = {}, dismiss: () -&gt; Unit, )</ID>
+    <ID>CyclomaticComplexMethod:LoanRecordModal.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun BoxWithConstraintsScope.LoanRecordModal( modal: LoanRecordModalData?, accounts: List&lt;Account&gt; = emptyList(), onCreateAccount: (CreateAccountData) -&gt; Unit = {}, onCreate: (CreateLoanRecordData) -&gt; Unit, onEdit: (EditLoanRecordData) -&gt; Unit, onDelete: (LoanRecord) -&gt; Unit, dismiss: () -&gt; Unit )</ID>
     <ID>CyclomaticComplexMethod:ReportViewModel.kt$ReportViewModel$private suspend fun filterTransactions( baseCurrency: String, accounts: List&lt;Account&gt;, filter: ReportFilter, ): ImmutableList&lt;Transaction&gt;</ID>
     <ID>DataClassDefaultValues:Account.kt$Account$val currency: String? = null</ID>
     <ID>DataClassDefaultValues:Account.kt$Account$val icon: String? = null</ID>
@@ -369,11 +369,11 @@
     <ID>DataClassDefaultValues:BudgetModal.kt$BudgetModalData$val autoFocusKeyboard: Boolean = true</ID>
     <ID>DataClassDefaultValues:BudgetModal.kt$BudgetModalData$val id: UUID = UUID.randomUUID()</ID>
     <ID>DataClassDefaultValues:BufferModal.kt$BufferModalData$val id: UUID = UUID.randomUUID()</ID>
-    <ID>DataClassDefaultValues:CalcAccBalanceAct.kt$CalcAccBalanceAct.Input$val range: ClosedTimeRange = ClosedTimeRange.allTimeIvy()</ID>
+    <ID>DataClassDefaultValues:CalcAccBalanceAct.kt$CalcAccBalanceAct.Input$val range: ClosedTimeRange = ClosedTimeRange.allTimeIris()</ID>
     <ID>DataClassDefaultValues:CalcAccIncomeExpenseAct.kt$CalcAccIncomeExpenseAct.Input$val includeTransfersInCalc: Boolean = false</ID>
-    <ID>DataClassDefaultValues:CalcAccIncomeExpenseAct.kt$CalcAccIncomeExpenseAct.Input$val range: ClosedTimeRange = ClosedTimeRange.allTimeIvy()</ID>
+    <ID>DataClassDefaultValues:CalcAccIncomeExpenseAct.kt$CalcAccIncomeExpenseAct.Input$val range: ClosedTimeRange = ClosedTimeRange.allTimeIris()</ID>
     <ID>DataClassDefaultValues:CalcWalletBalanceAct.kt$CalcWalletBalanceAct.Input$val balanceCurrency: String = baseCurrency</ID>
-    <ID>DataClassDefaultValues:CalcWalletBalanceAct.kt$CalcWalletBalanceAct.Input$val range: ClosedTimeRange = ClosedTimeRange.allTimeIvy()</ID>
+    <ID>DataClassDefaultValues:CalcWalletBalanceAct.kt$CalcWalletBalanceAct.Input$val range: ClosedTimeRange = ClosedTimeRange.allTimeIris()</ID>
     <ID>DataClassDefaultValues:CalcWalletBalanceAct.kt$CalcWalletBalanceAct.Input$val withExcluded: Boolean = false</ID>
     <ID>DataClassDefaultValues:CategoriesScreenEvent.kt$CategoriesScreenEvent.OnReorder$val sortOrder: SortOrder = SortOrder.DEFAULT</ID>
     <ID>DataClassDefaultValues:CategoriesScreenState.kt$CategoriesScreenState$val baseCurrency: String = ""</ID>
@@ -427,16 +427,16 @@
     <ID>DataClassDefaultValues:EditTransactionDisplayLoan.kt$EditTransactionDisplayLoan$val loanWarningDescription: String = ""</ID>
     <ID>DataClassDefaultValues:Exchange.kt$ExchangeData$val toCurrency: String = baseCurrency</ID>
     <ID>DataClassDefaultValues:ExchangeRateEntity.kt$ExchangeRateEntity$@SerialName("manualOverride") val manualOverride: Boolean = false</ID>
-    <ID>DataClassDefaultValues:IvyLineChart.kt$Function$val colorDown: Color? = null</ID>
-    <ID>DataClassDefaultValues:IvyWalletCompleteData.kt$IvyWalletCompleteData$@SerialName("accounts") val accounts: List&lt;AccountEntity&gt; = emptyList()</ID>
-    <ID>DataClassDefaultValues:IvyWalletCompleteData.kt$IvyWalletCompleteData$@SerialName("budgets") val budgets: List&lt;BudgetEntity&gt; = emptyList()</ID>
-    <ID>DataClassDefaultValues:IvyWalletCompleteData.kt$IvyWalletCompleteData$@SerialName("categories") val categories: List&lt;CategoryEntity&gt; = emptyList()</ID>
-    <ID>DataClassDefaultValues:IvyWalletCompleteData.kt$IvyWalletCompleteData$@SerialName("loanRecords") val loanRecords: List&lt;LoanRecordEntity&gt; = emptyList()</ID>
-    <ID>DataClassDefaultValues:IvyWalletCompleteData.kt$IvyWalletCompleteData$@SerialName("loans") val loans: List&lt;LoanEntity&gt; = emptyList()</ID>
-    <ID>DataClassDefaultValues:IvyWalletCompleteData.kt$IvyWalletCompleteData$@SerialName("plannedPaymentRules") val plannedPaymentRules: List&lt;PlannedPaymentRuleEntity&gt; = emptyList()</ID>
-    <ID>DataClassDefaultValues:IvyWalletCompleteData.kt$IvyWalletCompleteData$@SerialName("settings") val settings: List&lt;SettingsEntity&gt; = emptyList()</ID>
-    <ID>DataClassDefaultValues:IvyWalletCompleteData.kt$IvyWalletCompleteData$@SerialName("sharedPrefs") val sharedPrefs: HashMap&lt;String, String&gt; = HashMap()</ID>
-    <ID>DataClassDefaultValues:IvyWalletCompleteData.kt$IvyWalletCompleteData$@SerialName("transactions") val transactions: List&lt;TransactionEntity&gt; = emptyList()</ID>
+    <ID>DataClassDefaultValues:IrisLineChart.kt$Function$val colorDown: Color? = null</ID>
+    <ID>DataClassDefaultValues:IrisWalletCompleteData.kt$IrisWalletCompleteData$@SerialName("accounts") val accounts: List&lt;AccountEntity&gt; = emptyList()</ID>
+    <ID>DataClassDefaultValues:IrisWalletCompleteData.kt$IrisWalletCompleteData$@SerialName("budgets") val budgets: List&lt;BudgetEntity&gt; = emptyList()</ID>
+    <ID>DataClassDefaultValues:IrisWalletCompleteData.kt$IrisWalletCompleteData$@SerialName("categories") val categories: List&lt;CategoryEntity&gt; = emptyList()</ID>
+    <ID>DataClassDefaultValues:IrisWalletCompleteData.kt$IrisWalletCompleteData$@SerialName("loanRecords") val loanRecords: List&lt;LoanRecordEntity&gt; = emptyList()</ID>
+    <ID>DataClassDefaultValues:IrisWalletCompleteData.kt$IrisWalletCompleteData$@SerialName("loans") val loans: List&lt;LoanEntity&gt; = emptyList()</ID>
+    <ID>DataClassDefaultValues:IrisWalletCompleteData.kt$IrisWalletCompleteData$@SerialName("plannedPaymentRules") val plannedPaymentRules: List&lt;PlannedPaymentRuleEntity&gt; = emptyList()</ID>
+    <ID>DataClassDefaultValues:IrisWalletCompleteData.kt$IrisWalletCompleteData$@SerialName("settings") val settings: List&lt;SettingsEntity&gt; = emptyList()</ID>
+    <ID>DataClassDefaultValues:IrisWalletCompleteData.kt$IrisWalletCompleteData$@SerialName("sharedPrefs") val sharedPrefs: HashMap&lt;String, String&gt; = HashMap()</ID>
+    <ID>DataClassDefaultValues:IrisWalletCompleteData.kt$IrisWalletCompleteData$@SerialName("transactions") val transactions: List&lt;TransactionEntity&gt; = emptyList()</ID>
     <ID>DataClassDefaultValues:Loan.kt$Loan$val accountId: UUID? = null</ID>
     <ID>DataClassDefaultValues:Loan.kt$Loan$val color: Int = 0</ID>
     <ID>DataClassDefaultValues:Loan.kt$Loan$val dateTime: LocalDateTime? = null</ID>
@@ -609,8 +609,8 @@
     <ID>DataClassFunctions:Budget.kt$Budget$private fun parseIdsString(idsString: String?): List&lt;UUID&gt;</ID>
     <ID>DataClassFunctions:Category.kt$Category$fun toEntity(): CategoryEntity</ID>
     <ID>DataClassFunctions:ChoosePeriodModal.kt$MonthYear$fun forDisplay( currentYear: Int ): String</ID>
-    <ID>DataClassFunctions:ClosedTimeRange.kt$ClosedTimeRange$fun toFromToRange(): com.ivy.legacy.data.model.FromToTimeRange</ID>
-    <ID>DataClassFunctions:Colors.kt$Gradient$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun asHorizontalBrush()</ID>
+    <ID>DataClassFunctions:ClosedTimeRange.kt$ClosedTimeRange$fun toFromToRange(): com.iris.legacy.data.model.FromToTimeRange</ID>
+    <ID>DataClassFunctions:Colors.kt$Gradient$@Deprecated("Old design system. Use `:iris-design` and Material3") fun asHorizontalBrush()</ID>
     <ID>DataClassFunctions:ExchangeRate.kt$ExchangeRate$fun toEntity(): ExchangeRateEntity</ID>
     <ID>DataClassFunctions:FromToTimeRange.kt$FromToTimeRange$fun from(): LocalDateTime</ID>
     <ID>DataClassFunctions:FromToTimeRange.kt$FromToTimeRange$fun includes(dateTime: LocalDateTime): Boolean</ID>
@@ -618,15 +618,15 @@
     <ID>DataClassFunctions:FromToTimeRange.kt$FromToTimeRange$fun to(): LocalDateTime</ID>
     <ID>DataClassFunctions:FromToTimeRange.kt$FromToTimeRange$fun toDisplay(): String</ID>
     <ID>DataClassFunctions:FromToTimeRange.kt$FromToTimeRange$fun upcomingFrom(): LocalDateTime</ID>
-    <ID>DataClassFunctions:IvyColors.kt$Gradient$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun asHorizontalBrush()</ID>
-    <ID>DataClassFunctions:IvyColors.kt$Gradient$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun asVerticalBrush()</ID>
-    <ID>DataClassFunctions:IvyLineChart.kt$Function$fun determineLineColor(valueStart: Double, valueEnd: Double): Color</ID>
+    <ID>DataClassFunctions:IrisColors.kt$Gradient$@Deprecated("Old design system. Use `:iris-design` and Material3") fun asHorizontalBrush()</ID>
+    <ID>DataClassFunctions:IrisColors.kt$Gradient$@Deprecated("Old design system. Use `:iris-design` and Material3") fun asVerticalBrush()</ID>
+    <ID>DataClassFunctions:IrisLineChart.kt$Function$fun determineLineColor(valueStart: Double, valueEnd: Double): Color</ID>
     <ID>DataClassFunctions:LastNTimeRange.kt$LastNTimeRange$fun forDisplay(): String</ID>
     <ID>DataClassFunctions:LastNTimeRange.kt$LastNTimeRange$fun fromDate(): LocalDateTime</ID>
     <ID>DataClassFunctions:Loan.kt$Loan$fun toEntity(): LoanEntity</ID>
     <ID>DataClassFunctions:LoanRecord.kt$LoanRecord$fun toEntity(): LoanRecordEntity</ID>
     <ID>DataClassFunctions:LoanTransactionsLogic.kt$LoanTransactionsLogic$suspend fun updateAssociatedLoanData( transaction: Transaction?, onBackgroundProcessingStart: suspend () -&gt; Unit = {}, onBackgroundProcessingEnd: suspend () -&gt; Unit = {}, accountsChanged: Boolean = true )</ID>
-    <ID>DataClassFunctions:Month.kt$Month$fun incrementMonthPeriod( ivyContext: IvyWalletCtx, increment: Long, year: Int ): TimePeriod</ID>
+    <ID>DataClassFunctions:Month.kt$Month$fun incrementMonthPeriod( irisContext: IrisWalletCtx, increment: Long, year: Int ): TimePeriod</ID>
     <ID>DataClassFunctions:Month.kt$Month$fun toDate(): LocalDate</ID>
     <ID>DataClassFunctions:Month.kt$Month$fun toTimePeriod(): TimePeriod</ID>
     <ID>DataClassFunctions:OpResult.kt$OpResult.Failure$fun error()</ID>
@@ -691,7 +691,7 @@
     <ID>EmptyCatchBlock:CSVImporter.kt$CSVImporter${ }</ID>
     <ID>EmptyCatchBlock:IntervalPickerRow.kt${ }</ID>
     <ID>EmptyFunctionBlock:TestIdlingResource.kt$TestIdlingResource${ }</ID>
-    <ID>Filename:DetermineAction.kt$ivy.automate.issue.DetermineAction.kt</ID>
+    <ID>Filename:DetermineAction.kt$iris.automate.issue.DetermineAction.kt</ID>
     <ID>FunctionNaming:Accessors1qogh10qro8q0buetro8w0c3r.kt$internal fun dagger.hilt.android.plugin.HiltExtension.`ext`(configure: Action&lt;org.gradle.api.plugins.ExtraPropertiesExtension&gt;): Unit</ID>
     <ID>FunctionNaming:Accessors21jaq3chsbgdmwytlfi1ffolc.kt$internal fun org.gradle.api.Project.`molecule`(configure: Action&lt;app.cash.molecule.gradle.MoleculeExtension&gt;): Unit</ID>
     <ID>FunctionNaming:Accessors2bjcqrj2vc1c82f7jbep8612w.kt$internal fun org.gradle.api.artifacts.dsl.DependencyHandler.`optionalNpm`(configure: Action&lt;org.jetbrains.kotlin.gradle.targets.js.npm.NpmDependencyExtension&gt;): Unit</ID>
@@ -2366,13 +2366,13 @@
     <ID>FunctionParameterNaming:EditBottomSheet.kt$ActionButton: @Composable () -&gt; Unit</ID>
     <ID>FunctionParameterNaming:FRPComposable.kt$UI: @Composable BoxWithConstraintsScope.( state: S, onEvent: (E) -&gt; Unit ) -&gt; Unit</ID>
     <ID>FunctionParameterNaming:ItemIcon.kt$Default: (@Composable () -&gt; Unit)? = null</ID>
-    <ID>FunctionParameterNaming:IvyComponents.kt$Content: @Composable RowScope.() -&gt; Unit</ID>
-    <ID>FunctionParameterNaming:IvyComposeApp.kt$Content: @Composable BoxScope.() -&gt; Unit</ID>
-    <ID>FunctionParameterNaming:IvyModal.kt$Content: @Composable ColumnScope.() -&gt; Unit</ID>
-    <ID>FunctionParameterNaming:IvyModal.kt$PrimaryAction: @Composable () -&gt; Unit</ID>
-    <ID>FunctionParameterNaming:IvyModal.kt$SecondaryActions: (@Composable () -&gt; Unit)? = null</ID>
-    <ID>FunctionParameterNaming:IvyModalDomainComponents.kt$Header: (@Composable () -&gt; Unit)? = null</ID>
-    <ID>FunctionParameterNaming:IvyToolbar.kt$Content: @Composable RowScope.() -&gt; Unit = { }</ID>
+    <ID>FunctionParameterNaming:IrisComponents.kt$Content: @Composable RowScope.() -&gt; Unit</ID>
+    <ID>FunctionParameterNaming:IrisComposeApp.kt$Content: @Composable BoxScope.() -&gt; Unit</ID>
+    <ID>FunctionParameterNaming:IrisModal.kt$Content: @Composable ColumnScope.() -&gt; Unit</ID>
+    <ID>FunctionParameterNaming:IrisModal.kt$PrimaryAction: @Composable () -&gt; Unit</ID>
+    <ID>FunctionParameterNaming:IrisModal.kt$SecondaryActions: (@Composable () -&gt; Unit)? = null</ID>
+    <ID>FunctionParameterNaming:IrisModalDomainComponents.kt$Header: (@Composable () -&gt; Unit)? = null</ID>
+    <ID>FunctionParameterNaming:IrisToolbar.kt$Content: @Composable RowScope.() -&gt; Unit = { }</ID>
     <ID>FunctionParameterNaming:PlannedPaymentsLazyColumn.kt$Header: @Composable () -&gt; Unit</ID>
     <ID>FunctionParameterNaming:Preview.kt$Content: @Composable BoxWithConstraintsScope.() -&gt; Unit</ID>
     <ID>FunctionParameterNaming:PrimaryAttributeColumn.kt$Content: @Composable ColumnScope.() -&gt; Unit</ID>
@@ -2382,210 +2382,210 @@
     <ID>FunctionParameterNaming:ReorderModal.kt$ItemContent: @Composable RowScope.(Int, Any) -&gt; Unit</ID>
     <ID>FunctionParameterNaming:ReorderModal.kt$TitleContent: @Composable ColumnScope.() -&gt; Unit = { Text( modifier = Modifier.padding(start = 32.dp), text = stringResource(R.string.reorder), style = UI.typo.b1.style( UI.colors.pureInverse, FontWeight.ExtraBold ) ) }</ID>
     <ID>FunctionParameterNaming:WrapContentRow.kt$ItemContent: @Composable (item: T) -&gt; Unit</ID>
-    <ID>InvalidPackageDeclaration:AccTrnsAct.kt$package com.ivy.wallet.domain.action.account</ID>
-    <ID>InvalidPackageDeclaration:AccValueFunctions.kt$package com.ivy.wallet.domain.pure.transaction</ID>
-    <ID>InvalidPackageDeclaration:AccountByIdAct.kt$package com.ivy.wallet.domain.action.account</ID>
-    <ID>InvalidPackageDeclaration:AccountDataAct.kt$package com.ivy.wallet.domain.action.viewmodel.account</ID>
-    <ID>InvalidPackageDeclaration:AccountFunctions.kt$package com.ivy.wallet.domain.pure.account</ID>
-    <ID>InvalidPackageDeclaration:AccountModal.kt$package com.ivy.wallet.ui.theme.modal.edit</ID>
-    <ID>InvalidPackageDeclaration:AccountsAct.kt$package com.ivy.wallet.domain.action.account</ID>
-    <ID>InvalidPackageDeclaration:Action.kt$package com.ivy.frp.action</ID>
-    <ID>InvalidPackageDeclaration:AddKeywordModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:AddPrimaryAttributeButton.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:AllTrnsAct.kt$package com.ivy.wallet.domain.action.transaction</ID>
-    <ID>InvalidPackageDeclaration:AmountCurrency.kt$package com.ivy.wallet.ui.theme.wallet</ID>
-    <ID>InvalidPackageDeclaration:AmountModal.kt$package com.ivy.wallet.ui.theme.modal.edit</ID>
-    <ID>InvalidPackageDeclaration:Annotations.kt$package com.ivy.frp</ID>
-    <ID>InvalidPackageDeclaration:BackBottomBar.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:BalanceRow.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:BaseCurrencyAct.kt$package com.ivy.wallet.domain.action.settings</ID>
-    <ID>InvalidPackageDeclaration:BudgetsAct.kt$package com.ivy.wallet.domain.action.budget</ID>
-    <ID>InvalidPackageDeclaration:BufferBattery.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:BufferModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:CSVMapper.kt$package com.ivy.wallet.domain.deprecated.logic.csv</ID>
-    <ID>InvalidPackageDeclaration:CSVNormalizer.kt$package com.ivy.wallet.domain.deprecated.logic.csv</ID>
-    <ID>InvalidPackageDeclaration:CalcAccBalanceAct.kt$package com.ivy.wallet.domain.action.account</ID>
-    <ID>InvalidPackageDeclaration:CalcAccIncomeExpenseAct.kt$package com.ivy.wallet.domain.action.account</ID>
-    <ID>InvalidPackageDeclaration:CalcBufferDiffAct.kt$package com.ivy.wallet.domain.action.settings</ID>
-    <ID>InvalidPackageDeclaration:CalcIncomeExpenseAct.kt$package com.ivy.wallet.domain.action.wallet</ID>
-    <ID>InvalidPackageDeclaration:CalcTrnsIncomeExpenseAct.kt$package com.ivy.wallet.domain.action.transaction</ID>
-    <ID>InvalidPackageDeclaration:CalcWalletBalanceAct.kt$package com.ivy.wallet.domain.action.wallet</ID>
-    <ID>InvalidPackageDeclaration:CalculatorModal.kt$package com.ivy.wallet.ui.theme.modal.edit</ID>
-    <ID>InvalidPackageDeclaration:CatValueFunctions.kt$package com.ivy.wallet.domain.pure.transaction</ID>
-    <ID>InvalidPackageDeclaration:CategoriesAct.kt$package com.ivy.wallet.domain.action.category</ID>
-    <ID>InvalidPackageDeclaration:Category.kt$package com.ivy.wallet.ui.edit.core</ID>
-    <ID>InvalidPackageDeclaration:CategoryByIdAct.kt$package com.ivy.wallet.domain.action.category</ID>
-    <ID>InvalidPackageDeclaration:CategoryCreator.kt$package com.ivy.wallet.domain.deprecated.logic</ID>
-    <ID>InvalidPackageDeclaration:CategoryIncomeWithAccountFiltersAct.kt$package com.ivy.wallet.domain.action.category</ID>
-    <ID>InvalidPackageDeclaration:CategoryModal.kt$package com.ivy.wallet.ui.theme.modal.edit</ID>
-    <ID>InvalidPackageDeclaration:CategoryTrnsBetweenAct.kt$package com.ivy.wallet.domain.action.category</ID>
-    <ID>InvalidPackageDeclaration:ChangeTransactionTypeModal.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:ChooseCategoryModal.kt$package com.ivy.wallet.ui.theme.modal.edit</ID>
-    <ID>InvalidPackageDeclaration:ChooseIconModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:ChoosePeriodModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:ChooseStartDateOfMonthModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:CircleButtons.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:ClosedTimeRange.kt$package com.ivy.wallet.domain.pure.data</ID>
-    <ID>InvalidPackageDeclaration:Composition.kt$package com.ivy.frp</ID>
-    <ID>InvalidPackageDeclaration:Composition2.kt$package com.ivy.frp</ID>
-    <ID>InvalidPackageDeclaration:CompositionFilter.kt$package com.ivy.frp.action</ID>
-    <ID>InvalidPackageDeclaration:CompositionMap.kt$package com.ivy.frp.action</ID>
-    <ID>InvalidPackageDeclaration:CompositionN.kt$package com.ivy.frp</ID>
-    <ID>InvalidPackageDeclaration:CompositionSum.kt$package com.ivy.frp.action</ID>
-    <ID>InvalidPackageDeclaration:CreateAccountData.kt$package com.ivy.wallet.domain.deprecated.logic.model</ID>
-    <ID>InvalidPackageDeclaration:CreateBudgetData.kt$package com.ivy.wallet.domain.deprecated.logic.model</ID>
-    <ID>InvalidPackageDeclaration:CreateCategoryData.kt$package com.ivy.wallet.domain.deprecated.logic.model</ID>
-    <ID>InvalidPackageDeclaration:CreateLoanData.kt$package com.ivy.wallet.domain.deprecated.logic.model</ID>
-    <ID>InvalidPackageDeclaration:CreateLoanRecordData.kt$package com.ivy.wallet.domain.deprecated.logic.model</ID>
-    <ID>InvalidPackageDeclaration:CurrencyModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:CurrencyPicker.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:CustomExchangeRateCard.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:CustomExchangeRateState.kt$package com.ivy.wallet.domain.data</ID>
-    <ID>InvalidPackageDeclaration:DeleteButton.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:DeleteModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:Description.kt$package com.ivy.wallet.ui.edit.core</ID>
-    <ID>InvalidPackageDeclaration:DescriptionModal.kt$package com.ivy.wallet.ui.theme.modal.edit</ID>
-    <ID>InvalidPackageDeclaration:DueDate.kt$package com.ivy.wallet.ui.edit.core</ID>
-    <ID>InvalidPackageDeclaration:DueTrnsAct.kt$package com.ivy.wallet.domain.action.transaction</ID>
-    <ID>InvalidPackageDeclaration:DueTrnsInfoAct.kt$package com.ivy.wallet.domain.action.viewmodel.home</ID>
-    <ID>InvalidPackageDeclaration:EditBottomSheet.kt$package com.ivy.wallet.ui.edit.core</ID>
-    <ID>InvalidPackageDeclaration:EditLoanRecordData.kt$package com.ivy.wallet.domain.deprecated.logic.model</ID>
-    <ID>InvalidPackageDeclaration:Exchange.kt$package com.ivy.wallet.domain.pure.exchange</ID>
-    <ID>InvalidPackageDeclaration:ExchangeAct.kt$package com.ivy.wallet.domain.action.exchange</ID>
-    <ID>InvalidPackageDeclaration:ExchangeRatesLogic.kt$package com.ivy.wallet.domain.deprecated.logic.currency</ID>
-    <ID>InvalidPackageDeclaration:ExchangeTrns.kt$package com.ivy.wallet.domain.pure.exchange</ID>
-    <ID>InvalidPackageDeclaration:ExportCSVLogic.kt$package com.ivy.wallet.domain.deprecated.logic.csv</ID>
-    <ID>InvalidPackageDeclaration:FPAction.kt$package com.ivy.frp.action</ID>
-    <ID>InvalidPackageDeclaration:FRPComposable.kt$package com.ivy.frp.view</ID>
-    <ID>InvalidPackageDeclaration:FRPViewModel.kt$package com.ivy.frp.viewmodel</ID>
-    <ID>InvalidPackageDeclaration:FoldTransactions.kt$package com.ivy.wallet.domain.pure.transaction</ID>
-    <ID>InvalidPackageDeclaration:GradientCut.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:HasTrnsAct.kt$package com.ivy.wallet.domain.action.viewmodel.home</ID>
-    <ID>InvalidPackageDeclaration:HistoryTrnsAct.kt$package com.ivy.wallet.domain.action.transaction</ID>
-    <ID>InvalidPackageDeclaration:HistoryWithDateDivsAct.kt$package com.ivy.wallet.domain.action.transaction</ID>
-    <ID>InvalidPackageDeclaration:IncomeExpensePair.kt$package com.ivy.wallet.domain.pure.data</ID>
-    <ID>InvalidPackageDeclaration:IncomeExpenseTransferPair.kt$package com.ivy.wallet.domain.pure.data</ID>
-    <ID>InvalidPackageDeclaration:IntervalPickerRow.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IntervalType.kt$package com.ivy.data.model</ID>
-    <ID>InvalidPackageDeclaration:ItemIcon.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyBasicTextField.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyBorderButton.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyButton.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyCheckbox.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyChecklistTextField.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyCircleButton.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyColorPicker.kt$package com.ivy.domain.legacy.ui</ID>
-    <ID>InvalidPackageDeclaration:IvyColors.kt$package com.ivy.wallet.ui.theme</ID>
-    <ID>InvalidPackageDeclaration:IvyComponents.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyCurrency.kt$package com.ivy.wallet.domain.data</ID>
-    <ID>InvalidPackageDeclaration:IvyDataStore.kt$package com.ivy.wallet.io.persistence.datastore</ID>
-    <ID>InvalidPackageDeclaration:IvyDescriptionTextField.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyDivider.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyDividerDot.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyDomainUtils.kt$package com.ivy.wallet.domain.pure.util</ID>
-    <ID>InvalidPackageDeclaration:IvyIcon.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyLineChart.kt$package com.ivy.wallet.ui.theme.components.charts.linechart</ID>
-    <ID>InvalidPackageDeclaration:IvyModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:IvyModalComponents.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:IvyModalDomainComponents.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:IvyNameTextFieldValue.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyNotification.kt$package com.ivy.wallet.android.notification</ID>
-    <ID>InvalidPackageDeclaration:IvyNotificationChannel.kt$package com.ivy.wallet.android.notification</ID>
-    <ID>InvalidPackageDeclaration:IvyNumberTextField.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyOutlinedButton.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyOutlinedTextField.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvySwitch.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyTitleTextField.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:IvyToolbar.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:LTLoanMapper.kt$package com.ivy.wallet.domain.deprecated.logic.loantrasactions</ID>
-    <ID>InvalidPackageDeclaration:LTLoanRecordMapper.kt$package com.ivy.wallet.domain.deprecated.logic.loantrasactions</ID>
-    <ID>InvalidPackageDeclaration:ListItem.kt$package com.ivy.domain.legacy.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:LoanByIdAct.kt$package com.ivy.wallet.domain.action.loan</ID>
-    <ID>InvalidPackageDeclaration:LoanCreator.kt$package com.ivy.wallet.domain.deprecated.logic</ID>
-    <ID>InvalidPackageDeclaration:LoanModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:LoanRecordCreator.kt$package com.ivy.wallet.domain.deprecated.logic</ID>
-    <ID>InvalidPackageDeclaration:LoanRecordModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:LoanTransactionsLogic.kt$package com.ivy.wallet.domain.deprecated.logic.loantrasactions</ID>
-    <ID>InvalidPackageDeclaration:LoanType.kt$package com.ivy.data.model</ID>
-    <ID>InvalidPackageDeclaration:LoansAct.kt$package com.ivy.wallet.domain.action.loan</ID>
-    <ID>InvalidPackageDeclaration:Migration105to106_TrnRecurringRules.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration106to107_Wishlist.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration107to108_Sync.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration108to109_Users.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration109to110_PlannedPayments.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration110to111_PlannedPaymentRule.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration111to112_User_testUser.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration112to113_ExchangeRates.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration113to114_Multi_Currency.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration114to115_Category_Account_Icons.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration115to116_Account_Include_In_Balance.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration116to117_SalteEdgeIntgration.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration117to118_Budgets.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration118to119_Loans.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration119to120_LoanTransactions.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration120to121_DropWishlistItem.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:Migration122to123_ExchangeRates.kt$package com.ivy.domain.db.migration</ID>
-    <ID>InvalidPackageDeclaration:MonthPickerModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:NameModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:NotificationService.kt$package com.ivy.wallet.android.notification</ID>
-    <ID>InvalidPackageDeclaration:OnboardingComponents.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:OverdueAct.kt$package com.ivy.wallet.domain.action.viewmodel.home</ID>
-    <ID>InvalidPackageDeclaration:PeriodSelector.kt$package com.ivy.wallet.ui.theme.wallet</ID>
-    <ID>InvalidPackageDeclaration:PlannedPaymentsGenerator.kt$package com.ivy.wallet.domain.deprecated.logic</ID>
-    <ID>InvalidPackageDeclaration:PlannedPaymentsLogic.kt$package com.ivy.wallet.domain.deprecated.logic</ID>
-    <ID>InvalidPackageDeclaration:PreloadDataLogic.kt$package com.ivy.wallet.domain.deprecated.logic</ID>
-    <ID>InvalidPackageDeclaration:ProgressBar.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:ProgressModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:RecurringRuleModal.kt$package com.ivy.wallet.ui.theme.modal</ID>
-    <ID>InvalidPackageDeclaration:ReorderModal.kt$package com.ivy.wallet.ui.theme.components</ID>
-    <ID>InvalidPackageDeclaration:Reorderable.kt$package com.ivy.wallet.domain.data</ID>
-    <ID>InvalidPackageDeclaration:Res.kt$package com.ivy.frp.monad</ID>
-    <ID>InvalidPackageDeclaration:ResComposition.kt$package com.ivy.frp.monad</ID>
-    <ID>InvalidPackageDeclaration:RoomTypeConverters.kt$package com.ivy.domain.db</ID>
-    <ID>InvalidPackageDeclaration:RowMapping.kt$package com.ivy.wallet.domain.deprecated.logic.csv.model</ID>
-    <ID>InvalidPackageDeclaration:SaveTrnLocallyAct.kt$package com.ivy.wallet.domain.action.viewmodel.transaction</ID>
-    <ID>InvalidPackageDeclaration:SettingsAct.kt$package com.ivy.wallet.domain.action.settings</ID>
-    <ID>InvalidPackageDeclaration:ShouldHideBalanceAct.kt$package com.ivy.wallet.domain.action.viewmodel.home</ID>
-    <ID>InvalidPackageDeclaration:SmartTitleSuggestionsLogic.kt$package com.ivy.wallet.domain.deprecated.logic</ID>
-    <ID>InvalidPackageDeclaration:SortOrder.kt$package com.ivy.wallet.domain.data</ID>
-    <ID>InvalidPackageDeclaration:StartDayOfMonthAct.kt$package com.ivy.wallet.domain.action.global</ID>
-    <ID>InvalidPackageDeclaration:TestIdlingResource.kt$package com.ivy.frp.test</ID>
-    <ID>InvalidPackageDeclaration:TestingContext.kt$package com.ivy.frp.test</ID>
-    <ID>InvalidPackageDeclaration:Title.kt$package com.ivy.wallet.ui.edit.core</ID>
-    <ID>InvalidPackageDeclaration:Toolbar.kt$package com.ivy.wallet.ui.edit.core</ID>
-    <ID>InvalidPackageDeclaration:TransactionHistoryDateDivider.kt$package com.ivy.wallet.domain.data</ID>
-    <ID>InvalidPackageDeclaration:TransactionReminderLogic.kt$package com.ivy.wallet.domain.deprecated.logic.notification</ID>
-    <ID>InvalidPackageDeclaration:TransactionReminderWorker.kt$package com.ivy.wallet.domain.deprecated.logic.notification</ID>
-    <ID>InvalidPackageDeclaration:TrnByIdAct.kt$package com.ivy.wallet.domain.action.transaction</ID>
-    <ID>InvalidPackageDeclaration:TrnDateDividers.kt$package com.ivy.wallet.domain.pure.transaction</ID>
-    <ID>InvalidPackageDeclaration:TrnFunctions.kt$package com.ivy.wallet.domain.pure.transaction</ID>
-    <ID>InvalidPackageDeclaration:TrnsWithDateDivsAct.kt$package com.ivy.wallet.domain.action.transaction</ID>
-    <ID>InvalidPackageDeclaration:TrnsWithRangeAndAccFiltersAct.kt$package com.ivy.wallet.domain.action.transaction</ID>
-    <ID>InvalidPackageDeclaration:UpcomingAct.kt$package com.ivy.wallet.domain.action.viewmodel.home</ID>
-    <ID>InvalidPackageDeclaration:UpdateAccCacheAct.kt$package com.ivy.wallet.domain.action.viewmodel.home</ID>
-    <ID>InvalidPackageDeclaration:UpdateCategoriesCacheAct.kt$package com.ivy.wallet.domain.action.viewmodel.home</ID>
-    <ID>InvalidPackageDeclaration:UpdateStartDayOfMonthAct.kt$package com.ivy.wallet.domain.action.global</ID>
-    <ID>InvalidPackageDeclaration:Utils.kt$package com.ivy.frp</ID>
-    <ID>InvalidPackageDeclaration:Utils.kt$package com.ivy.wallet.domain.pure.util</ID>
-    <ID>InvalidPackageDeclaration:ViewmodelUtils.kt$package com.ivy.frp.viewmodel</ID>
-    <ID>InvalidPackageDeclaration:WalletAccountLogic.kt$package com.ivy.wallet.domain.deprecated.logic</ID>
-    <ID>InvalidPackageDeclaration:WalletCategoryLogic.kt$package com.ivy.wallet.domain.deprecated.logic</ID>
-    <ID>InvalidPackageDeclaration:WalletDAOs.kt$package com.ivy.wallet.domain.pure.data</ID>
-    <ID>InvalidPackageDeclaration:WalletValueFunctions.kt$package com.ivy.wallet.domain.pure.transaction</ID>
-    <ID>InvalidPackageDeclaration:WidgetBase.kt$package com.ivy.widgets</ID>
-    <ID>InvalidPackageDeclaration:WrapContentRow.kt$package com.ivy.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:AccTrnsAct.kt$package com.iris.wallet.domain.action.account</ID>
+    <ID>InvalidPackageDeclaration:AccValueFunctions.kt$package com.iris.wallet.domain.pure.transaction</ID>
+    <ID>InvalidPackageDeclaration:AccountByIdAct.kt$package com.iris.wallet.domain.action.account</ID>
+    <ID>InvalidPackageDeclaration:AccountDataAct.kt$package com.iris.wallet.domain.action.viewmodel.account</ID>
+    <ID>InvalidPackageDeclaration:AccountFunctions.kt$package com.iris.wallet.domain.pure.account</ID>
+    <ID>InvalidPackageDeclaration:AccountModal.kt$package com.iris.wallet.ui.theme.modal.edit</ID>
+    <ID>InvalidPackageDeclaration:AccountsAct.kt$package com.iris.wallet.domain.action.account</ID>
+    <ID>InvalidPackageDeclaration:Action.kt$package com.iris.frp.action</ID>
+    <ID>InvalidPackageDeclaration:AddKeywordModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:AddPrimaryAttributeButton.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:AllTrnsAct.kt$package com.iris.wallet.domain.action.transaction</ID>
+    <ID>InvalidPackageDeclaration:AmountCurrency.kt$package com.iris.wallet.ui.theme.wallet</ID>
+    <ID>InvalidPackageDeclaration:AmountModal.kt$package com.iris.wallet.ui.theme.modal.edit</ID>
+    <ID>InvalidPackageDeclaration:Annotations.kt$package com.iris.frp</ID>
+    <ID>InvalidPackageDeclaration:BackBottomBar.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:BalanceRow.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:BaseCurrencyAct.kt$package com.iris.wallet.domain.action.settings</ID>
+    <ID>InvalidPackageDeclaration:BudgetsAct.kt$package com.iris.wallet.domain.action.budget</ID>
+    <ID>InvalidPackageDeclaration:BufferBattery.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:BufferModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:CSVMapper.kt$package com.iris.wallet.domain.deprecated.logic.csv</ID>
+    <ID>InvalidPackageDeclaration:CSVNormalizer.kt$package com.iris.wallet.domain.deprecated.logic.csv</ID>
+    <ID>InvalidPackageDeclaration:CalcAccBalanceAct.kt$package com.iris.wallet.domain.action.account</ID>
+    <ID>InvalidPackageDeclaration:CalcAccIncomeExpenseAct.kt$package com.iris.wallet.domain.action.account</ID>
+    <ID>InvalidPackageDeclaration:CalcBufferDiffAct.kt$package com.iris.wallet.domain.action.settings</ID>
+    <ID>InvalidPackageDeclaration:CalcIncomeExpenseAct.kt$package com.iris.wallet.domain.action.wallet</ID>
+    <ID>InvalidPackageDeclaration:CalcTrnsIncomeExpenseAct.kt$package com.iris.wallet.domain.action.transaction</ID>
+    <ID>InvalidPackageDeclaration:CalcWalletBalanceAct.kt$package com.iris.wallet.domain.action.wallet</ID>
+    <ID>InvalidPackageDeclaration:CalculatorModal.kt$package com.iris.wallet.ui.theme.modal.edit</ID>
+    <ID>InvalidPackageDeclaration:CatValueFunctions.kt$package com.iris.wallet.domain.pure.transaction</ID>
+    <ID>InvalidPackageDeclaration:CategoriesAct.kt$package com.iris.wallet.domain.action.category</ID>
+    <ID>InvalidPackageDeclaration:Category.kt$package com.iris.wallet.ui.edit.core</ID>
+    <ID>InvalidPackageDeclaration:CategoryByIdAct.kt$package com.iris.wallet.domain.action.category</ID>
+    <ID>InvalidPackageDeclaration:CategoryCreator.kt$package com.iris.wallet.domain.deprecated.logic</ID>
+    <ID>InvalidPackageDeclaration:CategoryIncomeWithAccountFiltersAct.kt$package com.iris.wallet.domain.action.category</ID>
+    <ID>InvalidPackageDeclaration:CategoryModal.kt$package com.iris.wallet.ui.theme.modal.edit</ID>
+    <ID>InvalidPackageDeclaration:CategoryTrnsBetweenAct.kt$package com.iris.wallet.domain.action.category</ID>
+    <ID>InvalidPackageDeclaration:ChangeTransactionTypeModal.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:ChooseCategoryModal.kt$package com.iris.wallet.ui.theme.modal.edit</ID>
+    <ID>InvalidPackageDeclaration:ChooseIconModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:ChoosePeriodModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:ChooseStartDateOfMonthModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:CircleButtons.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:ClosedTimeRange.kt$package com.iris.wallet.domain.pure.data</ID>
+    <ID>InvalidPackageDeclaration:Composition.kt$package com.iris.frp</ID>
+    <ID>InvalidPackageDeclaration:Composition2.kt$package com.iris.frp</ID>
+    <ID>InvalidPackageDeclaration:CompositionFilter.kt$package com.iris.frp.action</ID>
+    <ID>InvalidPackageDeclaration:CompositionMap.kt$package com.iris.frp.action</ID>
+    <ID>InvalidPackageDeclaration:CompositionN.kt$package com.iris.frp</ID>
+    <ID>InvalidPackageDeclaration:CompositionSum.kt$package com.iris.frp.action</ID>
+    <ID>InvalidPackageDeclaration:CreateAccountData.kt$package com.iris.wallet.domain.deprecated.logic.model</ID>
+    <ID>InvalidPackageDeclaration:CreateBudgetData.kt$package com.iris.wallet.domain.deprecated.logic.model</ID>
+    <ID>InvalidPackageDeclaration:CreateCategoryData.kt$package com.iris.wallet.domain.deprecated.logic.model</ID>
+    <ID>InvalidPackageDeclaration:CreateLoanData.kt$package com.iris.wallet.domain.deprecated.logic.model</ID>
+    <ID>InvalidPackageDeclaration:CreateLoanRecordData.kt$package com.iris.wallet.domain.deprecated.logic.model</ID>
+    <ID>InvalidPackageDeclaration:CurrencyModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:CurrencyPicker.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:CustomExchangeRateCard.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:CustomExchangeRateState.kt$package com.iris.wallet.domain.data</ID>
+    <ID>InvalidPackageDeclaration:DeleteButton.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:DeleteModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:Description.kt$package com.iris.wallet.ui.edit.core</ID>
+    <ID>InvalidPackageDeclaration:DescriptionModal.kt$package com.iris.wallet.ui.theme.modal.edit</ID>
+    <ID>InvalidPackageDeclaration:DueDate.kt$package com.iris.wallet.ui.edit.core</ID>
+    <ID>InvalidPackageDeclaration:DueTrnsAct.kt$package com.iris.wallet.domain.action.transaction</ID>
+    <ID>InvalidPackageDeclaration:DueTrnsInfoAct.kt$package com.iris.wallet.domain.action.viewmodel.home</ID>
+    <ID>InvalidPackageDeclaration:EditBottomSheet.kt$package com.iris.wallet.ui.edit.core</ID>
+    <ID>InvalidPackageDeclaration:EditLoanRecordData.kt$package com.iris.wallet.domain.deprecated.logic.model</ID>
+    <ID>InvalidPackageDeclaration:Exchange.kt$package com.iris.wallet.domain.pure.exchange</ID>
+    <ID>InvalidPackageDeclaration:ExchangeAct.kt$package com.iris.wallet.domain.action.exchange</ID>
+    <ID>InvalidPackageDeclaration:ExchangeRatesLogic.kt$package com.iris.wallet.domain.deprecated.logic.currency</ID>
+    <ID>InvalidPackageDeclaration:ExchangeTrns.kt$package com.iris.wallet.domain.pure.exchange</ID>
+    <ID>InvalidPackageDeclaration:ExportCSVLogic.kt$package com.iris.wallet.domain.deprecated.logic.csv</ID>
+    <ID>InvalidPackageDeclaration:FPAction.kt$package com.iris.frp.action</ID>
+    <ID>InvalidPackageDeclaration:FRPComposable.kt$package com.iris.frp.view</ID>
+    <ID>InvalidPackageDeclaration:FRPViewModel.kt$package com.iris.frp.viewmodel</ID>
+    <ID>InvalidPackageDeclaration:FoldTransactions.kt$package com.iris.wallet.domain.pure.transaction</ID>
+    <ID>InvalidPackageDeclaration:GradientCut.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:HasTrnsAct.kt$package com.iris.wallet.domain.action.viewmodel.home</ID>
+    <ID>InvalidPackageDeclaration:HistoryTrnsAct.kt$package com.iris.wallet.domain.action.transaction</ID>
+    <ID>InvalidPackageDeclaration:HistoryWithDateDivsAct.kt$package com.iris.wallet.domain.action.transaction</ID>
+    <ID>InvalidPackageDeclaration:IncomeExpensePair.kt$package com.iris.wallet.domain.pure.data</ID>
+    <ID>InvalidPackageDeclaration:IncomeExpenseTransferPair.kt$package com.iris.wallet.domain.pure.data</ID>
+    <ID>InvalidPackageDeclaration:IntervalPickerRow.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IntervalType.kt$package com.iris.data.model</ID>
+    <ID>InvalidPackageDeclaration:ItemIcon.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisBasicTextField.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisBorderButton.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisButton.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisCheckbox.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisChecklistTextField.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisCircleButton.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisColorPicker.kt$package com.iris.domain.legacy.ui</ID>
+    <ID>InvalidPackageDeclaration:IrisColors.kt$package com.iris.wallet.ui.theme</ID>
+    <ID>InvalidPackageDeclaration:IrisComponents.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisCurrency.kt$package com.iris.wallet.domain.data</ID>
+    <ID>InvalidPackageDeclaration:IrisDataStore.kt$package com.iris.wallet.io.persistence.datastore</ID>
+    <ID>InvalidPackageDeclaration:IrisDescriptionTextField.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisDivider.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisDividerDot.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisDomainUtils.kt$package com.iris.wallet.domain.pure.util</ID>
+    <ID>InvalidPackageDeclaration:IrisIcon.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisLineChart.kt$package com.iris.wallet.ui.theme.components.charts.linechart</ID>
+    <ID>InvalidPackageDeclaration:IrisModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:IrisModalComponents.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:IrisModalDomainComponents.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:IrisNameTextFieldValue.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisNotification.kt$package com.iris.wallet.android.notification</ID>
+    <ID>InvalidPackageDeclaration:IrisNotificationChannel.kt$package com.iris.wallet.android.notification</ID>
+    <ID>InvalidPackageDeclaration:IrisNumberTextField.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisOutlinedButton.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisOutlinedTextField.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisSwitch.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisTitleTextField.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:IrisToolbar.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:LTLoanMapper.kt$package com.iris.wallet.domain.deprecated.logic.loantrasactions</ID>
+    <ID>InvalidPackageDeclaration:LTLoanRecordMapper.kt$package com.iris.wallet.domain.deprecated.logic.loantrasactions</ID>
+    <ID>InvalidPackageDeclaration:ListItem.kt$package com.iris.domain.legacy.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:LoanByIdAct.kt$package com.iris.wallet.domain.action.loan</ID>
+    <ID>InvalidPackageDeclaration:LoanCreator.kt$package com.iris.wallet.domain.deprecated.logic</ID>
+    <ID>InvalidPackageDeclaration:LoanModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:LoanRecordCreator.kt$package com.iris.wallet.domain.deprecated.logic</ID>
+    <ID>InvalidPackageDeclaration:LoanRecordModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:LoanTransactionsLogic.kt$package com.iris.wallet.domain.deprecated.logic.loantrasactions</ID>
+    <ID>InvalidPackageDeclaration:LoanType.kt$package com.iris.data.model</ID>
+    <ID>InvalidPackageDeclaration:LoansAct.kt$package com.iris.wallet.domain.action.loan</ID>
+    <ID>InvalidPackageDeclaration:Migration105to106_TrnRecurringRules.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration106to107_Wishlist.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration107to108_Sync.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration108to109_Users.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration109to110_PlannedPayments.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration110to111_PlannedPaymentRule.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration111to112_User_testUser.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration112to113_ExchangeRates.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration113to114_Multi_Currency.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration114to115_Category_Account_Icons.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration115to116_Account_Include_In_Balance.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration116to117_SalteEdgeIntgration.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration117to118_Budgets.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration118to119_Loans.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration119to120_LoanTransactions.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration120to121_DropWishlistItem.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:Migration122to123_ExchangeRates.kt$package com.iris.domain.db.migration</ID>
+    <ID>InvalidPackageDeclaration:MonthPickerModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:NameModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:NotificationService.kt$package com.iris.wallet.android.notification</ID>
+    <ID>InvalidPackageDeclaration:OnboardingComponents.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:OverdueAct.kt$package com.iris.wallet.domain.action.viewmodel.home</ID>
+    <ID>InvalidPackageDeclaration:PeriodSelector.kt$package com.iris.wallet.ui.theme.wallet</ID>
+    <ID>InvalidPackageDeclaration:PlannedPaymentsGenerator.kt$package com.iris.wallet.domain.deprecated.logic</ID>
+    <ID>InvalidPackageDeclaration:PlannedPaymentsLogic.kt$package com.iris.wallet.domain.deprecated.logic</ID>
+    <ID>InvalidPackageDeclaration:PreloadDataLogic.kt$package com.iris.wallet.domain.deprecated.logic</ID>
+    <ID>InvalidPackageDeclaration:ProgressBar.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:ProgressModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:RecurringRuleModal.kt$package com.iris.wallet.ui.theme.modal</ID>
+    <ID>InvalidPackageDeclaration:ReorderModal.kt$package com.iris.wallet.ui.theme.components</ID>
+    <ID>InvalidPackageDeclaration:Reorderable.kt$package com.iris.wallet.domain.data</ID>
+    <ID>InvalidPackageDeclaration:Res.kt$package com.iris.frp.monad</ID>
+    <ID>InvalidPackageDeclaration:ResComposition.kt$package com.iris.frp.monad</ID>
+    <ID>InvalidPackageDeclaration:RoomTypeConverters.kt$package com.iris.domain.db</ID>
+    <ID>InvalidPackageDeclaration:RowMapping.kt$package com.iris.wallet.domain.deprecated.logic.csv.model</ID>
+    <ID>InvalidPackageDeclaration:SaveTrnLocallyAct.kt$package com.iris.wallet.domain.action.viewmodel.transaction</ID>
+    <ID>InvalidPackageDeclaration:SettingsAct.kt$package com.iris.wallet.domain.action.settings</ID>
+    <ID>InvalidPackageDeclaration:ShouldHideBalanceAct.kt$package com.iris.wallet.domain.action.viewmodel.home</ID>
+    <ID>InvalidPackageDeclaration:SmartTitleSuggestionsLogic.kt$package com.iris.wallet.domain.deprecated.logic</ID>
+    <ID>InvalidPackageDeclaration:SortOrder.kt$package com.iris.wallet.domain.data</ID>
+    <ID>InvalidPackageDeclaration:StartDayOfMonthAct.kt$package com.iris.wallet.domain.action.global</ID>
+    <ID>InvalidPackageDeclaration:TestIdlingResource.kt$package com.iris.frp.test</ID>
+    <ID>InvalidPackageDeclaration:TestingContext.kt$package com.iris.frp.test</ID>
+    <ID>InvalidPackageDeclaration:Title.kt$package com.iris.wallet.ui.edit.core</ID>
+    <ID>InvalidPackageDeclaration:Toolbar.kt$package com.iris.wallet.ui.edit.core</ID>
+    <ID>InvalidPackageDeclaration:TransactionHistoryDateDivider.kt$package com.iris.wallet.domain.data</ID>
+    <ID>InvalidPackageDeclaration:TransactionReminderLogic.kt$package com.iris.wallet.domain.deprecated.logic.notification</ID>
+    <ID>InvalidPackageDeclaration:TransactionReminderWorker.kt$package com.iris.wallet.domain.deprecated.logic.notification</ID>
+    <ID>InvalidPackageDeclaration:TrnByIdAct.kt$package com.iris.wallet.domain.action.transaction</ID>
+    <ID>InvalidPackageDeclaration:TrnDateDividers.kt$package com.iris.wallet.domain.pure.transaction</ID>
+    <ID>InvalidPackageDeclaration:TrnFunctions.kt$package com.iris.wallet.domain.pure.transaction</ID>
+    <ID>InvalidPackageDeclaration:TrnsWithDateDivsAct.kt$package com.iris.wallet.domain.action.transaction</ID>
+    <ID>InvalidPackageDeclaration:TrnsWithRangeAndAccFiltersAct.kt$package com.iris.wallet.domain.action.transaction</ID>
+    <ID>InvalidPackageDeclaration:UpcomingAct.kt$package com.iris.wallet.domain.action.viewmodel.home</ID>
+    <ID>InvalidPackageDeclaration:UpdateAccCacheAct.kt$package com.iris.wallet.domain.action.viewmodel.home</ID>
+    <ID>InvalidPackageDeclaration:UpdateCategoriesCacheAct.kt$package com.iris.wallet.domain.action.viewmodel.home</ID>
+    <ID>InvalidPackageDeclaration:UpdateStartDayOfMonthAct.kt$package com.iris.wallet.domain.action.global</ID>
+    <ID>InvalidPackageDeclaration:Utils.kt$package com.iris.frp</ID>
+    <ID>InvalidPackageDeclaration:Utils.kt$package com.iris.wallet.domain.pure.util</ID>
+    <ID>InvalidPackageDeclaration:ViewmodelUtils.kt$package com.iris.frp.viewmodel</ID>
+    <ID>InvalidPackageDeclaration:WalletAccountLogic.kt$package com.iris.wallet.domain.deprecated.logic</ID>
+    <ID>InvalidPackageDeclaration:WalletCategoryLogic.kt$package com.iris.wallet.domain.deprecated.logic</ID>
+    <ID>InvalidPackageDeclaration:WalletDAOs.kt$package com.iris.wallet.domain.pure.data</ID>
+    <ID>InvalidPackageDeclaration:WalletValueFunctions.kt$package com.iris.wallet.domain.pure.transaction</ID>
+    <ID>InvalidPackageDeclaration:WidgetBase.kt$package com.iris.widgets</ID>
+    <ID>InvalidPackageDeclaration:WrapContentRow.kt$package com.iris.wallet.ui.theme.components</ID>
     <ID>LargeClass:TransactionsViewModel.kt$TransactionsViewModel : ComposeViewModel</ID>
-    <ID>LongMethod:AccountModal.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun BoxWithConstraintsScope.AccountModal( modal: AccountModalData?, onCreateAccount: (CreateAccountData) -&gt; Unit, onEditAccount: (Account, balance: Double) -&gt; Unit, dismiss: () -&gt; Unit, )</ID>
-    <ID>LongMethod:ChooseIconModal.kt$fun ivyIcons(): List&lt;Any&gt;</ID>
+    <ID>LongMethod:AccountModal.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun BoxWithConstraintsScope.AccountModal( modal: AccountModalData?, onCreateAccount: (CreateAccountData) -&gt; Unit, onEditAccount: (Account, balance: Double) -&gt; Unit, dismiss: () -&gt; Unit, )</ID>
+    <ID>LongMethod:ChooseIconModal.kt$fun irisIcons(): List&lt;Any&gt;</ID>
     <ID>LongMethod:EditPlannedScreen.kt$@ExperimentalFoundationApi @Composable private fun BoxWithConstraintsScope.UI( screen: EditPlannedScreen, state: EditPlannedScreenState, onEvent: (EditPlannedScreenEvent) -&gt; Unit )</ID>
     <ID>LongMethod:EditTransactionScreen.kt$@ExperimentalFoundationApi @Composable private fun BoxWithConstraintsScope.UI( screen: EditTransactionScreen, transactionType: TransactionType, baseCurrency: String, initialTitle: String?, titleSuggestions: ImmutableSet&lt;String&gt;, description: String?, category: Category?, dateTime: LocalDateTime?, account: Account?, toAccount: Account?, dueDate: LocalDateTime?, amount: Double, customExchangeRateState: CustomExchangeRateState, categories: ImmutableList&lt;Category&gt;, accounts: ImmutableList&lt;Account&gt;, onTitleChanged: (String?) -&gt; Unit, onDescriptionChanged: (String?) -&gt; Unit, onAmountChanged: (Double) -&gt; Unit, onCategoryChanged: (Category?) -&gt; Unit, onAccountChanged: (Account) -&gt; Unit, onToAccountChanged: (Account) -&gt; Unit, onDueDateChanged: (LocalDateTime?) -&gt; Unit, onSetDate: (LocalDate) -&gt; Unit, onSetTime: (LocalTime) -&gt; Unit, onSetTransactionType: (TransactionType) -&gt; Unit, onCreateCategory: (CreateCategoryData) -&gt; Unit, onEditCategory: (Category) -&gt; Unit, onPayPlannedPayment: () -&gt; Unit, onSave: (closeScreen: Boolean) -&gt; Unit, onSetHasChanges: (hasChanges: Boolean) -&gt; Unit, onDelete: () -&gt; Unit, onCreateAccount: (CreateAccountData) -&gt; Unit, onExchangeRateChanged: (Double?) -&gt; Unit = { }, loanData: EditTransactionDisplayLoan = EditTransactionDisplayLoan(), backgroundProcessing: Boolean = false, hasChanges: Boolean = false, )</ID>
     <ID>LongMethod:FilterOverlay.kt$@Composable fun BoxWithConstraintsScope.FilterOverlay( visible: Boolean, baseCurrency: String, accounts: List&lt;Account&gt;, categories: List&lt;Category&gt;, filter: ReportFilter?, onClose: () -&gt; Unit, onSetFilter: (ReportFilter?) -&gt; Unit )</ID>
     <ID>LongMethod:HomeTab.kt$@ExperimentalAnimationApi @ExperimentalFoundationApi @Composable private fun BoxWithConstraintsScope.UI( uiState: HomeState, onEvent: (HomeEvent) -&gt; Unit )</ID>
     <ID>LongMethod:ImportResultUI.kt$@Composable fun ImportResultUI( result: ImportResult, launchedFromOnboarding: Boolean, isManualCsvImport: Boolean = false, onTryAgain: (() -&gt; Unit)? = null, onFinish: () -&gt; Unit )</ID>
     <ID>LongMethod:LoanDetailsScreen.kt$@Composable private fun LoanInfoCard( loan: Loan, baseCurrency: String, amountPaid: Double, loanAmountPaid: Double = 0.0, selectedLoanAccount: Account? = null, onAddRecord: () -&gt; Unit )</ID>
-    <ID>LongMethod:LoanModal.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun BoxWithConstraintsScope.LoanModal( accounts: List&lt;Account&gt; = emptyList(), onCreateAccount: (CreateAccountData) -&gt; Unit = {}, modal: LoanModalData?, onCreateLoan: (CreateLoanData) -&gt; Unit, onEditLoan: (Loan, Boolean) -&gt; Unit, onPerformCalculations: () -&gt; Unit = {}, dismiss: () -&gt; Unit, )</ID>
-    <ID>LongMethod:LoanRecordModal.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun BoxWithConstraintsScope.LoanRecordModal( modal: LoanRecordModalData?, accounts: List&lt;Account&gt; = emptyList(), onCreateAccount: (CreateAccountData) -&gt; Unit = {}, onCreate: (CreateLoanRecordData) -&gt; Unit, onEdit: (EditLoanRecordData) -&gt; Unit, onDelete: (LoanRecord) -&gt; Unit, dismiss: () -&gt; Unit )</ID>
-    <ID>LongMethod:MainBottomBar.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun BoxWithConstraintsScope.BottomBar( tab: MainTab, selectTab: (MainTab) -&gt; Unit, onAddIncome: () -&gt; Unit, onAddExpense: () -&gt; Unit, onAddTransfer: () -&gt; Unit, onAddPlannedPayment: () -&gt; Unit, showAddAccountModal: () -&gt; Unit, )</ID>
+    <ID>LongMethod:LoanModal.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun BoxWithConstraintsScope.LoanModal( accounts: List&lt;Account&gt; = emptyList(), onCreateAccount: (CreateAccountData) -&gt; Unit = {}, modal: LoanModalData?, onCreateLoan: (CreateLoanData) -&gt; Unit, onEditLoan: (Loan, Boolean) -&gt; Unit, onPerformCalculations: () -&gt; Unit = {}, dismiss: () -&gt; Unit, )</ID>
+    <ID>LongMethod:LoanRecordModal.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun BoxWithConstraintsScope.LoanRecordModal( modal: LoanRecordModalData?, accounts: List&lt;Account&gt; = emptyList(), onCreateAccount: (CreateAccountData) -&gt; Unit = {}, onCreate: (CreateLoanRecordData) -&gt; Unit, onEdit: (EditLoanRecordData) -&gt; Unit, onDelete: (LoanRecord) -&gt; Unit, dismiss: () -&gt; Unit )</ID>
+    <ID>LongMethod:MainBottomBar.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun BoxWithConstraintsScope.BottomBar( tab: MainTab, selectTab: (MainTab) -&gt; Unit, onAddIncome: () -&gt; Unit, onAddExpense: () -&gt; Unit, onAddTransfer: () -&gt; Unit, onAddPlannedPayment: () -&gt; Unit, showAddAccountModal: () -&gt; Unit, )</ID>
     <ID>LongMethod:ReportScreen.kt$@ExperimentalFoundationApi @Composable private fun BoxWithConstraintsScope.UI( state: ReportScreenState = ReportScreenState(), onEventHandler: (ReportScreenEvent) -&gt; Unit = {} )</ID>
     <ID>LongMethod:SettingsScreen.kt$@ExperimentalFoundationApi @Composable private fun BoxWithConstraintsScope.UI( currencyCode: String, theme: Theme, onSwitchTheme: () -&gt; Unit, lockApp: Boolean, nameLocalAccount: String?, onSetCurrency: (String) -&gt; Unit, startDateOfMonth: Int = 1, showNotifications: Boolean = true, hideCurrentBalance: Boolean = false, hideIncome: Boolean = false, progressState: Boolean = false, treatTransfersAsIncomeExpense: Boolean = false, onSetName: (String) -&gt; Unit = {}, onBackupData: () -&gt; Unit = {}, onExportToCSV: () -&gt; Unit = {}, onSetLockApp: (Boolean) -&gt; Unit = {}, onSetShowNotifications: (Boolean) -&gt; Unit = {}, onSetTreatTransfersAsIncExp: (Boolean) -&gt; Unit = {}, onSetHideCurrentBalance: (Boolean) -&gt; Unit = {}, onSetHideIncome: (Boolean) -&gt; Unit = {}, onSetStartDateOfMonth: (Int) -&gt; Unit = {}, onDeleteAllUserData: () -&gt; Unit = {}, onDeleteCloudUserData: () -&gt; Unit = {}, )</ID>
     <ID>LongMethod:TransactionsScreen.kt$@Composable private fun BoxWithConstraintsScope.UI( period: TimePeriod, baseCurrency: String, currency: String, skipAllModalVisible: Boolean, onSkipAllModalVisible: (Boolean) -&gt; Unit, account: Account?, category: Category?, accountNameConfirmation: TextFieldValue, updateAccountNameConfirmation: (String) -&gt; Unit, enableDeletionButton: Boolean, categories: ImmutableList&lt;Category&gt;, accounts: ImmutableList&lt;Account&gt;, balance: Double, balanceBaseCurrency: Double?, income: Double, expenses: Double, choosePeriodModal: ChoosePeriodModalData?, history: ImmutableList&lt;TransactionHistoryItem&gt;, onPreviousMonth: () -&gt; Unit, onNextMonth: () -&gt; Unit, onSetPeriod: (TimePeriod) -&gt; Unit, onEditAccount: (Account, Double) -&gt; Unit, onEditCategory: (Category) -&gt; Unit, onDelete: () -&gt; Unit, deleteModal1Visible: Boolean, onDeleteModal1Visible: (Boolean) -&gt; Unit, initWithTransactions: Boolean = false, treatTransfersAsIncomeExpense: Boolean = false, upcomingExpanded: Boolean = true, setUpcomingExpanded: (Boolean) -&gt; Unit = {}, upcomingIncome: Double = 0.0, upcomingExpenses: Double = 0.0, upcoming: ImmutableList&lt;Transaction&gt; = persistentListOf(), overdueExpanded: Boolean = true, setOverdueExpanded: (Boolean) -&gt; Unit = {}, overdueIncome: Double = 0.0, overdueExpenses: Double = 0.0, overdue: ImmutableList&lt;Transaction&gt; = persistentListOf(), onPayOrGet: (Transaction) -&gt; Unit = {}, onSkipTransaction: (Transaction) -&gt; Unit = {}, onSkipAllTransactions: (List&lt;Transaction&gt;) -&gt; Unit = {}, onChoosePeriodModal: (ChoosePeriodModalData?) -&gt; Unit )</ID>
@@ -2668,17 +2668,17 @@
     <ID>MagicNumber:ImportViewModel.kt$ImportViewModel$100</ID>
     <ID>MagicNumber:InputField.kt$100</ID>
     <ID>MagicNumber:IntervalPickerRow.kt$180f</ID>
-    <ID>MagicNumber:IvyColors.kt$0.1f</ID>
-    <ID>MagicNumber:IvyColors.kt$0.4f</ID>
-    <ID>MagicNumber:IvyColors.kt$0.5</ID>
-    <ID>MagicNumber:IvyColors.kt$0.5f</ID>
-    <ID>MagicNumber:IvyColors.kt$0.6f</ID>
-    <ID>MagicNumber:IvyColors.kt$0.8f</ID>
-    <ID>MagicNumber:IvyColors.kt$3</ID>
-    <ID>MagicNumber:IvyLineChart.kt$3</ID>
-    <ID>MagicNumber:IvyModal.kt$0.01f</ID>
-    <ID>MagicNumber:IvyModal.kt$1000f</ID>
-    <ID>MagicNumber:IvyModal.kt$1100f</ID>
+    <ID>MagicNumber:IrisColors.kt$0.1f</ID>
+    <ID>MagicNumber:IrisColors.kt$0.4f</ID>
+    <ID>MagicNumber:IrisColors.kt$0.5</ID>
+    <ID>MagicNumber:IrisColors.kt$0.5f</ID>
+    <ID>MagicNumber:IrisColors.kt$0.6f</ID>
+    <ID>MagicNumber:IrisColors.kt$0.8f</ID>
+    <ID>MagicNumber:IrisColors.kt$3</ID>
+    <ID>MagicNumber:IrisLineChart.kt$3</ID>
+    <ID>MagicNumber:IrisModal.kt$0.01f</ID>
+    <ID>MagicNumber:IrisModal.kt$1000f</ID>
+    <ID>MagicNumber:IrisModal.kt$1100f</ID>
     <ID>MagicNumber:LoanDetailsScreen.kt$100</ID>
     <ID>MagicNumber:LoanTransactionsCore.kt$LoanTransactionsCore$12</ID>
     <ID>MagicNumber:LoanViewModel.kt$LoanViewModel$100</ID>
@@ -3143,7 +3143,7 @@
     <ID>MaxLineLength:CompileOnlyDependenciesMetadataConfigurationAccessors.kt$fun</ID>
     <ID>MaxLineLength:CompileOnlyDependenciesMetadataConfigurationAccessors.kt$this</ID>
     <ID>MaxLineLength:CoreLibraryDesugaringConfigurationAccessors.kt$fun</ID>
-    <ID>MaxLineLength:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$description = "It looks like that you're enjoying Ivy Wallet! Feel free join our invite-only Ivy Telegram Community and make our app better :)"</ID>
+    <ID>MaxLineLength:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$description = "It looks like that you're enjoying Iris Wallet! Feel free join our invite-only Iris Telegram Community and make our app better :)"</ID>
     <ID>MaxLineLength:DebugAnnotationProcessorConfigurationAccessors.kt$fun</ID>
     <ID>MaxLineLength:DebugApiConfigurationAccessors.kt$fun</ID>
     <ID>MaxLineLength:DebugApiDependenciesMetadataConfigurationAccessors.kt$fun</ID>
@@ -3166,8 +3166,8 @@
     <ID>MaxLineLength:ImplementationDependenciesMetadataConfigurationAccessors.kt$this</ID>
     <ID>MaxLineLength:IntransitiveDependenciesMetadataConfigurationAccessors.kt$fun</ID>
     <ID>MaxLineLength:IntransitiveDependenciesMetadataConfigurationAccessors.kt$this</ID>
-    <ID>MaxLineLength:IvyChecklistTextField.kt$"Cur habitio favere? Sunt navises promissio grandis, primus accolaes. Yes, there is chaos, it contacts with light."</ID>
-    <ID>MaxLineLength:IvyDescriptionTextField.kt$"Cur habitio favere? Sunt navises promissio grandis, primus accolaes. Yes, there is chaos, it contacts with light."</ID>
+    <ID>MaxLineLength:IrisChecklistTextField.kt$"Cur habitio favere? Sunt navises promissio grandis, primus accolaes. Yes, there is chaos, it contacts with light."</ID>
+    <ID>MaxLineLength:IrisDescriptionTextField.kt$"Cur habitio favere? Sunt navises promissio grandis, primus accolaes. Yes, there is chaos, it contacts with light."</ID>
     <ID>MaxLineLength:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$fun</ID>
     <ID>MaxLineLength:KotlinCompilerClasspathConfigurationAccessors.kt$fun</ID>
     <ID>MaxLineLength:KotlinCompilerPluginClasspathConfigurationAccessors.kt$fun</ID>
@@ -3741,8 +3741,8 @@
     <ID>MaximumLineLength:ImplementationDependenciesMetadataConfigurationAccessors.kt$fun</ID>
     <ID>MaximumLineLength:IntransitiveDependenciesMetadataConfigurationAccessors.kt$ </ID>
     <ID>MaximumLineLength:IntransitiveDependenciesMetadataConfigurationAccessors.kt$fun</ID>
-    <ID>MaximumLineLength:IvyChecklistTextField.kt$ </ID>
-    <ID>MaximumLineLength:IvyDescriptionTextField.kt$ </ID>
+    <ID>MaximumLineLength:IrisChecklistTextField.kt$ </ID>
+    <ID>MaximumLineLength:IrisDescriptionTextField.kt$ </ID>
     <ID>MaximumLineLength:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$fun</ID>
     <ID>MaximumLineLength:KotlinCompilerClasspathConfigurationAccessors.kt$fun</ID>
     <ID>MaximumLineLength:KotlinCompilerPluginClasspathConfigurationAccessors.kt$fun</ID>
@@ -4219,14 +4219,14 @@
     <ID>ModifierListSpacing:ImplementationConfigurationAccessors.kt$internal</ID>
     <ID>ModifierListSpacing:ImplementationDependenciesMetadataConfigurationAccessors.kt$internal</ID>
     <ID>ModifierListSpacing:IntransitiveDependenciesMetadataConfigurationAccessors.kt$internal</ID>
-    <ID>ModifierListSpacing:Ivy_composePlugin.kt$Ivy_composePlugin$public</ID>
-    <ID>ModifierListSpacing:Ivy_detektPlugin.kt$Ivy_detektPlugin$public</ID>
-    <ID>ModifierListSpacing:Ivy_featurePlugin.kt$Ivy_featurePlugin$public</ID>
-    <ID>ModifierListSpacing:Ivy_integration_testingPlugin.kt$Ivy_integration_testingPlugin$public</ID>
-    <ID>ModifierListSpacing:Ivy_modulePlugin.kt$Ivy_modulePlugin$public</ID>
-    <ID>ModifierListSpacing:Ivy_roomPlugin.kt$Ivy_roomPlugin$public</ID>
-    <ID>ModifierListSpacing:Ivy_scriptPlugin.kt$Ivy_scriptPlugin$public</ID>
-    <ID>ModifierListSpacing:Ivy_widgetPlugin.kt$Ivy_widgetPlugin$public</ID>
+    <ID>ModifierListSpacing:Iris_composePlugin.kt$Iris_composePlugin$public</ID>
+    <ID>ModifierListSpacing:Iris_detektPlugin.kt$Iris_detektPlugin$public</ID>
+    <ID>ModifierListSpacing:Iris_featurePlugin.kt$Iris_featurePlugin$public</ID>
+    <ID>ModifierListSpacing:Iris_integration_testingPlugin.kt$Iris_integration_testingPlugin$public</ID>
+    <ID>ModifierListSpacing:Iris_modulePlugin.kt$Iris_modulePlugin$public</ID>
+    <ID>ModifierListSpacing:Iris_roomPlugin.kt$Iris_roomPlugin$public</ID>
+    <ID>ModifierListSpacing:Iris_scriptPlugin.kt$Iris_scriptPlugin$public</ID>
+    <ID>ModifierListSpacing:Iris_widgetPlugin.kt$Iris_widgetPlugin$public</ID>
     <ID>ModifierListSpacing:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$internal</ID>
     <ID>ModifierListSpacing:KotlinCompilerClasspathConfigurationAccessors.kt$internal</ID>
     <ID>ModifierListSpacing:KotlinCompilerPluginClasspathConfigurationAccessors.kt$internal</ID>
@@ -4414,19 +4414,19 @@
     <ID>ModifierMissing:IncomeExpenseCards.kt$IncomeExpensesCards</ID>
     <ID>ModifierMissing:IntervalPickerRow.kt$IntervalPickerRow</ID>
     <ID>ModifierMissing:ItemStatisticToolbar.kt$ItemStatisticToolbar</ID>
-    <ID>ModifierMissing:IvyColorPicker.kt$IvyColorPicker</ID>
-    <ID>ModifierMissing:IvyComposeApp.kt$IvyWalletComponentPreview</ID>
-    <ID>ModifierMissing:IvyDividerDot.kt$IvyDividerDot</ID>
-    <ID>ModifierMissing:IvyModal.kt$IvyModal</ID>
-    <ID>ModifierMissing:IvyModal.kt$ModalActionsRow</ID>
-    <ID>ModifierMissing:IvyModal.kt$ModalPreviewActionRowSpacer</ID>
-    <ID>ModifierMissing:IvyModalComponents.kt$ModalAdd</ID>
-    <ID>ModifierMissing:IvyModalComponents.kt$ModalDelete</ID>
-    <ID>ModifierMissing:IvyModalComponents.kt$ModalDynamicPrimaryAction</ID>
-    <ID>ModifierMissing:IvyModalComponents.kt$ModalTitle</ID>
-    <ID>ModifierMissing:IvyToolbar.kt$IvyToolbar</ID>
-    <ID>ModifierMissing:IvyUI.kt$IvyUI</ID>
-    <ID>ModifierMissing:IvyWalletSteps.kt$IvyWalletSteps</ID>
+    <ID>ModifierMissing:IrisColorPicker.kt$IrisColorPicker</ID>
+    <ID>ModifierMissing:IrisComposeApp.kt$IrisWalletComponentPreview</ID>
+    <ID>ModifierMissing:IrisDividerDot.kt$IrisDividerDot</ID>
+    <ID>ModifierMissing:IrisModal.kt$IrisModal</ID>
+    <ID>ModifierMissing:IrisModal.kt$ModalActionsRow</ID>
+    <ID>ModifierMissing:IrisModal.kt$ModalPreviewActionRowSpacer</ID>
+    <ID>ModifierMissing:IrisModalComponents.kt$ModalAdd</ID>
+    <ID>ModifierMissing:IrisModalComponents.kt$ModalDelete</ID>
+    <ID>ModifierMissing:IrisModalComponents.kt$ModalDynamicPrimaryAction</ID>
+    <ID>ModifierMissing:IrisModalComponents.kt$ModalTitle</ID>
+    <ID>ModifierMissing:IrisToolbar.kt$IrisToolbar</ID>
+    <ID>ModifierMissing:IrisUI.kt$IrisUI</ID>
+    <ID>ModifierMissing:IrisWalletSteps.kt$IrisWalletSteps</ID>
     <ID>ModifierMissing:ListItem.kt$ListItem</ID>
     <ID>ModifierMissing:LoanModal.kt$LoanModal</ID>
     <ID>ModifierMissing:LoanRecordModal.kt$LoanRecordModal</ID>
@@ -4446,7 +4446,7 @@
     <ID>ModifierMissing:PlannedPaymentCard.kt$PlannedPaymentCard</ID>
     <ID>ModifierMissing:PlannedPaymentsBottomBar.kt$PlannedPaymentsBottomBar</ID>
     <ID>ModifierMissing:PlannedPaymentsLazyColumn.kt$PlannedPaymentsLazyColumn</ID>
-    <ID>ModifierMissing:Preview.kt$IvyComponentPreview</ID>
+    <ID>ModifierMissing:Preview.kt$IrisComponentPreview</ID>
     <ID>ModifierMissing:PrimaryAttributeColumn.kt$PrimaryAttributeColumn</ID>
     <ID>ModifierMissing:ProgressModal.kt$ProgressModal</ID>
     <ID>ModifierMissing:RateItem.kt$RateItem</ID>
@@ -4472,17 +4472,17 @@
     <ID>ModifierMissing:WalletBalanceWidgetContent.kt$WalletBalanceWidgetContent</ID>
     <ID>ModifierMissing:WalletBalanceWidgetContent.kt$WidgetClickableItem</ID>
     <ID>ModifierNotUsedAtRoot:ItemIcon.kt$modifier = modifier</ID>
-    <ID>ModifierNotUsedAtRoot:IvyNameTextFieldValue.kt$modifier = modifier</ID>
+    <ID>ModifierNotUsedAtRoot:IrisNameTextFieldValue.kt$modifier = modifier</ID>
     <ID>ModifierReused:ItemIcon.kt$Image( modifier = modifier, painter = painterResource(id = defaultIcon), colorFilter = ColorFilter.tint(tint), contentDescription = "item icon" )</ID>
     <ID>ModifierReused:ItemIcon.kt$ItemIconM( modifier = modifier, iconName = iconName, tint = tint, Default = { Image( modifier = modifier, painter = painterResource(id = defaultIcon), colorFilter = ColorFilter.tint(tint), contentDescription = "item icon" ) } )</ID>
     <ID>ModifierReused:ItemIcon.kt$ItemIconS( modifier = modifier, iconName = iconName, tint = tint, Default = { Image( modifier = modifier, painter = painterResource(id = defaultIcon), colorFilter = ColorFilter.tint(tint), contentDescription = "item icon" ) } )</ID>
-    <ID>ModifierReused:IvyChecklistTextField.kt$BasicTextField( modifier = textModifier .focusRequester(inputFieldFocus) .clickableNoIndication(rememberInteractionSource()) { inputFieldFocus.requestFocus() } .padding(vertical = paddingVertical), value = value, onValueChange = onValueChanged, readOnly = readOnly, textStyle = UI.typo.b2.style( color = textColor, fontWeight = fontWeight, textAlign = textAlign ), singleLine = false, cursorBrush = SolidColor(UI.colors.pureInverse), visualTransformation = visualTransformation, keyboardOptions = keyboardOptions ?: KeyboardOptions( capitalization = KeyboardCapitalization.Sentences, autoCorrect = true, keyboardType = KeyboardType.Text, imeAction = ImeAction.Done ), keyboardActions = keyboardActions ?: KeyboardActions( onDone = { hideKeyboard(view) } ) )</ID>
-    <ID>ModifierReused:IvyChecklistTextField.kt$Text( modifier = textModifier .clickableNoIndication(rememberInteractionSource()) { inputFieldFocus.requestFocus() } .padding(vertical = paddingVertical), text = hint!!, textAlign = textAlign, style = UI.typo.b2.style( color = hintColor, fontWeight = hintFontWeight, textAlign = textAlign ) )</ID>
-    <ID>ModifierReused:IvyDescriptionTextField.kt$BasicTextField( modifier = textModifier.testTag(testTag), value = value, onValueChange = onValueChanged, textStyle = UI.typo.nB2.style( color = textColor, fontWeight = fontWeight, textAlign = TextAlign.Start ), singleLine = false, cursorBrush = SolidColor(UI.colors.pureInverse), visualTransformation = visualTransformation, keyboardOptions = keyboardOptions ?: KeyboardOptions( capitalization = KeyboardCapitalization.Sentences, autoCorrect = true, keyboardType = KeyboardType.Text, imeAction = ImeAction.Done ), keyboardActions = keyboardActions ?: KeyboardActions( onDone = { hideKeyboard(view) } ) )</ID>
-    <ID>ModifierReused:IvyDescriptionTextField.kt$Text( modifier = textModifier, text = hint!!, textAlign = TextAlign.Start, style = UI.typo.b2.style( color = hintColor, fontWeight = fontWeight, textAlign = TextAlign.Start ) )</ID>
-    <ID>ModifierReused:IvyNumberTextField.kt$BasicTextField( modifier = textModifier .testTag("base_number_input"), value = value, onValueChange = onValueChanged, textStyle = UI.typo.nB2.style( color = textColor, fontWeight = fontWeight, textAlign = TextAlign.Center ), singleLine = true, cursorBrush = SolidColor(UI.colors.pureInverse), visualTransformation = visualTransformation, keyboardOptions = keyboardOptions ?: KeyboardOptions( capitalization = KeyboardCapitalization.Characters, imeAction = ImeAction.Done, keyboardType = KeyboardType.Number, autoCorrect = false ), keyboardActions = keyboardActions ?: KeyboardActions( onDone = { hideKeyboard(view) } ) )</ID>
-    <ID>ModifierReused:IvyNumberTextField.kt$Text( modifier = textModifier, text = hint!!, textAlign = TextAlign.Start, style = UI.typo.nB2.style( color = hintColor, fontWeight = fontWeight, textAlign = TextAlign.Center ) )</ID>
-    <ID>ModifierWithoutDefault:IvyLineChart.kt$modifier</ID>
+    <ID>ModifierReused:IrisChecklistTextField.kt$BasicTextField( modifier = textModifier .focusRequester(inputFieldFocus) .clickableNoIndication(rememberInteractionSource()) { inputFieldFocus.requestFocus() } .padding(vertical = paddingVertical), value = value, onValueChange = onValueChanged, readOnly = readOnly, textStyle = UI.typo.b2.style( color = textColor, fontWeight = fontWeight, textAlign = textAlign ), singleLine = false, cursorBrush = SolidColor(UI.colors.pureInverse), visualTransformation = visualTransformation, keyboardOptions = keyboardOptions ?: KeyboardOptions( capitalization = KeyboardCapitalization.Sentences, autoCorrect = true, keyboardType = KeyboardType.Text, imeAction = ImeAction.Done ), keyboardActions = keyboardActions ?: KeyboardActions( onDone = { hideKeyboard(view) } ) )</ID>
+    <ID>ModifierReused:IrisChecklistTextField.kt$Text( modifier = textModifier .clickableNoIndication(rememberInteractionSource()) { inputFieldFocus.requestFocus() } .padding(vertical = paddingVertical), text = hint!!, textAlign = textAlign, style = UI.typo.b2.style( color = hintColor, fontWeight = hintFontWeight, textAlign = textAlign ) )</ID>
+    <ID>ModifierReused:IrisDescriptionTextField.kt$BasicTextField( modifier = textModifier.testTag(testTag), value = value, onValueChange = onValueChanged, textStyle = UI.typo.nB2.style( color = textColor, fontWeight = fontWeight, textAlign = TextAlign.Start ), singleLine = false, cursorBrush = SolidColor(UI.colors.pureInverse), visualTransformation = visualTransformation, keyboardOptions = keyboardOptions ?: KeyboardOptions( capitalization = KeyboardCapitalization.Sentences, autoCorrect = true, keyboardType = KeyboardType.Text, imeAction = ImeAction.Done ), keyboardActions = keyboardActions ?: KeyboardActions( onDone = { hideKeyboard(view) } ) )</ID>
+    <ID>ModifierReused:IrisDescriptionTextField.kt$Text( modifier = textModifier, text = hint!!, textAlign = TextAlign.Start, style = UI.typo.b2.style( color = hintColor, fontWeight = fontWeight, textAlign = TextAlign.Start ) )</ID>
+    <ID>ModifierReused:IrisNumberTextField.kt$BasicTextField( modifier = textModifier .testTag("base_number_input"), value = value, onValueChange = onValueChanged, textStyle = UI.typo.nB2.style( color = textColor, fontWeight = fontWeight, textAlign = TextAlign.Center ), singleLine = true, cursorBrush = SolidColor(UI.colors.pureInverse), visualTransformation = visualTransformation, keyboardOptions = keyboardOptions ?: KeyboardOptions( capitalization = KeyboardCapitalization.Characters, imeAction = ImeAction.Done, keyboardType = KeyboardType.Number, autoCorrect = false ), keyboardActions = keyboardActions ?: KeyboardActions( onDone = { hideKeyboard(view) } ) )</ID>
+    <ID>ModifierReused:IrisNumberTextField.kt$Text( modifier = textModifier, text = hint!!, textAlign = TextAlign.Start, style = UI.typo.nB2.style( color = hintColor, fontWeight = fontWeight, textAlign = TextAlign.Center ) )</ID>
+    <ID>ModifierWithoutDefault:IrisLineChart.kt$modifier</ID>
     <ID>MultipleEmitters:AmountCurrency.kt$AmountCurrencyB1</ID>
     <ID>MultipleEmitters:AmountCurrency.kt$AmountCurrencyCaption</ID>
     <ID>MultipleEmitters:AmountCurrency.kt$AmountCurrencyH1</ID>
@@ -4511,12 +4511,12 @@
     <ID>MultipleEmitters:HistoryDateDivider.kt$HistoryDateDivider</ID>
     <ID>MultipleEmitters:ImportFrom.kt$ImportOption</ID>
     <ID>MultipleEmitters:ImportInstructions.kt$UploadFileStep</ID>
-    <ID>MultipleEmitters:IvyBorderButton.kt$IconEnd</ID>
-    <ID>MultipleEmitters:IvyBorderButton.kt$IconStart</ID>
-    <ID>MultipleEmitters:IvyButton.kt$IconEnd</ID>
-    <ID>MultipleEmitters:IvyButton.kt$IconStart</ID>
-    <ID>MultipleEmitters:IvyColorPicker.kt$ColorItem</ID>
-    <ID>MultipleEmitters:IvyWalletSteps.kt$IvyWalletSteps</ID>
+    <ID>MultipleEmitters:IrisBorderButton.kt$IconEnd</ID>
+    <ID>MultipleEmitters:IrisBorderButton.kt$IconStart</ID>
+    <ID>MultipleEmitters:IrisButton.kt$IconEnd</ID>
+    <ID>MultipleEmitters:IrisButton.kt$IconStart</ID>
+    <ID>MultipleEmitters:IrisColorPicker.kt$ColorItem</ID>
+    <ID>MultipleEmitters:IrisWalletSteps.kt$IrisWalletSteps</ID>
     <ID>MultipleEmitters:ListItem.kt$ListItem</ID>
     <ID>MultipleEmitters:LoanModal.kt$Account</ID>
     <ID>MultipleEmitters:LoanModal.kt$AddAccount</ID>
@@ -4964,14 +4964,14 @@
     <ID>NoImplicitFunctionReturnType:AccountData.kt$AccountData$override fun withNewOrderNum(newOrderNum: Double)</ID>
     <ID>NoImplicitFunctionReturnType:AmountFormatting.kt$fun Double.format(digits: Int)</ID>
     <ID>NoImplicitFunctionReturnType:AmountFormatting.kt$fun Long.length()</ID>
-    <ID>NoImplicitFunctionReturnType:Animation.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun &lt;T&gt; springBounce( stiffness: Float = 500f, )</ID>
+    <ID>NoImplicitFunctionReturnType:Animation.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") fun &lt;T&gt; springBounce( stiffness: Float = 500f, )</ID>
     <ID>NoImplicitFunctionReturnType:BackupDataUseCaseAndroidTest.kt$BackupDataUseCaseAndroidTest$@Test fun backup450_150()</ID>
     <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$@ExperimentalStdlibApi fun mapping(type: ImportType, headerRow: String?)</ID>
     <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$@ExperimentalStdlibApi private fun financisto()</ID>
     <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$private fun blueCoins()</ID>
     <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$private fun fortuneCity()</ID>
-    <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$private fun ivyMappingV1()</ID>
-    <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$private fun ivyMappingV2()</ID>
+    <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$private fun irisMappingV1()</ID>
+    <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$private fun irisMappingV2()</ID>
     <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$private fun ktwMoneyManager()</ID>
     <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$private fun monefy()</ID>
     <ID>NoImplicitFunctionReturnType:CSVMapper.kt$CSVMapper$private fun moneyManager()</ID>
@@ -4981,28 +4981,28 @@
     <ID>NoImplicitFunctionReturnType:CategoryData.kt$CategoryData$override fun getItemOrderNum()</ID>
     <ID>NoImplicitFunctionReturnType:CategoryData.kt$CategoryData$override fun withNewOrderNum(newOrderNum: Double)</ID>
     <ID>NoImplicitFunctionReturnType:CategoryTrnsBetweenAct.kt$fun actInput( categoryId: UUID, between: ClosedTimeRange )</ID>
-    <ID>NoImplicitFunctionReturnType:Colors.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun Int.toComposeColor()</ID>
-    <ID>NoImplicitFunctionReturnType:Colors.kt$Gradient$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun asHorizontalBrush()</ID>
-    <ID>NoImplicitFunctionReturnType:Colors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun black()</ID>
-    <ID>NoImplicitFunctionReturnType:Colors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun from(startColor: Int, endColor: Int?)</ID>
-    <ID>NoImplicitFunctionReturnType:Colors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun solid(color: Color)</ID>
-    <ID>NoImplicitFunctionReturnType:Compose.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun Int.toDensityDp()</ID>
-    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun Dp.toDensityPx()</ID>
-    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun Float.toDensityDp()</ID>
-    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun Int.toDensityDp()</ID>
-    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun Modifier.consumeClicks(interactionSource: MutableInteractionSource)</ID>
-    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun Modifier.drawColoredShadow( color: Color, alpha: Float = 0.15f, borderRadius: Dp = 0.dp, shadowRadius: Dp = 16.dp, offsetX: Dp = 0.dp, offsetY: Dp = 8.dp )</ID>
-    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun selectEndTextFieldValue(text: String?)</ID>
+    <ID>NoImplicitFunctionReturnType:Colors.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") fun Int.toComposeColor()</ID>
+    <ID>NoImplicitFunctionReturnType:Colors.kt$Gradient$@Deprecated("Old design system. Use `:iris-design` and Material3") fun asHorizontalBrush()</ID>
+    <ID>NoImplicitFunctionReturnType:Colors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun black()</ID>
+    <ID>NoImplicitFunctionReturnType:Colors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:iris-design` and Material3") fun from(startColor: Int, endColor: Int?)</ID>
+    <ID>NoImplicitFunctionReturnType:Colors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:iris-design` and Material3") fun solid(color: Color)</ID>
+    <ID>NoImplicitFunctionReturnType:Compose.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun Int.toDensityDp()</ID>
+    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun Dp.toDensityPx()</ID>
+    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun Float.toDensityDp()</ID>
+    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun Int.toDensityDp()</ID>
+    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") fun Modifier.consumeClicks(interactionSource: MutableInteractionSource)</ID>
+    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") fun Modifier.drawColoredShadow( color: Color, alpha: Float = 0.15f, borderRadius: Dp = 0.dp, shadowRadius: Dp = 16.dp, offsetX: Dp = 0.dp, offsetY: Dp = 8.dp )</ID>
+    <ID>NoImplicitFunctionReturnType:ComposeExt.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") fun selectEndTextFieldValue(text: String?)</ID>
     <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun addPlannedPaymentCard()</ID>
     <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun adjustBalanceCard()</ID>
     <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun didYouKnow_expensesPieChart()</ID>
     <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun didYouKnow_pinAddTransactionWidgetCard()</ID>
-    <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun ivyWalletIsOpenSource()</ID>
-    <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun joinIvyTelegramCard()</ID>
+    <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun irisWalletIsOpenSource()</ID>
+    <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun joinIrisTelegramCard()</ID>
     <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun joinTelegram2()</ID>
     <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun rateUsCard()</ID>
     <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun rateUsCard_2()</ID>
-    <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun shareIvyWalletCard()</ID>
+    <ID>NoImplicitFunctionReturnType:CustomerJourneyCardsProvider.kt$CustomerJourneyCardsProvider.Companion$fun shareIrisWalletCard()</ID>
     <ID>NoImplicitFunctionReturnType:DateExt.kt$fun LocalDateTime.millis()</ID>
     <ID>NoImplicitFunctionReturnType:DateExt.kt$fun LocalDateTime.toEpochSeconds()</ID>
     <ID>NoImplicitFunctionReturnType:DateExt.kt$fun endOfDayNowUTC()</ID>
@@ -5014,26 +5014,26 @@
     <ID>NoImplicitFunctionReturnType:ExchangeRatesViewModel.kt$ExchangeRatesViewModel$private fun toUi(entity: ExchangeRateEntity)</ID>
     <ID>NoImplicitFunctionReturnType:HomeViewModel.kt$HomeViewModel$private fun switchTheme()</ID>
     <ID>NoImplicitFunctionReturnType:HomeViewModel.kt$HomeViewModel$private suspend fun dismissCustomerJourneyCard(card: CustomerJourneyCardModel)</ID>
-    <ID>NoImplicitFunctionReturnType:HomeViewModel.kt$HomeViewModel$private suspend fun reload( timePeriod: TimePeriod = ivyContext.selectedPeriod )</ID>
+    <ID>NoImplicitFunctionReturnType:HomeViewModel.kt$HomeViewModel$private suspend fun reload( timePeriod: TimePeriod = irisContext.selectedPeriod )</ID>
     <ID>NoImplicitFunctionReturnType:HomeViewModel.kt$HomeViewModel$private suspend fun setBuffer(newBuffer: Double)</ID>
     <ID>NoImplicitFunctionReturnType:HomeViewModel.kt$HomeViewModel$private suspend fun setCurrency(newCurrency: String)</ID>
-    <ID>NoImplicitFunctionReturnType:IvyAnimation.kt$fun &lt;T&gt; springBounce( stiffness: Float = 500f, )</ID>
-    <ID>NoImplicitFunctionReturnType:IvyAnimation.kt$fun &lt;T&gt; springBounceFast()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyAnimation.kt$fun &lt;T&gt; springBounceMedium()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyAnimation.kt$fun &lt;T&gt; springBounceSlow()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyAnimation.kt$fun &lt;T&gt; springBounceVerySlow()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun gradientExpenses()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun mediumBlur()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun pureBlur()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun Int.toComposeColor()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$Gradient$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun asHorizontalBrush()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$Gradient$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun asVerticalBrush()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun black()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun from(gradient: com.ivy.design.l0_system.Gradient)</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun from(startColor: Int, endColor: Int?)</ID>
-    <ID>NoImplicitFunctionReturnType:IvyColors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun solid(color: Color)</ID>
-    <ID>NoImplicitFunctionReturnType:IvyModal.kt$@Composable fun modalPreviewActionRowHeight()</ID>
-    <ID>NoImplicitFunctionReturnType:IvyRoomDatabase.kt$IvyRoomDatabase.Companion$fun migrations()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisAnimation.kt$fun &lt;T&gt; springBounce( stiffness: Float = 500f, )</ID>
+    <ID>NoImplicitFunctionReturnType:IrisAnimation.kt$fun &lt;T&gt; springBounceFast()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisAnimation.kt$fun &lt;T&gt; springBounceMedium()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisAnimation.kt$fun &lt;T&gt; springBounceSlow()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisAnimation.kt$fun &lt;T&gt; springBounceVerySlow()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun gradientExpenses()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun mediumBlur()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun pureBlur()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") fun Int.toComposeColor()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$Gradient$@Deprecated("Old design system. Use `:iris-design` and Material3") fun asHorizontalBrush()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$Gradient$@Deprecated("Old design system. Use `:iris-design` and Material3") fun asVerticalBrush()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun black()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:iris-design` and Material3") fun from(gradient: com.iris.design.l0_system.Gradient)</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:iris-design` and Material3") fun from(startColor: Int, endColor: Int?)</ID>
+    <ID>NoImplicitFunctionReturnType:IrisColors.kt$Gradient.Companion$@Deprecated("Old design system. Use `:iris-design` and Material3") fun solid(color: Color)</ID>
+    <ID>NoImplicitFunctionReturnType:IrisModal.kt$@Composable fun modalPreviewActionRowHeight()</ID>
+    <ID>NoImplicitFunctionReturnType:IrisRoomDatabase.kt$IrisRoomDatabase.Companion$fun migrations()</ID>
     <ID>NoImplicitFunctionReturnType:LoanTransactionsCore.kt$LoanTransactionsCore$suspend fun fetchAccounts()</ID>
     <ID>NoImplicitFunctionReturnType:LoanTransactionsCore.kt$LoanTransactionsCore$suspend fun fetchAllLoanRecords(loanId: UUID)</ID>
     <ID>NoImplicitFunctionReturnType:LoanTransactionsCore.kt$LoanTransactionsCore$suspend fun fetchLoan(loanId: UUID)</ID>
@@ -5067,8 +5067,8 @@
     <ID>NoImplicitFunctionReturnType:RoomTypeConverters.kt$RoomTypeConverters$@TypeConverter fun saveUUID(id: UUID?)</ID>
     <ID>NoImplicitFunctionReturnType:SyncExchangeRatesAct.kt$SyncExchangeRatesAct$override suspend fun Input.willDo()</ID>
     <ID>NoImplicitFunctionReturnType:TransactionReminderWorker.kt$TransactionReminderWorker$override suspend fun doWork()</ID>
-    <ID>NoImplicitFunctionReturnType:TypographyExt.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") @Composable fun TextStyle.style( color: Color = UI.colors.pureInverse, fontWeight: FontWeight = FontWeight.Bold, textAlign: TextAlign = TextAlign.Start )</ID>
-    <ID>NoImplicitFunctionReturnType:TypographyExt.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") fun TextStyle.colorAs(color: Color)</ID>
+    <ID>NoImplicitFunctionReturnType:TypographyExt.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") @Composable fun TextStyle.style( color: Color = UI.colors.pureInverse, fontWeight: FontWeight = FontWeight.Bold, textAlign: TextAlign = TextAlign.Start )</ID>
+    <ID>NoImplicitFunctionReturnType:TypographyExt.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") fun TextStyle.colorAs(color: Color)</ID>
     <ID>NoImplicitFunctionReturnType:UtilExt.kt$fun String.toLowerCaseLocal()</ID>
     <ID>NoImplicitFunctionReturnType:UtilExt.kt$fun String.toUpperCaseLocal()</ID>
     <ID>NoMultipleSpaces:AndroidApisConfigurationAccessors.kt$ </ID>
@@ -5232,8 +5232,8 @@
     <ID>NoMultipleSpaces:TestRuntimeOnlyConfigurationAccessors.kt$ </ID>
     <ID>NoMultipleSpaces:TestWearAppConfigurationAccessors.kt$ </ID>
     <ID>NoMultipleSpaces:WearAppConfigurationAccessors.kt$ </ID>
-    <ID>NoMultipleSpaces:ivy.detekt.gradle.kts$ </ID>
-    <ID>NoTrailingSpaces:ivy.detekt.gradle.kts$ </ID>
+    <ID>NoMultipleSpaces:iris.detekt.gradle.kts$ </ID>
+    <ID>NoTrailingSpaces:iris.detekt.gradle.kts$ </ID>
     <ID>NoUnusedImports:Accessors11xxvwy0y6zsdmgi5tg7sgrcq.kt$gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634.Accessors11xxvwy0y6zsdmgi5tg7sgrcq.kt</ID>
     <ID>NoUnusedImports:Accessors11xxvwy0y6zsdmgi5tg7sgrcq.kt$gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734.Accessors11xxvwy0y6zsdmgi5tg7sgrcq.kt</ID>
     <ID>NoUnusedImports:Accessors11xxvwy0y6zsdmgi5tg7sgrcq.kt$gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0.Accessors11xxvwy0y6zsdmgi5tg7sgrcq.kt</ID>
@@ -7098,15 +7098,15 @@
     <ID>NoWildcardImports:ImplementationConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
     <ID>NoWildcardImports:ImplementationDependenciesMetadataConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>NoWildcardImports:ImplementationDependenciesMetadataConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
-    <ID>NoWildcardImports:InputField.kt$import com.ivy.design.l0_system.*</ID>
-    <ID>NoWildcardImports:InputField.kt$import com.ivy.design.utils.*</ID>
+    <ID>NoWildcardImports:InputField.kt$import com.iris.design.l0_system.*</ID>
+    <ID>NoWildcardImports:InputField.kt$import com.iris.design.utils.*</ID>
     <ID>NoWildcardImports:IntransitiveDependenciesMetadataConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>NoWildcardImports:IntransitiveDependenciesMetadataConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
-    <ID>NoWildcardImports:IvyRoomDatabase.kt$import androidx.room.*</ID>
-    <ID>NoWildcardImports:IvySwitch.kt$import androidx.compose.foundation.layout.*</ID>
-    <ID>NoWildcardImports:IvySwitch.kt$import androidx.compose.runtime.*</ID>
-    <ID>NoWildcardImports:IvyToolbar.kt$import androidx.compose.foundation.layout.*</ID>
-    <ID>NoWildcardImports:IvyWalletDesign.kt$import com.ivy.design.l0_system.*</ID>
+    <ID>NoWildcardImports:IrisRoomDatabase.kt$import androidx.room.*</ID>
+    <ID>NoWildcardImports:IrisSwitch.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:IrisSwitch.kt$import androidx.compose.runtime.*</ID>
+    <ID>NoWildcardImports:IrisToolbar.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:IrisWalletDesign.kt$import com.iris.design.l0_system.*</ID>
     <ID>NoWildcardImports:Keyboard.kt$import androidx.compose.runtime.*</ID>
     <ID>NoWildcardImports:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>NoWildcardImports:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
@@ -7157,9 +7157,9 @@
     <ID>NoWildcardImports:MainSourceElementsConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>NoWildcardImports:MainSourceElementsConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
     <ID>NoWildcardImports:PieChart.kt$import androidx.compose.foundation.layout.*</ID>
-    <ID>NoWildcardImports:PieChart.kt$import com.ivy.wallet.ui.theme.*</ID>
-    <ID>NoWildcardImports:PreloadDataLogic.kt$import com.ivy.design.l0_system.*</ID>
-    <ID>NoWildcardImports:ProgressBar.kt$import com.ivy.wallet.ui.theme.*</ID>
+    <ID>NoWildcardImports:PieChart.kt$import com.iris.wallet.ui.theme.*</ID>
+    <ID>NoWildcardImports:PreloadDataLogic.kt$import com.iris.design.l0_system.*</ID>
+    <ID>NoWildcardImports:ProgressBar.kt$import com.iris.wallet.ui.theme.*</ID>
     <ID>NoWildcardImports:ReleaseAnnotationProcessorConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>NoWildcardImports:ReleaseAnnotationProcessorConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
     <ID>NoWildcardImports:ReleaseApiConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
@@ -8189,12 +8189,12 @@
     <ID>PackageName:ArchivesConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageName:ArchivesConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageName:ArchivesConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageName:Background.kt$package com.ivy.design.l1_buildingBlocks.data</ID>
-    <ID>PackageName:Button.kt$package com.ivy.design.l2_components</ID>
-    <ID>PackageName:ButtonWithIcon.kt$package com.ivy.design.l2_components</ID>
-    <ID>PackageName:Checkbox.kt$package com.ivy.design.l2_components</ID>
-    <ID>PackageName:Colors.kt$package com.ivy.design.l0_system</ID>
-    <ID>PackageName:ColumnRoot.kt$package com.ivy.design.l1_buildingBlocks</ID>
+    <ID>PackageName:Background.kt$package com.iris.design.l1_buildingBlocks.data</ID>
+    <ID>PackageName:Button.kt$package com.iris.design.l2_components</ID>
+    <ID>PackageName:ButtonWithIcon.kt$package com.iris.design.l2_components</ID>
+    <ID>PackageName:Checkbox.kt$package com.iris.design.l2_components</ID>
+    <ID>PackageName:Colors.kt$package com.iris.design.l0_system</ID>
+    <ID>PackageName:ColumnRoot.kt$package com.iris.design.l1_buildingBlocks</ID>
     <ID>PackageName:CompileClasspathConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageName:CompileOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageName:CompileOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
@@ -8243,8 +8243,8 @@
     <ID>PackageName:DefaultConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
     <ID>PackageName:DetektConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._6b1cdd1e881959619ea23cf7941079a9</ID>
     <ID>PackageName:DetektPluginsConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._6b1cdd1e881959619ea23cf7941079a9</ID>
-    <ID>PackageName:Dividers.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageName:IconButton.kt$package com.ivy.design.l2_components</ID>
+    <ID>PackageName:Dividers.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageName:IconButton.kt$package com.iris.design.l2_components</ID>
     <ID>PackageName:ImplementationConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageName:ImplementationConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageName:ImplementationConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
@@ -8253,18 +8253,18 @@
     <ID>PackageName:ImplementationDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageName:ImplementationDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageName:ImplementationDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageName:InputField.kt$package com.ivy.design.l2_components</ID>
+    <ID>PackageName:InputField.kt$package com.iris.design.l2_components</ID>
     <ID>PackageName:IntransitiveDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageName:IntransitiveDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageName:IntransitiveDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageName:IntransitiveDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageName:IvyColors.kt$package com.ivy.design.l0_system</ID>
-    <ID>PackageName:IvyIcon.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageName:IvyPadding.kt$package com.ivy.design.l1_buildingBlocks.data</ID>
-    <ID>PackageName:IvyShapes.kt$package com.ivy.design.l0_system</ID>
-    <ID>PackageName:IvyText.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageName:IvyTheme.kt$package com.ivy.design.l0_system</ID>
-    <ID>PackageName:IvyTypography.kt$package com.ivy.design.l0_system</ID>
+    <ID>PackageName:IrisColors.kt$package com.iris.design.l0_system</ID>
+    <ID>PackageName:IrisIcon.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageName:IrisPadding.kt$package com.iris.design.l1_buildingBlocks.data</ID>
+    <ID>PackageName:IrisShapes.kt$package com.iris.design.l0_system</ID>
+    <ID>PackageName:IrisText.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageName:IrisTheme.kt$package com.iris.design.l0_system</ID>
+    <ID>PackageName:IrisTypography.kt$package com.iris.design.l0_system</ID>
     <ID>PackageName:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageName:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageName:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
@@ -8369,10 +8369,10 @@
     <ID>PackageName:RuntimeOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageName:RuntimeOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageName:RuntimeOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageName:ScreenTitle.kt$package com.ivy.design.l3_ivyComponents</ID>
-    <ID>PackageName:Shapes.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageName:Spacers.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageName:Switch.kt$package com.ivy.design.l2_components</ID>
+    <ID>PackageName:ScreenTitle.kt$package com.iris.design.l3_irisComponents</ID>
+    <ID>PackageName:Shapes.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageName:Spacers.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageName:Switch.kt$package com.iris.design.l2_components</ID>
     <ID>PackageName:TestAnnotationProcessorConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageName:TestAnnotationProcessorConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageName:TestAnnotationProcessorConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
@@ -8567,7 +8567,7 @@
     <ID>PackageName:TestWearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageName:TestWearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageName:TestWearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageName:TypographyExt.kt$package com.ivy.design.l0_system</ID>
+    <ID>PackageName:TypographyExt.kt$package com.iris.design.l0_system</ID>
     <ID>PackageName:WearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageName:WearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageName:WearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
@@ -9435,12 +9435,12 @@
     <ID>PackageNaming:ArchivesConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageNaming:ArchivesConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageNaming:ArchivesConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageNaming:Background.kt$package com.ivy.design.l1_buildingBlocks.data</ID>
-    <ID>PackageNaming:Button.kt$package com.ivy.design.l2_components</ID>
-    <ID>PackageNaming:ButtonWithIcon.kt$package com.ivy.design.l2_components</ID>
-    <ID>PackageNaming:Checkbox.kt$package com.ivy.design.l2_components</ID>
-    <ID>PackageNaming:Colors.kt$package com.ivy.design.l0_system</ID>
-    <ID>PackageNaming:ColumnRoot.kt$package com.ivy.design.l1_buildingBlocks</ID>
+    <ID>PackageNaming:Background.kt$package com.iris.design.l1_buildingBlocks.data</ID>
+    <ID>PackageNaming:Button.kt$package com.iris.design.l2_components</ID>
+    <ID>PackageNaming:ButtonWithIcon.kt$package com.iris.design.l2_components</ID>
+    <ID>PackageNaming:Checkbox.kt$package com.iris.design.l2_components</ID>
+    <ID>PackageNaming:Colors.kt$package com.iris.design.l0_system</ID>
+    <ID>PackageNaming:ColumnRoot.kt$package com.iris.design.l1_buildingBlocks</ID>
     <ID>PackageNaming:CompileClasspathConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageNaming:CompileOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageNaming:CompileOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
@@ -9489,8 +9489,8 @@
     <ID>PackageNaming:DefaultConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
     <ID>PackageNaming:DetektConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._6b1cdd1e881959619ea23cf7941079a9</ID>
     <ID>PackageNaming:DetektPluginsConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._6b1cdd1e881959619ea23cf7941079a9</ID>
-    <ID>PackageNaming:Dividers.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageNaming:IconButton.kt$package com.ivy.design.l2_components</ID>
+    <ID>PackageNaming:Dividers.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageNaming:IconButton.kt$package com.iris.design.l2_components</ID>
     <ID>PackageNaming:ImplementationConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageNaming:ImplementationConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageNaming:ImplementationConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
@@ -9499,18 +9499,18 @@
     <ID>PackageNaming:ImplementationDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageNaming:ImplementationDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageNaming:ImplementationDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageNaming:InputField.kt$package com.ivy.design.l2_components</ID>
+    <ID>PackageNaming:InputField.kt$package com.iris.design.l2_components</ID>
     <ID>PackageNaming:IntransitiveDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageNaming:IntransitiveDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageNaming:IntransitiveDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageNaming:IntransitiveDependenciesMetadataConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageNaming:IvyColors.kt$package com.ivy.design.l0_system</ID>
-    <ID>PackageNaming:IvyIcon.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageNaming:IvyPadding.kt$package com.ivy.design.l1_buildingBlocks.data</ID>
-    <ID>PackageNaming:IvyShapes.kt$package com.ivy.design.l0_system</ID>
-    <ID>PackageNaming:IvyText.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageNaming:IvyTheme.kt$package com.ivy.design.l0_system</ID>
-    <ID>PackageNaming:IvyTypography.kt$package com.ivy.design.l0_system</ID>
+    <ID>PackageNaming:IrisColors.kt$package com.iris.design.l0_system</ID>
+    <ID>PackageNaming:IrisIcon.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageNaming:IrisPadding.kt$package com.iris.design.l1_buildingBlocks.data</ID>
+    <ID>PackageNaming:IrisShapes.kt$package com.iris.design.l0_system</ID>
+    <ID>PackageNaming:IrisText.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageNaming:IrisTheme.kt$package com.iris.design.l0_system</ID>
+    <ID>PackageNaming:IrisTypography.kt$package com.iris.design.l0_system</ID>
     <ID>PackageNaming:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageNaming:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageNaming:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
@@ -9615,10 +9615,10 @@
     <ID>PackageNaming:RuntimeOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageNaming:RuntimeOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageNaming:RuntimeOnlyConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageNaming:ScreenTitle.kt$package com.ivy.design.l3_ivyComponents</ID>
-    <ID>PackageNaming:Shapes.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageNaming:Spacers.kt$package com.ivy.design.l1_buildingBlocks</ID>
-    <ID>PackageNaming:Switch.kt$package com.ivy.design.l2_components</ID>
+    <ID>PackageNaming:ScreenTitle.kt$package com.iris.design.l3_irisComponents</ID>
+    <ID>PackageNaming:Shapes.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageNaming:Spacers.kt$package com.iris.design.l1_buildingBlocks</ID>
+    <ID>PackageNaming:Switch.kt$package com.iris.design.l2_components</ID>
     <ID>PackageNaming:TestAnnotationProcessorConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageNaming:TestAnnotationProcessorConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._a568f78b412045bc377fc4283b656e34</ID>
     <ID>PackageNaming:TestAnnotationProcessorConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
@@ -9813,7 +9813,7 @@
     <ID>PackageNaming:TestWearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageNaming:TestWearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageNaming:TestWearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
-    <ID>PackageNaming:TypographyExt.kt$package com.ivy.design.l0_system</ID>
+    <ID>PackageNaming:TypographyExt.kt$package com.iris.design.l0_system</ID>
     <ID>PackageNaming:WearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._0f6c96550b20caec005f95558bbb0634</ID>
     <ID>PackageNaming:WearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._c23ff688c05f8d96905906a4ad831734</ID>
     <ID>PackageNaming:WearAppConfigurationAccessors.kt$package gradle.kotlin.dsl.accessors._d2d1dfc15d0c2a9463dd9442318702f0</ID>
@@ -10054,7 +10054,7 @@
     <ID>PrintStackTrace:EditTransactionViewModel.kt$EditTransactionViewModel$e</ID>
     <ID>PrintStackTrace:ExportCSVLogic.kt$ExportCSVLogic$e</ID>
     <ID>PrintStackTrace:FileUtil.kt$e</ID>
-    <ID>PrintStackTrace:IvyCurrency.kt$IvyCurrency.Companion$e</ID>
+    <ID>PrintStackTrace:IrisCurrency.kt$IrisCurrency.Companion$e</ID>
     <ID>PrintStackTrace:Keyboard.kt$e</ID>
     <ID>PrintStackTrace:LoanCreator.kt$LoanCreator$e</ID>
     <ID>PrintStackTrace:LoanRecordCreator.kt$LoanRecordCreator$e</ID>
@@ -10129,7 +10129,7 @@
     <ID>ReturnCount:EditTransactionViewModel.kt$EditTransactionViewModel$private suspend fun defaultAccountId( screen: EditTransactionScreen, accounts: List&lt;Account&gt;, ): UUID</ID>
     <ID>ReturnCount:EditTransactionViewModel.kt$EditTransactionViewModel$private suspend fun getDisplayLoanHelper(trans: Transaction): EditTransactionDisplayLoan</ID>
     <ID>ReturnCount:ExchangeRatesLogic.kt$ExchangeRatesLogic$private suspend fun exchangeRate( baseCurrency: String, currency: String ): Double</ID>
-    <ID>ReturnCount:IvyCurrency.kt$IvyCurrency.Companion$fun fromCode(code: String): IvyCurrency?</ID>
+    <ID>ReturnCount:IrisCurrency.kt$IrisCurrency.Companion$fun fromCode(code: String): IrisCurrency?</ID>
     <ID>ReturnCount:LoanCreator.kt$LoanCreator$suspend fun create( data: CreateLoanData, onRefreshUI: suspend (Loan) -&gt; Unit ): UUID?</ID>
     <ID>ReturnCount:LoanRecordCreator.kt$LoanRecordCreator$suspend fun create( loanId: UUID, data: CreateLoanRecordData, onRefreshUI: suspend (LoanRecord) -&gt; Unit ): UUID?</ID>
     <ID>ReturnCount:PlannedPaymentsLogic.kt$PlannedPaymentsLogic$private suspend fun amountForMonthInBaseCurrency( plannedPayment: PlannedPaymentRule, baseCurrency: String, accounts: List&lt;Account&gt; ): Double</ID>
@@ -10398,11 +10398,11 @@
     <ID>TopLevelPropertyNaming:Accessorsv8sku3n0evm97p61uoj1tesf.kt$/** * Provides the existing [debugCompileOnly][org.gradle.api.artifacts.Configuration] element. */ internal val org.gradle.api.NamedDomainObjectContainer&lt;org.gradle.api.artifacts.Configuration&gt;.`debugCompileOnly`: NamedDomainObjectProvider&lt;org.gradle.api.artifacts.Configuration&gt; get() = named&lt;org.gradle.api.artifacts.Configuration&gt;("debugCompileOnly")</ID>
     <ID>TopLevelPropertyNaming:Accessorsw34mwj3hroscfmyxar5atwjz.kt$/** * Provides the existing [jar][org.gradle.api.tasks.bundling.Jar] task. */ internal val TaskContainer.`jar`: TaskProvider&lt;org.gradle.api.tasks.bundling.Jar&gt; get() = named&lt;org.gradle.api.tasks.bundling.Jar&gt;("jar")</ID>
     <ID>TopLevelPropertyNaming:AmountFormatting.kt$const val N_100K = 100000</ID>
-    <ID>TopLevelPropertyNaming:ChooseIconModal.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") private const val ICON_PICKER_ICONS_PER_ROW = 5</ID>
-    <ID>TopLevelPropertyNaming:EditBottomSheet.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") const val SWIPE_UP_EXPANDED_THRESHOLD = 200</ID>
+    <ID>TopLevelPropertyNaming:ChooseIconModal.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") private const val ICON_PICKER_ICONS_PER_ROW = 5</ID>
+    <ID>TopLevelPropertyNaming:EditBottomSheet.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") const val SWIPE_UP_EXPANDED_THRESHOLD = 200</ID>
     <ID>TopLevelPropertyNaming:HomeMoreMenu.kt$private const val SWIPE_UP_THRESHOLD_CLOSE_MORE_MENU = 300</ID>
-    <ID>TopLevelPropertyNaming:IvyModal.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") const val DURATION_MODAL_ANIM = 200</ID>
-    <ID>TopLevelPropertyNaming:IvyModal.kt$@Deprecated("Old design system. Use `:ivy-design` and Material3") private const val DURATION_BACKGROUND_BLUR_ANIM = 400</ID>
+    <ID>TopLevelPropertyNaming:IrisModal.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") const val DURATION_MODAL_ANIM = 200</ID>
+    <ID>TopLevelPropertyNaming:IrisModal.kt$@Deprecated("Old design system. Use `:iris-design` and Material3") private const val DURATION_BACKGROUND_BLUR_ANIM = 400</ID>
     <ID>TopLevelPropertyNaming:ParseStatus.kt$const val SAMPLE_SIZE = 20</ID>
     <ID>TopLevelPropertyNaming:PieChart.kt$const val PIE_CHART_RADIUS_DP = 128</ID>
     <ID>TopLevelPropertyNaming:PieChart.kt$const val RADIUS_DP = 112f</ID>
@@ -10522,7 +10522,7 @@
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.groovy` plugin implemented by [org.gradle.api.plugins.GroovyPlugin]. */ internal val `OrgGradlePluginGroup`.`groovy`: PluginDependencySpec get() = plugins.id("org.gradle.groovy")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.help-tasks` plugin implemented by [org.gradle.api.plugins.HelpTasksPlugin]. */ internal val `OrgGradlePluginGroup`.`help-tasks`: PluginDependencySpec get() = plugins.id("org.gradle.help-tasks")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.idea` plugin implemented by [org.gradle.plugins.ide.idea.IdeaPlugin]. */ internal val `OrgGradlePluginGroup`.`idea`: PluginDependencySpec get() = plugins.id("org.gradle.idea")</ID>
-    <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.ivy-publish` plugin implemented by [org.gradle.api.publish.ivy.plugins.IvyPublishPlugin]. */ internal val `OrgGradlePluginGroup`.`ivy-publish`: PluginDependencySpec get() = plugins.id("org.gradle.ivy-publish")</ID>
+    <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.iris-publish` plugin implemented by [org.gradle.api.publish.iris.plugins.IrisPublishPlugin]. */ internal val `OrgGradlePluginGroup`.`iris-publish`: PluginDependencySpec get() = plugins.id("org.gradle.iris-publish")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.jacoco-report-aggregation` plugin implemented by [org.gradle.testing.jacoco.plugins.JacocoReportAggregationPlugin]. */ internal val `OrgGradlePluginGroup`.`jacoco-report-aggregation`: PluginDependencySpec get() = plugins.id("org.gradle.jacoco-report-aggregation")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.jacoco` plugin implemented by [org.gradle.testing.jacoco.plugins.JacocoPlugin]. */ internal val `OrgGradlePluginGroup`.`jacoco`: PluginDependencySpec get() = plugins.id("org.gradle.jacoco")</ID>
     <ID>TopLevelPropertyNaming:PluginSpecBuilders.kt$/** * The `org.gradle.java-base` plugin implemented by [org.gradle.api.plugins.JavaBasePlugin]. */ internal val `OrgGradlePluginGroup`.`java-base`: PluginDependencySpec get() = plugins.id("org.gradle.java-base")</ID>
@@ -10596,8 +10596,8 @@
     <ID>UnstableCollections:FilterOverlay.kt$List&lt;Account&gt;</ID>
     <ID>UnstableCollections:FilterOverlay.kt$List&lt;Category&gt;</ID>
     <ID>UnstableCollections:IncomeExpenseCards.kt$List&lt;TransactionHistoryItem&gt;</ID>
-    <ID>UnstableCollections:IvyLineChart.kt$List&lt;Function&gt;</ID>
-    <ID>UnstableCollections:IvyLineChart.kt$List&lt;Value&gt;</ID>
+    <ID>UnstableCollections:IrisLineChart.kt$List&lt;Function&gt;</ID>
+    <ID>UnstableCollections:IrisLineChart.kt$List&lt;Value&gt;</ID>
     <ID>UnstableCollections:LoanModal.kt$List&lt;Account&gt;</ID>
     <ID>UnstableCollections:LoanRecordModal.kt$List&lt;Account&gt;</ID>
     <ID>UnstableCollections:OnboardingAccounts.kt$List&lt;AccountBalance&gt;</ID>
@@ -10624,10 +10624,10 @@
     <ID>UnusedParameter:FileUtil.kt$directoryType: String</ID>
     <ID>UnusedParameter:HomeMoreMenu.kt$onCurrencyClick: () -&gt; Unit</ID>
     <ID>UnusedParameter:HomeViewModel.kt$HomeViewModel$unit: Unit</ID>
-    <ID>UnusedParameter:IvyBasicTextField.kt$textColor: Color = UI.colors.pureInverse</ID>
-    <ID>UnusedParameter:IvyLineChart.kt$cellSize: Float</ID>
-    <ID>UnusedParameter:IvyLineChart.kt$chartWidth: Float</ID>
-    <ID>UnusedParameter:IvyLineChart.kt$offsetRight: Float</ID>
+    <ID>UnusedParameter:IrisBasicTextField.kt$textColor: Color = UI.colors.pureInverse</ID>
+    <ID>UnusedParameter:IrisLineChart.kt$cellSize: Float</ID>
+    <ID>UnusedParameter:IrisLineChart.kt$chartWidth: Float</ID>
+    <ID>UnusedParameter:IrisLineChart.kt$offsetRight: Float</ID>
     <ID>UnusedParameter:LoansScreen.kt$screen: LoansScreen</ID>
     <ID>UnusedParameter:MainScreen.kt$screen: MainScreen</ID>
     <ID>UnusedParameter:ParseFields.kt$metadata: Unit</ID>
@@ -10644,14 +10644,14 @@
     <ID>UnusedPrivateProperty:AccountModal.kt$val context = LocalContext.current</ID>
     <ID>UnusedPrivateProperty:DateExt.kt$val seconds = TimeUnit.MILLISECONDS.toSeconds(timeLeftAfterCalculations)</ID>
     <ID>UnusedPrivateProperty:HomeMoreMenu.kt$val context = LocalContext.current</ID>
-    <ID>UnusedPrivateProperty:IvyLineChart.kt$val marginFromX = 4.dp.toPx()</ID>
+    <ID>UnusedPrivateProperty:IrisLineChart.kt$val marginFromX = 4.dp.toPx()</ID>
     <ID>UnusedPrivateProperty:LoanDetailsViewModel.kt$LoanDetailsViewModel$private val accountDao: AccountDao</ID>
-    <ID>UnusedPrivateProperty:LoanDetailsViewModel.kt$LoanDetailsViewModel$private val ivyContext: IvyWalletCtx</ID>
+    <ID>UnusedPrivateProperty:LoanDetailsViewModel.kt$LoanDetailsViewModel$private val irisContext: IrisWalletCtx</ID>
     <ID>UnusedPrivateProperty:LoanDetailsViewModel.kt$LoanDetailsViewModel$private val loanDao: LoanDao</ID>
     <ID>UnusedPrivateProperty:OnboardingPrivacyTC.kt$val context = LocalContext.current</ID>
     <ID>UnusedPrivateProperty:TransactionReminderLogic.kt$TransactionReminderLogic.Companion$private const val UNIQUE_WORK_NAME_V1 = "transaction_reminder_work"</ID>
-    <ID>UseCheckOrError:IvyContext.kt$IvyContext$throw IllegalStateException("screenHeight not initialized")</ID>
-    <ID>UseCheckOrError:IvyContext.kt$IvyContext$throw IllegalStateException("screenWidth not initialized")</ID>
+    <ID>UseCheckOrError:IrisContext.kt$IrisContext$throw IllegalStateException("screenHeight not initialized")</ID>
+    <ID>UseCheckOrError:IrisContext.kt$IrisContext$throw IllegalStateException("screenWidth not initialized")</ID>
     <ID>UseCheckOrError:SharedPrefs.kt$SharedPrefs$throw IllegalStateException("SharePrefs key '$key' cannot be null")</ID>
     <ID>UseCheckOrError:ZipUtils.kt$throw IllegalStateException("Location file must be directory or not exist")</ID>
     <ID>UtilityClassWithPublicConstructor:WidgetBase.kt$WidgetBase</ID>
@@ -11296,15 +11296,15 @@
     <ID>WildcardImport:ImplementationConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
     <ID>WildcardImport:ImplementationDependenciesMetadataConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>WildcardImport:ImplementationDependenciesMetadataConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
-    <ID>WildcardImport:InputField.kt$import com.ivy.design.l0_system.*</ID>
-    <ID>WildcardImport:InputField.kt$import com.ivy.design.utils.*</ID>
+    <ID>WildcardImport:InputField.kt$import com.iris.design.l0_system.*</ID>
+    <ID>WildcardImport:InputField.kt$import com.iris.design.utils.*</ID>
     <ID>WildcardImport:IntransitiveDependenciesMetadataConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>WildcardImport:IntransitiveDependenciesMetadataConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
-    <ID>WildcardImport:IvyRoomDatabase.kt$import androidx.room.*</ID>
-    <ID>WildcardImport:IvySwitch.kt$import androidx.compose.foundation.layout.*</ID>
-    <ID>WildcardImport:IvySwitch.kt$import androidx.compose.runtime.*</ID>
-    <ID>WildcardImport:IvyToolbar.kt$import androidx.compose.foundation.layout.*</ID>
-    <ID>WildcardImport:IvyWalletDesign.kt$import com.ivy.design.l0_system.*</ID>
+    <ID>WildcardImport:IrisRoomDatabase.kt$import androidx.room.*</ID>
+    <ID>WildcardImport:IrisSwitch.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:IrisSwitch.kt$import androidx.compose.runtime.*</ID>
+    <ID>WildcardImport:IrisToolbar.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>WildcardImport:IrisWalletDesign.kt$import com.iris.design.l0_system.*</ID>
     <ID>WildcardImport:Keyboard.kt$import androidx.compose.runtime.*</ID>
     <ID>WildcardImport:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>WildcardImport:KotlinBuildToolsApiClasspathConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
@@ -11355,9 +11355,9 @@
     <ID>WildcardImport:MainSourceElementsConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>WildcardImport:MainSourceElementsConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
     <ID>WildcardImport:PieChart.kt$import androidx.compose.foundation.layout.*</ID>
-    <ID>WildcardImport:PieChart.kt$import com.ivy.wallet.ui.theme.*</ID>
-    <ID>WildcardImport:PreloadDataLogic.kt$import com.ivy.design.l0_system.*</ID>
-    <ID>WildcardImport:ProgressBar.kt$import com.ivy.wallet.ui.theme.*</ID>
+    <ID>WildcardImport:PieChart.kt$import com.iris.wallet.ui.theme.*</ID>
+    <ID>WildcardImport:PreloadDataLogic.kt$import com.iris.design.l0_system.*</ID>
+    <ID>WildcardImport:ProgressBar.kt$import com.iris.wallet.ui.theme.*</ID>
     <ID>WildcardImport:ReleaseAnnotationProcessorConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>
     <ID>WildcardImport:ReleaseAnnotationProcessorConfigurationAccessors.kt$import org.gradle.kotlin.dsl.accessors.runtime.*</ID>
     <ID>WildcardImport:ReleaseApiConfigurationAccessors.kt$import org.gradle.kotlin.dsl.*</ID>

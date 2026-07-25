@@ -1,5 +1,5 @@
 name: Dev Request
-description: Make the Ivy Wallet dev experience better.
+description: Make the IrisWallet developer experience better.
 labels: ["dev"]
 body:
   - type: checkboxes
@@ -7,7 +7,7 @@ body:
     attributes:
       label: Please confirm the following
       options:
-        - label: I checked [the current issues](https://github.com/Ivy-Apps/ivy-wallet/issues) for duplicate issues.
+        - label: I checked [the current issues](https://github.com/michaelkamau/iris-wallet/issues) for duplicate issues.
           required: true
   - type: textarea
     id: description

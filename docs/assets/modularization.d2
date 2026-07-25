@@ -1,11 +1,11 @@
-ivy-res: ":ivy-resources" {
+iris-res: ":iris-resources" {
   "Shared resources"
   "strings and drawables"
 }
-ivy-base: ":ivy-base" {
+iris-base: ":iris-base" {
   "Code shared everywhere"
 }
-ivy-data: ":ivy-data" {
+iris-data: ":iris-data" {
   "Data Layer" {
     style {
       fill: blue
@@ -14,7 +14,7 @@ ivy-data: ":ivy-data" {
   }
   "CRUD: Repositories & DataSources"
 }
-ivy-domain: ":ivy-domain" {
+iris-domain: ":iris-domain" {
   "Domain Layer" {
     style {
       fill: blue
@@ -23,15 +23,15 @@ ivy-domain: ":ivy-domain" {
   }
   "Business logic & rules"
 }
-ivy-common-ui: ":ivy-common-ui" {
+iris-common-ui: ":iris-common-ui" {
   "UI components bundled with domain logic"
 }
-ivy-nav: ":ivy-navigation" {
+iris-nav: ":iris-navigation" {
   "Screen destinations"
   "Navigation logic"
 }
-ivy-design: ":ivy-design" {
-  "Ivy's design system"
+iris-design: ":iris-design" {
+  "Iris design system"
 }
 screens: ":screen/feature" {
   "UI Layer" {
@@ -46,22 +46,22 @@ screens: ":screen/feature" {
   ":feature-xyz"
 }
 app: ":app" {
-  "App monolith shipped to the PlayStore"
+  "App monolith"
   "Wires the implementation of all screens"
 }
 
-ivy-data -> ivy-base
-ivy-domain -> ivy-data
-ivy-domain -> ivy-base
+iris-data -> iris-base
+iris-domain -> iris-data
+iris-domain -> iris-base
 
-ivy-design -> ivy-res
-ivy-nav -> ivy-domain
-ivy-nav -> ivy-design
+iris-design -> iris-res
+iris-nav -> iris-domain
+iris-nav -> iris-design
 
-ivy-common-ui -> ivy-nav
+iris-common-ui -> iris-nav
 
-screens -> ivy-common-ui
-screens -> ivy-nav
-screens -> ivy-res
+screens -> iris-common-ui
+screens -> iris-nav
+screens -> iris-res
 
 app -> screens

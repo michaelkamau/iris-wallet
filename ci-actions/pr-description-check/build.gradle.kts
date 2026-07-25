@@ -1,10 +1,10 @@
 plugins {
-    id("ivy.script")
+    id("iris.script")
     application
 }
 
 application {
-    mainClass = "ivy.automate.pr.MainKt"
+    mainClass = "iris.automate.pr.MainKt"
 }
 
 dependencies {

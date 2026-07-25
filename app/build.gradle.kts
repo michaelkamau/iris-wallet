@@ -4,8 +4,6 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("com.google.devtools.ksp")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
     id("io.gitlab.arturbosch.detekt")
 }
 
@@ -18,17 +16,17 @@ kotlin {
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt> {
     // Detekt's `jvmTarget` defaults to `JavaVersion.current()`, which fails when the running
     // JDK (e.g. 25) is newer than what detekt's bundled compiler frontend understands. Pin it
-    // explicitly to the project's target JVM version, same as the `ivy.detekt` convention
+    // explicitly to the project's target JVM version, same as the `iris.detekt` convention
     // plugin used by other modules.
     jvmTarget = libs.versions.jvm.target.get()
 }
 
 android {
-    namespace = "com.ivy.wallet"
+    namespace = "com.iris.wallet"
     compileSdk = libs.versions.compile.sdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.ivy.wallet"
+        applicationId = "com.iris.wallet"
         minSdk = libs.versions.min.sdk.get().toInt()
         targetSdk = libs.versions.compile.sdk.get().toInt()
         versionName = libs.versions.version.name.get()
@@ -42,9 +40,9 @@ android {
     signingConfigs {
         getByName("debug") {
             storeFile = file("../debug.jks")
-            storePassword = "IVY7834!DEbug"
+            storePassword = "IRIS7834!DEbug"
             keyAlias = "debug"
-            keyPassword = "IVY7834!DEbug"
+            keyPassword = "IRIS7834!DEbug"
         }
 
         create("release") {
@@ -69,7 +67,7 @@ android {
 
             signingConfig = signingConfigs.getByName("release")
 
-            resValue("string", "app_name", "Ivy Wallet")
+            resValue("string", "app_name", "Iris Wallet")
         }
 
         debug {
@@ -82,7 +80,7 @@ android {
             signingConfig = signingConfigs.getByName("debug")
 
             applicationIdSuffix = ".debug"
-            resValue("string", "app_name", "Ivy Wallet Debug")
+            resValue("string", "app_name", "Iris Wallet Debug")
         }
 
         create("demo") {
@@ -96,12 +94,11 @@ android {
             matchingFallbacks.add("release")
 
             isDebuggable = false
-            isDefault = false
 
             signingConfig = signingConfigs.getByName("debug")
 
             applicationIdSuffix = ".debug"
-            resValue("string", "app_name", "Ivy Wallet")
+            resValue("string", "app_name", "Iris Wallet")
         }
     }
 
@@ -171,7 +168,6 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.bundles.activity)
     implementation(libs.bundles.google)
-    implementation(libs.bundles.firebase)
     implementation(libs.datastore)
     implementation(libs.androidx.security)
     implementation(libs.androidx.biometrics)

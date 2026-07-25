@@ -8,7 +8,7 @@ body:
     attributes:
       label: Please confirm the following
       options:
-        - label: I checked [the current issues](https://github.com/Ivy-Apps/ivy-wallet/issues) for duplicate problems
+        - label: I checked [the current issues](https://github.com/michaelkamau/iris-wallet/issues) for duplicate problems
           required: true
   - type: textarea
     id: bug-description
@@ -50,8 +50,8 @@ body:
     id: app_version
     attributes:
       label: App version
-      description: Specify the exact version of the Ivy Wallet app. You can see it on the top right of the Settings screen.
-      placeholder: v2024.06.07 (181) from Google Play
+      description: Specify the exact version of the IrisWallet app. You can see it on the top right of the Settings screen.
+      placeholder: v2024.06.07 (181)
     validations:
       required: true
   - type: input

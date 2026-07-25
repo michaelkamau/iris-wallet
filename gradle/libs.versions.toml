@@ -110,12 +110,9 @@ hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.re
 hilt-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
 
 # Google
-google-services-plugin = { module = "com.google.gms:google-services", version = "4.5.0" }
 google-play-update = { module = "com.google.android.play:app-update", version = "2.1.0" }
 google-play-services = { module = "com.google.android.gms:play-services-tasks", version = "18.4.1" }
 google-play-review = { module = "com.google.android.play:review-ktx", version = "2.0.2" }
-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics", version = "20.0.6" }
-firebase-crashlytics-gradle-plugin = { module = "com.google.firebase:firebase-crashlytics-gradle", version = "3.0.7" }
 
 # AndroidX
 androidx-security = { module = "androidx.security:security-crypto", version = "1.1.0" }
@@ -142,7 +139,6 @@ detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plu
 detekt-ruleset-compiler = { module = "com.braisgabin.detekt:kotlin-compiler-wrapper", version = "0.0.4" }
 detekt-ruleset-ktlint = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 detekt-ruleset-compose = { module = "io.nlopez.compose.rules:detekt", version = "0.6.2" }
-detekt-ruleset-ivy-explicit = { module = "com.github.Ivy-Apps:detekt-explicit", version = "v0.0.8" }
 slack-lint-compose = { module = "com.slack.lint.compose:compose-lint-checks", version = "1.5.2" }
 
 # KSP
@@ -220,9 +216,6 @@ google = [
     "google-play-update",
     "google-play-services",
     "google-play-review"
-]
-firebase = [
-    "firebase-crashlytics"
 ]
 hilt = [
     "hilt",

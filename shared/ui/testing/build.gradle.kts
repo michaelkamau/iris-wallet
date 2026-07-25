@@ -1,9 +1,9 @@
 plugins {
-    id("ivy.feature")
+    id("iris.feature")
 }
 
 android {
-    namespace = "com.ivy.ui.testing"
+    namespace = "com.iris.ui.testing"
 }
 
 dependencies {
@@ -16,6 +16,6 @@ dependencies {
     // Used directly (not via the app.cash.molecule Gradle plugin) since that plugin hardcodes
     // an incompatible, no-longer-updated Compose compiler artifact
     // (org.jetbrains.compose.compiler:compiler) that clashes with the official
-    // org.jetbrains.kotlin.plugin.compose plugin already applied via ivy.compose.
+    // org.jetbrains.kotlin.plugin.compose plugin already applied via iris.compose.
     implementation(libs.cashapp.molecule.runtime)
 }

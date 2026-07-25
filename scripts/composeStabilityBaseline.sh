@@ -13,7 +13,7 @@ fi
 
 
 ./gradlew :ci-actions:compose-stability:run --args='generateBaseline' || exit 1
-git add ci-actions/compose-stability/ivy-compose-stability-baseline.txt || exit 1
+git add ci-actions/compose-stability/iris-compose-stability-baseline.txt || exit 1
 git commit -m "Add Compose Stability baseline" || exit 1
 echo "Compose Stability baseline added."
 echo "[SUCCESS] Compose Stability baseline committed. Do 'git push'."

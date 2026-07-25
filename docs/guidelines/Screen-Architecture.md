@@ -1,6 +1,6 @@
 # Screen Architecture
 
-Ivy Wallet uses a [Unidirectional Data Flow (UDF)](https://developer.android.com/topic/architecture#unidirectional-data-flow) and MVI architecture pattern with the Compose runtime for reactive state management in the view-model.
+IrisWallet uses a [Unidirectional Data Flow (UDF)](https://developer.android.com/topic/architecture#unidirectional-data-flow) and MVI architecture pattern with the Compose runtime for reactive state management in the view-model.
 It key characteristics are:
 
 ![screen-architecture](../assets/screen-vm.svg)

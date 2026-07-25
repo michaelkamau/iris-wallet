@@ -1,9 +1,9 @@
 plugins {
-    id("ivy.widget")
+    id("iris.widget")
 }
 
 android {
-    namespace = "com.ivy.widget.balance"
+    namespace = "com.iris.widget.balance"
 }
 
 dependencies {

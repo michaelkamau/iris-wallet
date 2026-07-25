@@ -27,4 +27,4 @@ jobs:
           java-version: '18'
 
       - name: Upgrade Gradle Wrapper
-        run: ./gradlew upgradeGradleWrapperIvyWallet
+        run: ./gradlew upgradeGradleWrapperIrisWallet

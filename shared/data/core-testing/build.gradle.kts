@@ -1,10 +1,10 @@
 plugins {
-    id("ivy.feature")
-    id("ivy.room")
+    id("iris.feature")
+    id("iris.room")
 }
 
 android {
-    namespace = "com.ivy.data.testing"
+    namespace = "com.iris.data.testing"
 }
 
 dependencies {

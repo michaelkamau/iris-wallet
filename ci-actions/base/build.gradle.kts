@@ -1,5 +1,5 @@
 plugins {
-    id("ivy.script")
+    id("iris.script")
 }
 
 dependencies {
