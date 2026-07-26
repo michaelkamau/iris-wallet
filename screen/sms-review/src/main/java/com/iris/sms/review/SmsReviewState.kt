@@ -25,6 +25,10 @@ sealed interface SmsReviewState {
         val pendingCount: Int,
         /** Stable string id of the expanded row; null means the whole list is collapsed. */
         val expandedItemId: String?,
+        /** Everything the category picker offers, in the user's own order. */
+        val categories: ImmutableList<CategoryPickUi>,
+        /** Everything the account picker offers; empty renders nothing to choose from. */
+        val accounts: ImmutableList<AccountPickUi>,
     ) : SmsReviewState
 }
 
@@ -40,8 +44,16 @@ data class CapturedItemUi(
     /** `CapturedTransactionId.value.toString()`. */
     val id: String,
     val amountFormatted: String,
+    /**
+     * The raw amount, as the inline editor needs to show it: `1350.0` rather than
+     * `"-KES 1,350.00"`. Editing a pre-formatted string would mean parsing a currency symbol,
+     * a sign and a thousands separator back out of it (FR-023).
+     */
+    val amountEditable: String,
     val counterparty: String,
     val timeFormatted: String,
+    /** The message's own instant, so the date editor starts where the message says (FR-014). */
+    val timeEpochMillis: Long,
     val reference: String?,
     /** null renders the "choose an account" affordance rather than a name. */
     val accountName: String?,
@@ -51,6 +63,14 @@ data class CapturedItemUi(
     val feeFormatted: String?,
     val status: ReviewStatusUi,
 )
+
+/** One option in the category picker. Carries a colour so the list reads like the user's own. */
+@Immutable
+data class CategoryPickUi(val id: String, val name: String, val colorArgb: Int)
+
+/** One option in the account picker (FR-027a). */
+@Immutable
+data class AccountPickUi(val id: String, val name: String)
 
 /** The view's echo of `com.iris.data.model.sms.ReviewStatus`, carrying strings rather than ids. */
 @Immutable

@@ -5,6 +5,7 @@ import arrow.core.Either
 import arrow.core.flatten
 import arrow.core.raise.either
 import arrow.core.raise.ensureNotNull
+import com.iris.base.time.TimeProvider
 import com.iris.data.db.IrisRoomDatabase
 import com.iris.data.model.AccountId
 import com.iris.data.model.CategoryId
@@ -15,13 +16,17 @@ import com.iris.data.model.Transaction
 import com.iris.data.model.TransactionId
 import com.iris.data.model.TransactionMetadata
 import com.iris.data.model.primitive.NotBlankTrimmedString
+import com.iris.data.model.primitive.PositiveDouble
 import com.iris.data.model.sms.CapturedKind
 import com.iris.data.model.sms.CapturedTransaction
 import com.iris.data.model.sms.CapturedTransactionId
+import com.iris.data.model.sms.CounterpartyCategory
 import com.iris.data.model.sms.MoneyDirection
 import com.iris.data.model.sms.ProviderReference
 import com.iris.data.repository.CapturedTransactionRepository
+import com.iris.data.repository.CounterpartyCategoryRepository
 import com.iris.data.repository.TransactionRepository
+import com.iris.sms.parser.primitive.CounterpartyNormalizer
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.time.Instant
@@ -62,22 +67,48 @@ class ConfirmCapturedTransactionUseCase @Inject constructor(
     private val db: IrisRoomDatabase,
     private val capturedTransactionRepository: CapturedTransactionRepository,
     private val transactionRepository: TransactionRepository,
+    private val counterpartyCategoryRepository: CounterpartyCategoryRepository,
+    private val counterpartyNormalizer: CounterpartyNormalizer,
     private val ensureTransactionCostCategory: EnsureTransactionCostCategoryUseCase,
+    private val timeProvider: TimeProvider,
 ) {
 
     /**
      * @param account overrides the captured mapping, which is how an item that needs an account
      *   is confirmed at all.
-     * @param category the user's choice for this counterparty; remembered in T099 (US3).
+     * @param category the user's choice for this counterparty, remembered on the way through so
+     *   the next payment to the same payee is suggested it (FR-024).
      * @param description replaces the captured description; the reference is still appended.
+     * @param amount corrects a misread figure (FR-023).
+     * @param counterparty corrects a misread payee; the memory is keyed off this corrected name,
+     *   not the one the parser produced, or the correction would be forgotten immediately.
+     * @param time corrects a misread date (FR-023).
      */
+    @Suppress("LongParameterList")
     suspend fun confirm(
         id: CapturedTransactionId,
         account: AccountId? = null,
         category: CategoryId? = null,
         description: NotBlankTrimmedString? = null,
+        amount: PositiveDouble? = null,
+        counterparty: NotBlankTrimmedString? = null,
+        time: Instant? = null,
     ): Either<ConfirmCaptureError, TransactionId> = Either
-        .catch { db.withTransaction { commit(id, account, category, description) } }
+        .catch {
+            db.withTransaction {
+                commit(
+                    id = id,
+                    account = account,
+                    category = category,
+                    edits = Edits(
+                        description = description,
+                        amount = amount,
+                        counterparty = counterparty,
+                        time = time,
+                    ),
+                )
+            }
+        }
         .mapLeft<ConfirmCaptureError> {
             ConfirmCaptureError.Persistence(it::class.simpleName ?: "unknown")
         }
@@ -87,12 +118,12 @@ class ConfirmCapturedTransactionUseCase @Inject constructor(
         id: CapturedTransactionId,
         account: AccountId?,
         category: CategoryId?,
-        description: NotBlankTrimmedString?,
+        edits: Edits,
     ): Either<ConfirmCaptureError, TransactionId> = either {
         val entry = capturedTransactionRepository.findById(id)
         ensureNotNull(entry) { ConfirmCaptureError.CapturedItemGone(id) }
 
-        val captured = entry.principal
+        val captured = entry.principal.applying(edits)
         val resolvedAccount = account ?: captured.account
         ensureNotNull(resolvedAccount) { ConfirmCaptureError.MissingAccount(id) }
 
@@ -107,16 +138,17 @@ class ConfirmCapturedTransactionUseCase @Inject constructor(
             null
         }
 
+        // A message that reported nothing but a charge is itself a transaction cost, so it files
+        // under the same category rather than under whatever was picked at review time (FR-020).
+        val principalCategory = when (captured.kind) {
+            is CapturedKind.Fee -> costCategory
+            is CapturedKind.Principal -> category ?: captured.category
+        }
+
         val transaction = captured.toLedger(
             account = resolvedAccount,
-            // A message that reported nothing but a charge is itself a transaction cost, so it
-            // files under the same category rather than under whatever was picked at review
-            // time (FR-020).
-            category = when (captured.kind) {
-                is CapturedKind.Fee -> costCategory
-                is CapturedKind.Principal -> category ?: captured.category
-            },
-            description = description ?: captured.description,
+            category = principalCategory,
+            description = edits.description ?: captured.description,
         )
         transactionRepository.save(transaction)
 
@@ -133,12 +165,64 @@ class ConfirmCapturedTransactionUseCase @Inject constructor(
             )
         }
 
+        // Written inside the same block as the ledger row, so the app can never end up suggesting
+        // a category for a payment that was rolled back (FR-024).
+        rememberCategory(captured, principalCategory)
+
         // The `processed_messages` row was written with outcome CAPTURED when the message was
         // first seen, so confirming needs no second write to keep re-delivery blocked (FR-025).
         // `deleteEntry` removes the principal and its fee together (FR-018).
         capturedTransactionRepository.deleteEntry(id)
         transaction.id
     }
+
+    /**
+     * Upserts the counterparty→category memory, so the *latest* choice is the one suggested next
+     * time and correcting a suggestion actually sticks (FR-024, Acceptance 3.3).
+     *
+     * Deliberately silent about three cases:
+     *
+     * - a **fee**, whose category is forced to "Transaction costs" and was never the user's
+     *   choice about that payee;
+     * - a confirm with **no category**, which is an absence rather than a decision — writing it
+     *   would need a row meaning "nothing", and reading it back would suppress a real suggestion;
+     * - a payment naming **nobody**, which has no key to remember against.
+     */
+    private suspend fun rememberCategory(
+        captured: CapturedTransaction,
+        category: CategoryId?,
+    ) {
+        val chosen = category.takeIf { captured.kind is CapturedKind.Principal } ?: return
+        val key = captured.counterparty
+            ?.let { counterpartyNormalizer.key(it).getOrNull() }
+            ?: return
+        counterpartyCategoryRepository.remember(
+            CounterpartyCategory(
+                counterparty = key,
+                category = chosen,
+                updatedAt = timeProvider.utcNow(),
+            ),
+        )
+    }
+
+    /**
+     * The user's corrections, applied before anything is read off the captured row, so every
+     * later step — the ledger write, the category memory — sees the corrected values rather than
+     * the parsed ones (FR-023).
+     */
+    private fun CapturedTransaction.applying(edits: Edits): CapturedTransaction = copy(
+        amount = edits.amount ?: amount,
+        counterparty = edits.counterparty ?: counterparty,
+        time = edits.time ?: time,
+    )
+
+    /** Grouped so [commit] keeps a readable signature as FR-023 adds correctable fields. */
+    private data class Edits(
+        val description: NotBlankTrimmedString?,
+        val amount: PositiveDouble?,
+        val counterparty: NotBlankTrimmedString?,
+        val time: Instant?,
+    )
 
     /**
      * The reference is appended to the description rather than stored beside it, because the

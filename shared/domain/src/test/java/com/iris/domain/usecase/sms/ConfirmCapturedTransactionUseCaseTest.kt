@@ -3,18 +3,22 @@ package com.iris.domain.usecase.sms
 import androidx.room.withTransaction
 import arrow.core.left
 import arrow.core.right
+import com.iris.base.time.TimeProvider
 import com.iris.data.db.IrisRoomDatabase
 import com.iris.data.model.CategoryId
 import com.iris.data.model.Expense
 import com.iris.data.model.Income
 import com.iris.data.model.Transaction
 import com.iris.data.model.primitive.NotBlankTrimmedString
+import com.iris.data.model.primitive.PositiveDouble
 import com.iris.data.model.sms.CapturedEntry
 import com.iris.data.model.sms.CapturedTransaction
 import com.iris.data.model.sms.CapturedTransactionId
 import com.iris.data.model.sms.MoneyDirection
 import com.iris.data.repository.CapturedTransactionRepository
+import com.iris.data.repository.CounterpartyCategoryRepository
 import com.iris.data.repository.TransactionRepository
+import com.iris.sms.parser.primitive.CounterpartyNormalizer
 import io.kotest.assertions.arrow.core.shouldBeLeft
 import io.kotest.assertions.arrow.core.shouldBeRight
 import io.kotest.matchers.shouldBe
@@ -31,6 +35,11 @@ import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.time.ZoneId
 import java.util.UUID
 
 /**
@@ -43,6 +52,8 @@ class ConfirmCapturedTransactionUseCaseTest {
     private val capturedTransactionRepository =
         mockk<CapturedTransactionRepository>(relaxUnitFun = true)
     private val transactionRepository = mockk<TransactionRepository>(relaxUnitFun = true)
+    private val counterpartyCategoryRepository =
+        mockk<CounterpartyCategoryRepository>(relaxUnitFun = true)
     private val ensureTransactionCostCategory = mockk<EnsureTransactionCostCategoryUseCase>()
 
     private val id = CapturedTransactionId(UUID.randomUUID())
@@ -57,7 +68,10 @@ class ConfirmCapturedTransactionUseCaseTest {
             db = db,
             capturedTransactionRepository = capturedTransactionRepository,
             transactionRepository = transactionRepository,
+            counterpartyCategoryRepository = counterpartyCategoryRepository,
+            counterpartyNormalizer = CounterpartyNormalizer(),
             ensureTransactionCostCategory = ensureTransactionCostCategory,
+            timeProvider = FixedTimeProvider,
         )
     }
 
@@ -95,9 +109,58 @@ class ConfirmCapturedTransactionUseCaseTest {
         saved.captured.shouldBeInstanceOf<Expense>().account shouldBe SmsFixtures.Account
     }
 
+    /**
+     * FR-023 in one assertion: whatever the parser read, the ledger records what the user last
+     * saw on screen. An edit that reaches the review UI but not the insert is invisible until the
+     * user finds the wrong figure in their reports weeks later.
+     */
     @Test
-    fun `money out becomes an expense, money in becomes an income`() = runTest {
+    fun `an edited amount, payee and date are the values that reach the ledger`() = runTest {
+        // given a message the parser read imperfectly
+        pending(
+            SmsFixtures.captured(
+                id = id,
+                amount = 1_350.0,
+                counterparty = "Frnk Inn Kikuy",
+            ),
+        )
+        val saved = slot<Transaction>()
+        coEvery { transactionRepository.save(capture(saved)) } just runs
+
+        // when the user corrects all three before confirming
+        useCase.confirm(
+            id = id,
+            amount = PositiveDouble.unsafe(1_530.0),
+            counterparty = NotBlankTrimmedString.unsafe("Frank Inn Kikuyu"),
+            time = CorrectedTime,
+        )
+
+        // then none of the parsed values survive into the ledger
+        val expense = saved.captured.shouldBeInstanceOf<Expense>()
+        expense.value.amount.value shouldBe 1_530.0
+        expense.title?.value shouldBe "Frank Inn Kikuyu"
+        expense.time shouldBe CorrectedTime
+    }
+
+    @Test
+    fun `a field the user did not touch keeps what was extracted`() = runTest {
         // given
+        pending(SmsFixtures.captured(id = id, counterparty = "James Kinyua"))
+        val saved = slot<Transaction>()
+        coEvery { transactionRepository.save(capture(saved)) } just runs
+
+        // when only the amount is corrected
+        useCase.confirm(id, amount = PositiveDouble.unsafe(1_530.0))
+
+        // then the payee and the message's own timestamp are untouched (FR-014)
+        val expense = saved.captured.shouldBeInstanceOf<Expense>()
+        expense.value.amount.value shouldBe 1_530.0
+        expense.title?.value shouldBe "James Kinyua"
+        expense.time shouldBe SmsFixtures.PaidAt
+    }
+
+    @Test
+ fun `money out becomes an expense, money in becomes an income`() = runTest { // given
         pending(SmsFixtures.captured(id = id, direction = MoneyDirection.MoneyIn))
         val saved = slot<Transaction>()
         coEvery { transactionRepository.save(capture(saved)) } just runs
@@ -404,8 +467,20 @@ class ConfirmCapturedTransactionUseCaseTest {
         }
     }
 
+    /** Fixed rather than mocked: the memory's `updatedAt` is incidental to every case here. */
+    private object FixedTimeProvider : TimeProvider {
+        override fun getZoneId(): ZoneId = ZoneId.of("UTC")
+        override fun utcNow(): Instant = SmsFixtures.CapturedAt
+        override fun localNow(): LocalDateTime = LocalDateTime.ofInstant(utcNow(), getZoneId())
+        override fun localDateNow(): LocalDate = localNow().toLocalDate()
+        override fun localTimeNow(): LocalTime = localNow().toLocalTime()
+    }
+
     private companion object {
         private const val ROOM_DATABASE_KT = "androidx.room.RoomDatabaseKt"
+
+        /** The date the user corrects to in the FR-023 case: an hour earlier than parsed. */
+        private val CorrectedTime: Instant = Instant.parse("2026-07-25T15:50:00Z")
 
         /** Whatever `EnsureTransactionCostCategoryUseCase` returns; its identity is the point. */
         private val CostCategory =

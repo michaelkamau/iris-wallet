@@ -19,6 +19,7 @@ import com.iris.data.backup.BackupDataUseCase
 import com.iris.data.db.dao.read.SettingsDao
 import com.iris.data.db.dao.write.WriteSettingsDao
 import com.iris.data.model.primitive.AssetCode
+import com.iris.data.repository.CapturedTransactionRepository
 import com.iris.domain.RootScreen
 import com.iris.domain.usecase.csv.ExportCsvUseCase
 import com.iris.domain.usecase.exchange.SyncExchangeRatesUseCase
@@ -38,6 +39,7 @@ import com.iris.widget.balance.WalletBalanceWidgetReceiver
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -57,6 +59,7 @@ class SettingsViewModel @Inject constructor(
     private val updateSettingsAct: UpdateSettingsAct,
     private val settingsWriter: WriteSettingsDao,
     private val exportCsvUseCase: ExportCsvUseCase,
+    private val capturedTransactionRepository: CapturedTransactionRepository,
     @ApplicationContext private val context: Context
 ) : ComposeViewModel<SettingsState, SettingsEvent>() {
 
@@ -70,6 +73,7 @@ class SettingsViewModel @Inject constructor(
     private val treatTransfersAsIncomeExpense = mutableStateOf(false)
     private val startDateOfMonth = mutableIntStateOf(1)
     private val progressState = mutableStateOf(false)
+    private val smsPendingCount = mutableIntStateOf(0)
 
     @Composable
     override fun uiState(): SettingsState {
@@ -88,7 +92,8 @@ class SettingsViewModel @Inject constructor(
             startDateOfMonth = getStartDateOfMonth(),
             progressState = getProgressState(),
             hideIncome = getHideIncome(),
-            languageOptionVisible = isLanguageOptionVisible()
+            languageOptionVisible = isLanguageOptionVisible(),
+            smsPendingCount = smsPendingCount.intValue
         )
     }
 
@@ -102,6 +107,15 @@ class SettingsViewModel @Inject constructor(
         initializeHideIncome()
         initializeTransfersAsIncomeExpense()
         initializeStartDateOfMonth()
+        initializeSmsPendingCount()
+    }
+
+    /**
+     * Read once, on entry. A count that has never been anything but zero costs a single query and
+     * keeps the row identical to every other one for a user who has not opted in.
+     */
+    private suspend fun initializeSmsPendingCount() {
+        smsPendingCount.intValue = capturedTransactionRepository.pendingCount().first()
     }
 
     private suspend fun initializeCurrency() {

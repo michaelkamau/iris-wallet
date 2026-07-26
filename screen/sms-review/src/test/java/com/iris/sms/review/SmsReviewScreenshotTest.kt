@@ -84,6 +84,84 @@ class SmsReviewScreenshotTest(
         }
     }
 
+    /**
+     * The enrichment surface (FR-022, FR-023). Everything the user needs to file the payment is
+     * on screen at once: the category chips, the account chips and the three correctable fields.
+     * If a future change buries any of them behind another tap, this snapshot moves.
+     */
+    @Test
+    fun `item expanded for enrichment`() {
+        snapshot(theme) {
+            SmsReviewUi(
+                state = SmsReviewFixtures.content(
+                    SmsReviewFixtures.ReadyToConfirm,
+                    expandedItemId = SmsReviewFixtures.ReadyToConfirm.id,
+                ),
+                onEvent = {},
+            )
+        }
+    }
+
+    /**
+     * A payee the user has filed before. The suggestion is visible on the collapsed row *and*
+     * pre-selected in the picker, which is the whole of Acceptance 3.2 — it must be obvious
+     * enough to override, not hidden until the user opens the editor.
+     */
+    @Test
+    fun `item arriving with a remembered category`() {
+        snapshot(theme) {
+            SmsReviewUi(
+                state = SmsReviewFixtures.content(
+                    SmsReviewFixtures.WithSuggestedCategory,
+                    expandedItemId = SmsReviewFixtures.WithSuggestedCategory.id,
+                ),
+                onEvent = {},
+            )
+        }
+    }
+
+    /** The suggestion on a collapsed row, where it has to compete with nothing else for space. */
+    @Test
+    fun `remembered category on a collapsed row`() {
+        snapshot(theme) {
+            SmsReviewUi(
+                state = SmsReviewFixtures.content(SmsReviewFixtures.WithSuggestedCategory),
+                onEvent = {},
+            )
+        }
+    }
+
+    /**
+     * The unmapped sender, expanded. The account picker is the only route out of this state and
+     * the confirm affordance stays shut until one is chosen (FR-027a).
+     */
+    @Test
+    fun `item needing an account expanded`() {
+        snapshot(theme) {
+            SmsReviewUi(
+                state = SmsReviewFixtures.content(
+                    SmsReviewFixtures.NeedsAccount,
+                    expandedItemId = SmsReviewFixtures.NeedsAccount.id,
+                ),
+                onEvent = {},
+            )
+        }
+    }
+
+    /** "Keep it anyway" only exists here, so it only gets proven here (FR-029). */
+    @Test
+    fun `possible duplicate expanded`() {
+        snapshot(theme) {
+            SmsReviewUi(
+                state = SmsReviewFixtures.content(
+                    SmsReviewFixtures.PossibleDuplicate,
+                    expandedItemId = SmsReviewFixtures.PossibleDuplicate.id,
+                ),
+                onEvent = {},
+            )
+        }
+    }
+
     @Test
     fun `mixed list`() {
         snapshot(theme) {

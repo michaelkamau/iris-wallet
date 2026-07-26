@@ -54,6 +54,7 @@ import com.iris.navigation.FeaturesScreen
 import com.iris.navigation.ImportScreen
 import com.iris.navigation.Navigation
 import com.iris.navigation.ReleasesScreen
+import com.iris.navigation.SmsCaptureSettingsScreen
 import com.iris.navigation.navigation
 import com.iris.navigation.screenScopedViewModel
 import com.iris.ui.R
@@ -97,6 +98,7 @@ fun BoxWithConstraintsScope.SettingsScreen() {
         nameLocalAccount = uiState.name,
         startDateOfMonth = uiState.startDateOfMonth.toInt(),
         languageOptionVisible = uiState.languageOptionVisible,
+        smsPendingCount = uiState.smsPendingCount,
         onSetCurrency = {
             viewModel.onEvent(SettingsEvent.SetCurrency(it))
         },
@@ -156,6 +158,7 @@ private fun BoxWithConstraintsScope.UI(
     hideIncome: Boolean = false,
     progressState: Boolean = false,
     treatTransfersAsIncomeExpense: Boolean = false,
+    smsPendingCount: Int = 0,
     onSetName: (String) -> Unit = {},
     onBackupData: () -> Unit = {},
     onExportToCSV: () -> Unit = {},
@@ -386,6 +389,13 @@ private fun BoxWithConstraintsScope.UI(
             CustomFeatures(
                 onClick = { nav.navigateTo(FeaturesScreen) }
             )
+
+            Spacer(Modifier.height(12.dp))
+
+            SmsCapture(
+                pendingCount = smsPendingCount,
+                onClick = { nav.navigateTo(SmsCaptureSettingsScreen) }
+            )
         }
 
 //        item {
@@ -611,6 +621,31 @@ private fun StartDateOfMonth(
         )
 
         Spacer(Modifier.width(32.dp))
+    }
+}
+
+/**
+ * The single entry point to SMS transaction capture, and the only change this feature makes to an
+ * existing screen.
+ *
+ * The badge is drawn only when something is actually waiting, so a user who has never switched
+ * the feature on sees a row indistinguishable in weight from the ones around it (SC-010).
+ */
+@Composable
+private fun SmsCapture(
+    pendingCount: Int,
+    onClick: () -> Unit
+) {
+    SettingsDefaultButton(
+        icon = R.drawable.ic_custom_bank_m,
+        text = stringResource(R.string.sms_transaction_capture),
+        description = if (pendingCount > 0) {
+            stringResource(R.string.sms_transaction_capture_waiting, pendingCount)
+        } else {
+            null
+        }
+    ) {
+        onClick()
     }
 }
 

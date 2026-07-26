@@ -8,7 +8,16 @@ import com.iris.base.TestDispatchersProvider
 import com.iris.base.time.TimeProvider
 import com.iris.data.DataObserver
 import com.iris.data.db.IrisRoomDatabase
+import com.iris.data.model.Account
+import com.iris.data.model.AccountId
+import com.iris.data.model.Expense
+import com.iris.data.model.PositiveValue
+import com.iris.data.model.TransactionId
+import com.iris.data.model.TransactionMetadata
+import com.iris.data.model.primitive.AssetCode
+import com.iris.data.model.primitive.ColorInt
 import com.iris.data.model.primitive.NotBlankTrimmedString
+import com.iris.data.model.primitive.PositiveDouble
 import com.iris.data.model.sms.CaptureOrigin
 import com.iris.data.model.sms.CapturedKind
 import com.iris.data.model.sms.FinancialSender
@@ -42,17 +51,20 @@ import com.iris.sms.parser.rules.DtbRules
 import com.iris.sms.parser.rules.KcbRules
 import com.iris.sms.parser.rules.MpesaRules
 import io.kotest.matchers.collections.shouldBeEmpty
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
-import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.ZoneId
+import java.util.UUID
 
 /**
  * The broadcast path, end to end, against real SQLite on a real device.
@@ -73,6 +85,8 @@ class SmsCaptureCoordinatorAndroidTest {
     private lateinit var capturedTransactions: CapturedTransactionRepository
     private lateinit var processedMessages: ProcessedMessageRepository
     private lateinit var senders: FinancialSenderRepository
+    private lateinit var accounts: AccountRepository
+    private lateinit var transactions: TransactionRepository
 
     private val gate = TestGate()
 
@@ -154,6 +168,8 @@ class SmsCaptureCoordinatorAndroidTest {
             dispatchersProvider = TestDispatchersProvider,
         )
 
+        accounts = accountRepository
+        transactions = transactionRepository
         senders.save(MpesaSender)
     }
 
@@ -275,6 +291,102 @@ class SmsCaptureCoordinatorAndroidTest {
 
         // then
         capturedTransactions.findAllPending().shouldBeEmpty()
+    }
+
+    /**
+     * FR-032. Switching the feature off has to leave the app exactly as it was, and "exactly as
+     * it was" includes the money already in it — not just the absence of new captures.
+     */
+    @Test
+    fun withCaptureDisabledTheExistingLedgerIsUntouched(): Unit = runBlocking {
+        // given a transaction the user entered by hand, and capture switched off
+        val existing = existingTransaction()
+        gate.enabled = false
+
+        // when a payment message arrives anyway
+        deliver(MPESA_SENDER, MPESA_PAID_BODY)
+
+        // then nothing was captured, nothing was recorded as seen, and the ledger is unchanged
+        capturedTransactions.findAllPending().shouldBeEmpty()
+        capturedTransactions.pendingCount().first() shouldBe 0
+        processedMessages.isProcessed(MessageFingerprint.unsafe("mpesa:UGP7B0ITE4")) shouldBe false
+        transactions.findById(existing).shouldNotBeNull()
+        transactions.findAll().size shouldBe 1
+    }
+
+    /**
+     * The same, for a user who was asked and said no. A refusal must cost them nothing beyond
+     * the feature itself (FR-032, Acceptance 4.2).
+     */
+    @Test
+    fun withThePermissionDeniedTheExistingLedgerIsUntouched(): Unit = runBlocking {
+        // given
+        val existing = existingTransaction()
+        gate.permitted = false
+
+        // when
+        deliver(MPESA_SENDER, MPESA_PAID_BODY)
+
+        // then
+        capturedTransactions.findAllPending().shouldBeEmpty()
+        transactions.findById(existing).shouldNotBeNull()
+        transactions.findAll().size shouldBe 1
+    }
+
+    /**
+     * Disabling mid-stream. Anything already captured is the user's work, not the feature's, so
+     * it survives the switch being turned off (Acceptance 4.4).
+     */
+    @Test
+    fun disablingCaptureLeavesAlreadyCapturedItemsWhereTheyAre(): Unit = runBlocking {
+        // given one message was captured while the feature was on
+        deliver(MPESA_SENDER, MPESA_PAID_BODY)
+        capturedTransactions.findAllPending().size shouldBe 1
+
+        // when the user switches it off and a second message arrives
+        gate.enabled = false
+        deliver(MPESA_SENDER, MPESA_SECOND_PAID_BODY)
+
+        // then the second is ignored and the first is still waiting for them
+        capturedTransactions.findAllPending().size shouldBe 1
+    }
+
+    private suspend fun existingTransaction(): TransactionId {
+        val id = TransactionId(UUID.randomUUID())
+        accounts.save(
+            Account(
+                id = AccountId(EXISTING_ACCOUNT),
+                name = NotBlankTrimmedString.unsafe("Cash"),
+                asset = AssetCode.unsafe("KES"),
+                color = ColorInt(0),
+                icon = null,
+                includeInBalance = true,
+                orderNum = 0.0,
+            ),
+        )
+        transactions.save(
+            Expense(
+                id = id,
+                title = NotBlankTrimmedString.unsafe("Lunch"),
+                description = null,
+                category = null,
+                time = FixedTimeProvider.utcNow(),
+                settled = true,
+                metadata = TransactionMetadata(
+                    recurringRuleId = null,
+                    paidForDateTime = null,
+                    loanId = null,
+                    loanRecordId = null,
+                ),
+                tags = emptyList(),
+                value = PositiveValue(
+                    amount = PositiveDouble.unsafe(500.0),
+                    asset = AssetCode.unsafe("KES"),
+                ),
+                account = AccountId(EXISTING_ACCOUNT),
+            ),
+        )
+        return id
     }
 
     @Test
@@ -412,6 +524,8 @@ class SmsCaptureCoordinatorAndroidTest {
             account = null,
             enabled = true,
         )
+
+        private val EXISTING_ACCOUNT = UUID.fromString("dddddddd-0000-0000-0000-000000000001")
 
         private const val MPESA_PAID_BODY =
             "UGP7B0ITE4 Confirmed Ksh1,350.00 paid to james Kinyua Mwangi9. on 25/7/26 at " +

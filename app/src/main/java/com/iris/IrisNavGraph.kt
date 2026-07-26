@@ -40,6 +40,7 @@ import com.iris.navigation.ReportScreen
 import com.iris.navigation.Screen
 import com.iris.navigation.SearchScreen
 import com.iris.navigation.SettingsScreen
+import com.iris.navigation.SmsCaptureSettingsScreen
 import com.iris.navigation.SmsReviewScreen
 import com.iris.navigation.TransactionsScreen
 import com.iris.onboarding.OnboardingScreen
@@ -51,6 +52,7 @@ import com.iris.reports.ReportScreen
 import com.iris.search.SearchScreen
 import com.iris.settings.SettingsScreen
 import com.iris.sms.review.SmsReviewScreenImpl
+import com.iris.sms.settings.SmsCaptureSettingsScreenImpl
 import com.iris.transaction.EditTransactionScreen
 import com.iris.transactions.TransactionsScreen
 
@@ -88,5 +90,6 @@ fun BoxWithConstraintsScope.IrisNavGraph(screen: Screen?) {
         ReleasesScreen -> ReleasesScreenImpl()
         DisclaimerScreen -> DisclaimerScreenImpl()
         SmsReviewScreen -> SmsReviewScreenImpl()
+        SmsCaptureSettingsScreen -> SmsCaptureSettingsScreenImpl()
     }
 }

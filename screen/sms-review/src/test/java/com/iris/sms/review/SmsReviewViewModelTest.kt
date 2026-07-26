@@ -4,6 +4,8 @@ import arrow.core.left
 import arrow.core.right
 import com.iris.data.model.Account
 import com.iris.data.model.AccountId
+import com.iris.data.model.Category
+import com.iris.data.model.CategoryId
 import com.iris.data.model.TransactionId
 import com.iris.data.model.primitive.AssetCode
 import com.iris.data.model.primitive.ColorInt
@@ -19,9 +21,11 @@ import com.iris.data.model.sms.ProviderReference
 import com.iris.data.model.sms.SenderId
 import com.iris.data.repository.AccountRepository
 import com.iris.data.repository.CapturedTransactionRepository
+import com.iris.data.repository.CategoryRepository
 import com.iris.domain.usecase.sms.ConfirmCaptureError
 import com.iris.domain.usecase.sms.ConfirmCapturedTransactionUseCase
 import com.iris.domain.usecase.sms.DismissCapturedTransactionUseCase
+import com.iris.domain.usecase.sms.SuggestCategoryUseCase
 import com.iris.navigation.Navigation
 import com.iris.ui.FormatMoneyUseCase
 import com.iris.ui.testing.ComposeViewModelTest
@@ -47,6 +51,8 @@ class SmsReviewViewModelTest : ComposeViewModelTest() {
 
     private val capturedTransactionRepository = mockk<CapturedTransactionRepository>()
     private val accountRepository = mockk<AccountRepository>()
+    private val categoryRepository = mockk<CategoryRepository>()
+    private val suggestCategory = mockk<SuggestCategoryUseCase>()
     private val confirmCapturedTransaction = mockk<ConfirmCapturedTransactionUseCase>()
     private val dismissCapturedTransaction = mockk<DismissCapturedTransactionUseCase>()
     private val formatMoney = mockk<FormatMoneyUseCase>()
@@ -59,13 +65,17 @@ class SmsReviewViewModelTest : ComposeViewModelTest() {
     fun setup() {
         pending.clear()
         coEvery { capturedTransactionRepository.findAllPending() } answers { pending.toList() }
-        coEvery { accountRepository.findAll() } returns listOf(account)
+        coEvery { accountRepository.findAll() } returns listOf(account, savingsAccount)
+        coEvery { categoryRepository.findAll() } returns listOf(food, groceries)
+        coEvery { suggestCategory.suggest(any()) } returns null
         coEvery { formatMoney.format(any(), any()) } answers {
             String.format(java.util.Locale.US, "%,.2f", firstArg<Double>())
         }
         // MockK hands a `@JvmInline value class` argument to `answers` as its underlying type, so
         // the id arrives as a bare UUID; asking for `CapturedTransactionId` here throws.
-        coEvery { confirmCapturedTransaction.confirm(any(), any(), any(), any()) } answers {
+        coEvery {
+            confirmCapturedTransaction.confirm(any(), any(), any(), any(), any(), any(), any())
+        } answers {
             pending.removeAll { it.principal.id.value == firstArg<UUID>() }
             TransactionId(UUID.randomUUID()).right()
         }
@@ -127,7 +137,9 @@ class SmsReviewViewModelTest : ComposeViewModelTest() {
             shouldBeInstanceOf<SmsReviewState.Content>().items.single().status shouldBe
                 ReviewStatusUi.NeedsAccount
         }
-        coVerify(exactly = 0) { confirmCapturedTransaction.confirm(any(), any(), any(), any()) }
+        coVerify(exactly = 0) {
+            confirmCapturedTransaction.confirm(any(), any(), any(), any(), any(), any(), any())
+        }
     }
 
     @Test
@@ -140,14 +152,18 @@ class SmsReviewViewModelTest : ComposeViewModelTest() {
             // then
             this shouldBe SmsReviewState.Empty
         }
-        coVerify(exactly = 1) { confirmCapturedTransaction.confirm(ReadyId, null, null, null) }
+        coVerify(exactly = 1) {
+            confirmCapturedTransaction.confirm(ReadyId, null, null, null, null, null, null)
+        }
     }
 
     @Test
     fun `a confirm that fails leaves the item in the list rather than losing it`() {
         // given
         pending += entry(id = ReadyId, account = account.id)
-        coEvery { confirmCapturedTransaction.confirm(any(), any(), any(), any()) } returns
+        coEvery {
+            confirmCapturedTransaction.confirm(any(), any(), any(), any(), any(), any(), any())
+        } returns
             ConfirmCaptureError.MissingAccount(ReadyId).left()
 
         // when
@@ -236,7 +252,9 @@ class SmsReviewViewModelTest : ComposeViewModelTest() {
 
         // then
         coVerify(exactly = 1) { navigation.back() }
-        coVerify(exactly = 0) { confirmCapturedTransaction.confirm(any(), any(), any(), any()) }
+        coVerify(exactly = 0) {
+            confirmCapturedTransaction.confirm(any(), any(), any(), any(), any(), any(), any())
+        }
     }
 
     @Test
@@ -309,7 +327,7 @@ class SmsReviewViewModelTest : ComposeViewModelTest() {
             this shouldBe SmsReviewState.Empty
         }
         coVerify(exactly = 1) {
-            confirmCapturedTransaction.confirm(ReadyId, any(), any(), any())
+            confirmCapturedTransaction.confirm(ReadyId, any(), any(), any(), any(), any(), any())
         }
     }
 
@@ -349,11 +367,308 @@ class SmsReviewViewModelTest : ComposeViewModelTest() {
         coVerify(exactly = 1) { dismissCapturedTransaction.dismiss(ReadyId, alsoRemoveFee = false) }
     }
 
+    // --- User Story 3: enrichment ---------------------------------------------------------------
+
+    @Test
+    fun `the pickers offer every category and account the user has`() {
+        // given
+        pending += entry(id = ReadyId, account = account.id)
+
+        // when / then choosing is a tap, not a form (FR-022, SC-002)
+        viewModel().runTest {
+            val content = shouldBeInstanceOf<SmsReviewState.Content>()
+            content.categories.map { it.name } shouldBe listOf("Food & Drinks", "Groceries")
+            content.accounts.map { it.name } shouldBe listOf("M-PESA", "KCB Savings")
+        }
+    }
+
+    @Test
+    fun `a payee the user has filed before arrives already categorised`() {
+        // given the memory holds Food & Drinks for this payee
+        pending += entry(id = ReadyId, account = account.id)
+        coEvery { suggestCategory.suggest(any()) } returns food.id
+
+        // when / then the suggestion is on the row before the user has touched anything
+        // (FR-024, Acceptance 3.2)
+        viewModel().runTest {
+            shouldBeInstanceOf<SmsReviewState.Content>()
+                .items.single().categoryName shouldBe "Food & Drinks"
+        }
+    }
+
+    @Test
+    fun `a payee nobody has filed arrives with nothing pre-selected`() {
+        // given
+        pending += entry(id = ReadyId, account = account.id)
+        coEvery { suggestCategory.suggest(any()) } returns null
+
+        // when / then no category is invented on the user's behalf
+        viewModel().runTest {
+            shouldBeInstanceOf<SmsReviewState.Content>()
+                .items.single().categoryName shouldBe null
+        }
+    }
+
+    @Test
+    fun `choosing a category shows it immediately, without a round trip`() {
+        // given
+        pending += entry(id = ReadyId, account = account.id)
+
+        // when
+        viewModel().runTest(
+            events = listOf(
+                SmsReviewEvent.OnCategorySelected(
+                    ReadyId.value.toString(),
+                    groceries.id.value.toString(),
+                ),
+            ),
+        ) {
+            // then
+            shouldBeInstanceOf<SmsReviewState.Content>()
+                .items.single().categoryName shouldBe "Groceries"
+        }
+    }
+
+    @Test
+    fun `overriding the suggestion is what reaches confirm, not the suggestion`() {
+        // given the app suggests Food & Drinks
+        pending += entry(id = ReadyId, account = account.id)
+        coEvery { suggestCategory.suggest(any()) } returns food.id
+
+        // when the user picks Groceries instead and confirms (Acceptance 3.3)
+        viewModel().runTest(
+            events = listOf(
+                SmsReviewEvent.OnCategorySelected(
+                    ReadyId.value.toString(),
+                    groceries.id.value.toString(),
+                ),
+                SmsReviewEvent.OnConfirm(ReadyId.value.toString()),
+            ),
+        ) {
+            this shouldBe SmsReviewState.Empty
+        }
+
+        // then the override is what is committed, and therefore what is remembered next time
+        coVerify(exactly = 1) {
+            confirmCapturedTransaction.confirm(
+                ReadyId,
+                null,
+                groceries.id,
+                null,
+                null,
+                null,
+                null,
+            )
+        }
+    }
+
+    @Test
+    fun `an edited description reaches confirm without disturbing anything extracted`() {
+        // given
+        pending += entry(id = ReadyId, account = account.id)
+
+        // when (FR-022)
+        viewModel().runTest(
+            events = listOf(
+                SmsReviewEvent.OnDescriptionChanged(ReadyId.value.toString(), "Rent for July"),
+                SmsReviewEvent.OnConfirm(ReadyId.value.toString()),
+            ),
+        ) {
+            this shouldBe SmsReviewState.Empty
+        }
+
+        // then
+        coVerify(exactly = 1) {
+            confirmCapturedTransaction.confirm(
+                ReadyId,
+                null,
+                null,
+                NotBlankTrimmedString.unsafe("Rent for July"),
+                null,
+                null,
+                null,
+            )
+        }
+    }
+
+    @Test
+    fun `an edited amount, payee and date are the values that reach confirm`() {
+        // given
+        pending += entry(id = ReadyId, account = account.id)
+
+        // when the user corrects all three (FR-023, Acceptance 3.4)
+        viewModel().runTest(
+            events = listOf(
+                SmsReviewEvent.OnAmountEdited(ReadyId.value.toString(), "1,530.50"),
+                SmsReviewEvent.OnCounterpartyEdited(ReadyId.value.toString(), "Frank Inn Kikuyu"),
+                SmsReviewEvent.OnTimeEdited(ReadyId.value.toString(), CorrectedMillis),
+                SmsReviewEvent.OnConfirm(ReadyId.value.toString()),
+            ),
+        ) {
+            this shouldBe SmsReviewState.Empty
+        }
+
+        // then
+        coVerify(exactly = 1) {
+            confirmCapturedTransaction.confirm(
+                ReadyId,
+                null,
+                null,
+                null,
+                PositiveDouble.unsafe(1_530.50),
+                NotBlankTrimmedString.unsafe("Frank Inn Kikuyu"),
+                Instant.ofEpochMilli(CorrectedMillis),
+            )
+        }
+    }
+
+    @Test
+    fun `an edit shows on the row it was made on and on no other`() {
+        // given two items
+        pending += entry(id = ReadyId, account = account.id)
+        pending += entry(id = NeedsAccountId, account = account.id)
+
+        // when one of them is edited
+        viewModel().runTest(
+            events = listOf(
+                SmsReviewEvent.OnCounterpartyEdited(ReadyId.value.toString(), "Naivas"),
+            ),
+        ) {
+            // then the other is untouched
+            val items = shouldBeInstanceOf<SmsReviewState.Content>().items
+            items.single { it.id == ReadyId.value.toString() }.counterparty shouldBe "Naivas"
+            items.single { it.id == NeedsAccountId.value.toString() }.counterparty shouldBe
+                "James Kinyua Mwangi"
+        }
+    }
+
+    @Test
+    fun `a half-typed amount is left alone rather than refused`() {
+        // given
+        pending += entry(id = ReadyId, account = account.id)
+
+        // when the user is mid-keystroke and confirms anyway
+        viewModel().runTest(
+            events = listOf(
+                SmsReviewEvent.OnAmountEdited(ReadyId.value.toString(), "1,"),
+                SmsReviewEvent.OnConfirm(ReadyId.value.toString()),
+            ),
+        ) {
+            this shouldBe SmsReviewState.Empty
+        }
+
+        // then the captured amount stands; nothing is committed as zero or as a guess
+        coVerify(exactly = 1) {
+            confirmCapturedTransaction.confirm(ReadyId, null, null, null, null, null, null)
+        }
+    }
+
+    @Test
+    fun `choosing an account clears the block and lets the item be confirmed`() {
+        // given an item whose sender has no mapping (FR-027a)
+        pending += entry(id = NeedsAccountId, account = null)
+
+        // when the user chooses one and confirms
+        viewModel().runTest(
+            events = listOf(
+                SmsReviewEvent.OnAccountSelected(
+                    NeedsAccountId.value.toString(),
+                    savingsAccount.id.value.toString(),
+                ),
+                SmsReviewEvent.OnConfirm(NeedsAccountId.value.toString()),
+            ),
+        ) {
+            // then it leaves the list
+            this shouldBe SmsReviewState.Empty
+        }
+
+        // and the account they chose is the one it posts to
+        coVerify(exactly = 1) {
+            confirmCapturedTransaction.confirm(
+                NeedsAccountId,
+                savingsAccount.id,
+                null,
+                null,
+                null,
+                null,
+                null,
+            )
+        }
+    }
+
+    @Test
+    fun `choosing an account is visible before anything is committed`() {
+        // given
+        pending += entry(id = NeedsAccountId, account = null)
+
+        // when
+        viewModel().runTest(
+            events = listOf(
+                SmsReviewEvent.OnAccountSelected(
+                    NeedsAccountId.value.toString(),
+                    savingsAccount.id.value.toString(),
+                ),
+            ),
+        ) {
+            // then the row stops asking for an account, and the confirm affordance opens up
+            val item = shouldBeInstanceOf<SmsReviewState.Content>().items.single()
+            item.accountName shouldBe "KCB Savings"
+            item.status shouldBe ReviewStatusUi.ReadyToConfirm
+        }
+
+        // and nothing has reached the ledger yet
+        coVerify(exactly = 0) {
+            confirmCapturedTransaction.confirm(any(), any(), any(), any(), any(), any(), any())
+        }
+    }
+
+    @Test
+    fun `keeping a suspected duplicate clears the flag without committing it`() {
+        // given
+        pending += entry(
+            id = ReadyId,
+            account = account.id,
+            duplicateOf = TransactionId(UUID.randomUUID()),
+        )
+
+        // when (FR-029)
+        viewModel().runTest(
+            events = listOf(SmsReviewEvent.OnKeepDespiteDuplicate(ReadyId.value.toString())),
+        ) {
+            // then the warning is gone and the item is still there, unconfirmed
+            val item = shouldBeInstanceOf<SmsReviewState.Content>().items.single()
+            item.status shouldBe ReviewStatusUi.ReadyToConfirm
+        }
+        coVerify(exactly = 0) {
+            confirmCapturedTransaction.confirm(any(), any(), any(), any(), any(), any(), any())
+        }
+    }
+
+    @Test
+    fun `an edit on an item that is confirmed away does not leak onto the next one`() {
+        // given two items
+        pending += entry(id = ReadyId, account = account.id)
+        pending += entry(id = NeedsAccountId, account = account.id)
+
+        // when one is edited and confirmed
+        viewModel().runTest(
+            events = listOf(
+                SmsReviewEvent.OnDescriptionChanged(ReadyId.value.toString(), "Rent for July"),
+                SmsReviewEvent.OnConfirm(ReadyId.value.toString()),
+            ),
+        ) {
+            // then the survivor carries none of it
+            shouldBeInstanceOf<SmsReviewState.Content>().items.single().description shouldBe ""
+        }
+    }
+
     private fun viewModel() = SmsReviewViewModel(
         capturedTransactionRepository = capturedTransactionRepository,
         accountRepository = accountRepository,
+        categoryRepository = categoryRepository,
         confirmCapturedTransaction = confirmCapturedTransaction,
         dismissCapturedTransaction = dismissCapturedTransaction,
+        suggestCategory = suggestCategory,
         formatMoney = formatMoney,
         timeFormatter = FixedTimeFormatter,
         navigation = navigation,
@@ -421,6 +736,9 @@ class SmsReviewViewModelTest : ComposeViewModelTest() {
         private val Kes = AssetCode.unsafe("KES")
         private val PaidAt: Instant = Instant.parse("2026-07-25T16:50:00Z")
 
+        /** The date the user corrects to in the FR-023 case. */
+        private const val CorrectedMillis = 1_784_994_600_000L
+
         private val ReadyId =
             CapturedTransactionId(UUID.fromString("11111111-1111-1111-1111-111111111111"))
         private val NeedsAccountId =
@@ -434,6 +752,27 @@ class SmsReviewViewModelTest : ComposeViewModelTest() {
             icon = null,
             includeInBalance = true,
             orderNum = 0.0,
+        )
+
+        /** A second account, so "the chosen one" is distinguishable from "the only one". */
+        private val savingsAccount = account.copy(
+            id = AccountId(UUID.fromString("00000000-0000-0000-0000-0000000000a2")),
+            name = NotBlankTrimmedString.unsafe("KCB Savings"),
+            orderNum = 1.0,
+        )
+
+        private val food = Category(
+            id = CategoryId(UUID.fromString("00000000-0000-0000-0000-0000000000c1")),
+            name = NotBlankTrimmedString.unsafe("Food & Drinks"),
+            color = ColorInt(0),
+            icon = null,
+            orderNum = 0.0,
+        )
+
+        private val groceries = food.copy(
+            id = CategoryId(UUID.fromString("00000000-0000-0000-0000-0000000000c2")),
+            name = NotBlankTrimmedString.unsafe("Groceries"),
+            orderNum = 1.0,
         )
     }
 }

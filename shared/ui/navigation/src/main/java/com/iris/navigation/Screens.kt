@@ -151,3 +151,11 @@ data object DisclaimerScreen : Screen
  * here is legacy: the screen is Compose from the start.
  */
 data object SmsReviewScreen : Screen
+
+/**
+ * Where SMS capture is switched on, explained, and taken apart again.
+ *
+ * The only route in is a single new row in the existing settings screen, which is what keeps a
+ * user who never opens it entirely unaffected by the feature (FR-001, FR-032).
+ */
+data object SmsCaptureSettingsScreen : Screen

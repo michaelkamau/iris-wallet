@@ -28,6 +28,7 @@ import com.iris.data.model.sms.SenderId
 import com.iris.data.repository.AccountRepository
 import com.iris.data.repository.CapturedTransactionRepository
 import com.iris.data.repository.CategoryRepository
+import com.iris.data.repository.CounterpartyCategoryRepository
 import com.iris.data.repository.CurrencyRepository
 import com.iris.data.repository.RepositoryMemoFactory
 import com.iris.data.repository.TagRepository
@@ -37,6 +38,7 @@ import com.iris.data.repository.mapper.CapturedTransactionMapper
 import com.iris.data.repository.mapper.CategoryMapper
 import com.iris.data.repository.mapper.TagMapper
 import com.iris.data.repository.mapper.TransactionMapper
+import com.iris.sms.parser.primitive.CounterpartyNormalizer
 import io.kotest.assertions.arrow.core.shouldBeRight
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -68,6 +70,7 @@ class CapturedTransactionCostIntegrationTest {
     private lateinit var categoryRepository: CategoryRepository
     private lateinit var transactionRepository: TransactionRepository
     private lateinit var ensureTransactionCostCategory: EnsureTransactionCostCategoryUseCase
+    private lateinit var counterpartyCategoryRepository: CounterpartyCategoryRepository
     private lateinit var confirm: ConfirmCapturedTransactionUseCase
 
     @Before
@@ -127,11 +130,19 @@ class CapturedTransactionCostIntegrationTest {
             dataStore = dataStore,
             categoryRepository = categoryRepository,
         )
+        counterpartyCategoryRepository = CounterpartyCategoryRepository(
+            dao = db.counterpartyCategoryDao,
+            writeDao = db.writeCounterpartyCategoryDao,
+            dispatchersProvider = TestDispatchersProvider,
+        )
         confirm = ConfirmCapturedTransactionUseCase(
             db = db,
             capturedTransactionRepository = capturedTransactionRepository,
             transactionRepository = transactionRepository,
             ensureTransactionCostCategory = ensureTransactionCostCategory,
+            counterpartyCategoryRepository = counterpartyCategoryRepository,
+            counterpartyNormalizer = CounterpartyNormalizer(),
+            timeProvider = TestTimeProvider,
         )
 
         accountRepository.save(

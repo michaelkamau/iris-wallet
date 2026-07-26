@@ -495,4 +495,6 @@
     <string name="bill_paid">Your bill for %1$s %2$s has been paid</string>
     <string name="language">Language</string>
     <string name="advanced_features">Advanced features</string>
+    <string name="sms_transaction_capture">SMS transaction capture</string>
+    <string name="sms_transaction_capture_waiting">%1$d waiting to be reviewed</string>
 </resources>
