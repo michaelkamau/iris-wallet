@@ -11,6 +11,7 @@ android {
 dependencies {
     implementation(projects.shared.base)
     implementation(projects.shared.data.core)
+    implementation(projects.shared.sms.parser)
 
     implementation(libs.datastore)
     implementation(libs.bundles.ktor)

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sms_capture_channel_name">Transactions from messages</string>
+    <string name="sms_capture_channel_description">Tells you when a transaction found in an SMS is waiting for your review.</string>
+    <string name="sms_capture_notification_title">Transactions to review</string>
+    <plurals name="sms_capture_notification_text">
+        <item quantity="one">%1$d transaction is waiting for your review</item>
+        <item quantity="other">%1$d transactions are waiting for your review</item>
+    </plurals>
+</resources>

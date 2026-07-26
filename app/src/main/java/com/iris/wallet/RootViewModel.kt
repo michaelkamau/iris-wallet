@@ -19,6 +19,7 @@ import com.iris.navigation.EditTransactionScreen
 import com.iris.navigation.MainScreen
 import com.iris.navigation.Navigation
 import com.iris.navigation.OnboardingScreen
+import com.iris.navigation.SmsReviewScreen
 import com.iris.ui.R
 import com.iris.wallet.domain.deprecated.logic.notification.TransactionReminderLogic
 import com.iris.wallet.migrations.MigrationsManager
@@ -47,6 +48,13 @@ class RootViewModel @Inject constructor(
 
     companion object {
         const val EXTRA_ADD_TRANSACTION_TYPE = "add_transaction_type_extra"
+
+        /**
+         * Kept in sync with `SmsCaptureNotifier.ACTION_REVIEW` and the `<intent-filter>` on
+         * `.RootActivity`. Declared as a literal rather than referenced, so `:app` need not
+         * reach into the capture module for a string the manifest already spells out.
+         */
+        const val ACTION_REVIEW_CAPTURED = "iris.wallet.intent.action.review_captured"
 
         const val USER_INACTIVITY_TIME_LIMIT = 60 // Time in seconds
     }
@@ -104,8 +112,19 @@ class RootViewModel @Inject constructor(
         }
     }
 
-    @Suppress("SwallowedException")
     private fun handleSpecialStart(intent: Intent): Boolean {
+        // Tapping the capture notification lands the user in the review inbox, not on the home
+        // screen with a badge they then have to find (FR-026).
+        if (intent.action == ACTION_REVIEW_CAPTURED) {
+            nav.navigateTo(SmsReviewScreen)
+            return true
+        }
+
+        return handleAddTransactionStart(intent)
+    }
+
+    @Suppress("SwallowedException")
+    private fun handleAddTransactionStart(intent: Intent): Boolean {
         val addTrnType: TransactionType? = try {
             intent.getSerializableExtra(EXTRA_ADD_TRANSACTION_TYPE) as? TransactionType
                 ?: TransactionType.valueOf(intent.getStringExtra(EXTRA_ADD_TRANSACTION_TYPE) ?: "")

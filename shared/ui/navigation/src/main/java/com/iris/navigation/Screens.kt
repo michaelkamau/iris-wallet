@@ -143,3 +143,11 @@ data object ContributorsScreen : Screen
 data object ReleasesScreen : Screen
 
 data object DisclaimerScreen : Screen
+
+/**
+ * The review inbox for transactions found in messages.
+ *
+ * Reached from the capture notification and, from User Story 4 onwards, from settings. Nothing
+ * here is legacy: the screen is Compose from the start.
+ */
+data object SmsReviewScreen : Screen

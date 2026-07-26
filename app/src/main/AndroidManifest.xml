@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
@@ -44,6 +46,11 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="iris.wallet.intent.action.add_transaction" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- Opened from the "transactions to review" notification (FR-026). -->
+            <intent-filter>
+                <action android:name="iris.wallet.intent.action.review_captured" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 

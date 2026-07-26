@@ -5,11 +5,15 @@ import androidx.room.*
 import androidx.room.migration.AutoMigrationSpec
 import com.iris.data.db.dao.read.AccountDao
 import com.iris.data.db.dao.read.BudgetDao
+import com.iris.data.db.dao.read.CapturedTransactionDao
 import com.iris.data.db.dao.read.CategoryDao
+import com.iris.data.db.dao.read.CounterpartyCategoryDao
 import com.iris.data.db.dao.read.ExchangeRatesDao
+import com.iris.data.db.dao.read.FinancialSenderDao
 import com.iris.data.db.dao.read.LoanDao
 import com.iris.data.db.dao.read.LoanRecordDao
 import com.iris.data.db.dao.read.PlannedPaymentRuleDao
+import com.iris.data.db.dao.read.ProcessedMessageDao
 import com.iris.data.db.dao.read.SettingsDao
 import com.iris.data.db.dao.read.TagDao
 import com.iris.data.db.dao.read.TagAssociationDao
@@ -17,22 +21,30 @@ import com.iris.data.db.dao.read.TransactionDao
 import com.iris.data.db.dao.read.UserDao
 import com.iris.data.db.dao.write.WriteAccountDao
 import com.iris.data.db.dao.write.WriteBudgetDao
+import com.iris.data.db.dao.write.WriteCapturedTransactionDao
 import com.iris.data.db.dao.write.WriteCategoryDao
+import com.iris.data.db.dao.write.WriteCounterpartyCategoryDao
 import com.iris.data.db.dao.write.WriteExchangeRatesDao
+import com.iris.data.db.dao.write.WriteFinancialSenderDao
 import com.iris.data.db.dao.write.WriteLoanDao
 import com.iris.data.db.dao.write.WriteLoanRecordDao
 import com.iris.data.db.dao.write.WritePlannedPaymentRuleDao
+import com.iris.data.db.dao.write.WriteProcessedMessageDao
 import com.iris.data.db.dao.write.WriteSettingsDao
 import com.iris.data.db.dao.write.WriteTagDao
 import com.iris.data.db.dao.write.WriteTagAssociationDao
 import com.iris.data.db.dao.write.WriteTransactionDao
 import com.iris.data.db.entity.AccountEntity
 import com.iris.data.db.entity.BudgetEntity
+import com.iris.data.db.entity.CapturedTransactionEntity
 import com.iris.data.db.entity.CategoryEntity
+import com.iris.data.db.entity.CounterpartyCategoryEntity
 import com.iris.data.db.entity.ExchangeRateEntity
+import com.iris.data.db.entity.FinancialSenderEntity
 import com.iris.data.db.entity.LoanEntity
 import com.iris.data.db.entity.LoanRecordEntity
 import com.iris.data.db.entity.PlannedPaymentRuleEntity
+import com.iris.data.db.entity.ProcessedMessageEntity
 import com.iris.data.db.entity.SettingsEntity
 import com.iris.data.db.entity.TagEntity
 import com.iris.data.db.entity.TagAssociationEntity
@@ -44,6 +56,7 @@ import com.iris.data.db.migration.Migration126to127_LoanRecordType
 import com.iris.data.db.migration.Migration127to128_PaidForDateRecord
 import com.iris.data.db.migration.Migration128to129_DeleteIsDeleted
 import com.iris.data.db.migration.Migration129to130_LoanIncludeNote
+import com.iris.data.db.migration.Migration130to131_SmsCapture
 import com.iris.domain.db.RoomTypeConverters
 import com.iris.domain.db.migration.Migration105to106_TrnRecurringRules
 import com.iris.domain.db.migration.Migration106to107_Wishlist
@@ -69,7 +82,11 @@ import com.iris.domain.db.migration.Migration125to126_Tags
         AccountEntity::class, TransactionEntity::class, CategoryEntity::class,
         SettingsEntity::class, PlannedPaymentRuleEntity::class,
         UserEntity::class, ExchangeRateEntity::class, BudgetEntity::class,
-        LoanEntity::class, LoanRecordEntity::class, TagEntity::class, TagAssociationEntity::class
+        LoanEntity::class, LoanRecordEntity::class, TagEntity::class, TagAssociationEntity::class,
+        // SMS capture (v131). Additive only: nothing above is touched, so pending captured items
+        // stay invisible to balances, budgets, reports, search and export (FR-021a, SC-010).
+        FinancialSenderEntity::class, CapturedTransactionEntity::class,
+        ProcessedMessageEntity::class, CounterpartyCategoryEntity::class
     ],
     autoMigrations = [
         AutoMigration(
@@ -78,7 +95,7 @@ import com.iris.domain.db.migration.Migration125to126_Tags
             spec = IrisRoomDatabase.DeleteSEMigration::class
         )
     ],
-    version = 130,
+    version = 131,
     exportSchema = true
 )
 @TypeConverters(RoomTypeConverters::class)
@@ -95,6 +112,10 @@ abstract class IrisRoomDatabase : RoomDatabase() {
     abstract val loanRecordDao: LoanRecordDao
     abstract val tagDao: TagDao
     abstract val tagAssociationDao: TagAssociationDao
+    abstract val capturedTransactionDao: CapturedTransactionDao
+    abstract val financialSenderDao: FinancialSenderDao
+    abstract val processedMessageDao: ProcessedMessageDao
+    abstract val counterpartyCategoryDao: CounterpartyCategoryDao
 
     abstract val writeAccountDao: WriteAccountDao
     abstract val writeTransactionDao: WriteTransactionDao
@@ -107,6 +128,10 @@ abstract class IrisRoomDatabase : RoomDatabase() {
     abstract val writeLoanRecordDao: WriteLoanRecordDao
     abstract val writeTagDao: WriteTagDao
     abstract val writeTagAssociationDao: WriteTagAssociationDao
+    abstract val writeCapturedTransactionDao: WriteCapturedTransactionDao
+    abstract val writeFinancialSenderDao: WriteFinancialSenderDao
+    abstract val writeProcessedMessageDao: WriteProcessedMessageDao
+    abstract val writeCounterpartyCategoryDao: WriteCounterpartyCategoryDao
 
     companion object {
         const val DB_NAME = "iriswallet.db"
@@ -135,7 +160,8 @@ abstract class IrisRoomDatabase : RoomDatabase() {
             Migration126to127_LoanRecordType(),
             Migration127to128_PaidForDateRecord(),
             Migration128to129_DeleteIsDeleted(),
-            Migration129to130_LoanIncludeNote()
+            Migration129to130_LoanIncludeNote(),
+            Migration130to131_SmsCapture()
         )
 
         @Suppress("SpreadOperator")

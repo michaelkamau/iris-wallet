@@ -4,11 +4,15 @@ import android.content.Context
 import com.iris.data.db.IrisRoomDatabase
 import com.iris.data.db.dao.read.AccountDao
 import com.iris.data.db.dao.read.BudgetDao
+import com.iris.data.db.dao.read.CapturedTransactionDao
 import com.iris.data.db.dao.read.CategoryDao
+import com.iris.data.db.dao.read.CounterpartyCategoryDao
 import com.iris.data.db.dao.read.ExchangeRatesDao
+import com.iris.data.db.dao.read.FinancialSenderDao
 import com.iris.data.db.dao.read.LoanDao
 import com.iris.data.db.dao.read.LoanRecordDao
 import com.iris.data.db.dao.read.PlannedPaymentRuleDao
+import com.iris.data.db.dao.read.ProcessedMessageDao
 import com.iris.data.db.dao.read.SettingsDao
 import com.iris.data.db.dao.read.TagAssociationDao
 import com.iris.data.db.dao.read.TagDao
@@ -16,11 +20,15 @@ import com.iris.data.db.dao.read.TransactionDao
 import com.iris.data.db.dao.read.UserDao
 import com.iris.data.db.dao.write.WriteAccountDao
 import com.iris.data.db.dao.write.WriteBudgetDao
+import com.iris.data.db.dao.write.WriteCapturedTransactionDao
 import com.iris.data.db.dao.write.WriteCategoryDao
+import com.iris.data.db.dao.write.WriteCounterpartyCategoryDao
 import com.iris.data.db.dao.write.WriteExchangeRatesDao
+import com.iris.data.db.dao.write.WriteFinancialSenderDao
 import com.iris.data.db.dao.write.WriteLoanDao
 import com.iris.data.db.dao.write.WriteLoanRecordDao
 import com.iris.data.db.dao.write.WritePlannedPaymentRuleDao
+import com.iris.data.db.dao.write.WriteProcessedMessageDao
 import com.iris.data.db.dao.write.WriteSettingsDao
 import com.iris.data.db.dao.write.WriteTagAssociationDao
 import com.iris.data.db.dao.write.WriteTagDao
@@ -161,5 +169,45 @@ object RoomDbModule {
     @Provides
     fun provideWriteTagAssociationDao(db: IrisRoomDatabase): WriteTagAssociationDao {
         return db.writeTagAssociationDao
+    }
+
+    @Provides
+    fun provideCapturedTransactionDao(db: IrisRoomDatabase): CapturedTransactionDao {
+        return db.capturedTransactionDao
+    }
+
+    @Provides
+    fun provideFinancialSenderDao(db: IrisRoomDatabase): FinancialSenderDao {
+        return db.financialSenderDao
+    }
+
+    @Provides
+    fun provideProcessedMessageDao(db: IrisRoomDatabase): ProcessedMessageDao {
+        return db.processedMessageDao
+    }
+
+    @Provides
+    fun provideCounterpartyCategoryDao(db: IrisRoomDatabase): CounterpartyCategoryDao {
+        return db.counterpartyCategoryDao
+    }
+
+    @Provides
+    fun provideWriteCapturedTransactionDao(db: IrisRoomDatabase): WriteCapturedTransactionDao {
+        return db.writeCapturedTransactionDao
+    }
+
+    @Provides
+    fun provideWriteFinancialSenderDao(db: IrisRoomDatabase): WriteFinancialSenderDao {
+        return db.writeFinancialSenderDao
+    }
+
+    @Provides
+    fun provideWriteProcessedMessageDao(db: IrisRoomDatabase): WriteProcessedMessageDao {
+        return db.writeProcessedMessageDao
+    }
+
+    @Provides
+    fun provideWriteCounterpartyCategoryDao(db: IrisRoomDatabase): WriteCounterpartyCategoryDao {
+        return db.writeCounterpartyCategoryDao
     }
 }
