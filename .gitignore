@@ -104,3 +104,8 @@ node_modules/*
 
 # Kotlin Compiler
 .kotlin/sessions/*
+
+# Local secrets and editor temporary files
+.env*
+*.tmp
+*.swp

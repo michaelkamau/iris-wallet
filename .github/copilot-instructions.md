@@ -44,6 +44,7 @@ CI gates on: Detekt, `lintRelease`, `testDebugUnitTest`, `verifyPaparazziDebug`,
 - `:app` — the only `com.android.application`; wires all screens together and owns `IrisNavGraph.kt`.
 - `:screen:*` — one Gradle module per screen (`:screen:balance`, `:screen:transactions`, …).
 - `:shared:*` — `base` (time, resources, dispatchers, legacy utils), `data:model`, `data:core` (Room, DataStore, Ktor, repositories), `domain` (use cases), `ui:core` (design system + `ComposeViewModel`), `ui:navigation`, and the `*-testing` fixture modules.
+- SMS capture — `:shared:sms:parser` (Android-free parser), `:shared:sms:capture` (receiver and inbox import), `:screen:sms-review`, and `:screen:sms-settings`.
 - `:widget:*` — Glance home-screen widgets.
 - `:temp:legacy-code` and `:temp:old-design` — pre-modularization code being migrated out. Don't add to them; treat them as a shrinking dependency.
 - `:ci-actions:*` — plain Kotlin JVM CLI tools used by GitHub Actions.
