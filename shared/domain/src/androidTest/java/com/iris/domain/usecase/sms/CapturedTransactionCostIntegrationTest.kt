@@ -1,3 +1,5 @@
+@file:Suppress("LongMethod")
+
 package com.iris.domain.usecase.sms
 
 import android.content.Context
@@ -13,6 +15,7 @@ import com.iris.data.db.IrisRoomDatabase
 import com.iris.data.model.Account
 import com.iris.data.model.AccountId
 import com.iris.data.model.Expense
+import com.iris.data.model.TransactionMetadata
 import com.iris.data.model.primitive.AssetCode
 import com.iris.data.model.primitive.ColorInt
 import com.iris.data.model.primitive.NotBlankTrimmedString
@@ -216,6 +219,32 @@ class CapturedTransactionCostIntegrationTest {
 
         // and nothing is left waiting to be reviewed a second time
         capturedTransactionRepository.findAllPending() shouldBe emptyList()
+    }
+
+    @Test
+    fun capturedPrincipalAndFeeRoundTripIntoUnmarkedLedgerRows(): Unit = runBlocking {
+        // given an inbox entry that has not reached the ledger yet
+        val entry = entryWithFee()
+        capturedTransactionRepository.saveEntry(entry)
+
+        // when it is read back for review and then confirmed
+        capturedTransactionRepository.findAllPending().single().fee?.amount?.value shouldBe 59.76
+        confirm.confirm(entry.principal.id).shouldBeRight()
+
+        // then both ordinary ledger rows survive and no pending row remains
+        transactionRepository.findAll().size shouldBe 2
+        db.capturedTransactionDao.findAll() shouldBe emptyList()
+
+        // and neither row carries an SMS source, tag or metadata marker (FR-033)
+        transactionRepository.findAll().forEach { transaction ->
+            transaction.tags shouldBe emptyList()
+            transaction.metadata shouldBe TransactionMetadata(
+                recurringRuleId = null,
+                paidForDateTime = null,
+                loanId = null,
+                loanRecordId = null,
+            )
+        }
     }
 
     @Test

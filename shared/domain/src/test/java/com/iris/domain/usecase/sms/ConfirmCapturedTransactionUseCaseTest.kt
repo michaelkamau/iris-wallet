@@ -160,7 +160,8 @@ class ConfirmCapturedTransactionUseCaseTest {
     }
 
     @Test
- fun `money out becomes an expense, money in becomes an income`() = runTest { // given
+    fun `money out becomes an expense, money in becomes an income`() = runTest {
+        // given
         pending(SmsFixtures.captured(id = id, direction = MoneyDirection.MoneyIn))
         val saved = slot<Transaction>()
         coEvery { transactionRepository.save(capture(saved)) } just runs

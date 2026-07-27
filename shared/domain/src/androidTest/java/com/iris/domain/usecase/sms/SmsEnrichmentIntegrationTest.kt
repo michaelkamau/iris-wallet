@@ -94,7 +94,12 @@ class SmsEnrichmentIntegrationTest {
 
         dataStoreFile = File(context.cacheDir, "sms-enrich-${UUID.randomUUID()}.preferences_pb")
         dataStore = PreferenceDataStoreFactory.create { dataStoreFile }
+        initialiseRepositories()
+        initialiseUseCases()
+        seedAccountsAndCategories()
+    }
 
+    private fun initialiseRepositories() {
         val memoFactory = RepositoryMemoFactory(DataObserver(), TestDispatchersProvider)
         capturedTransactionRepository = CapturedTransactionRepository(
             mapper = CapturedTransactionMapper(),
@@ -149,6 +154,9 @@ class SmsEnrichmentIntegrationTest {
             writeDao = db.writeFinancialSenderDao,
             dispatchersProvider = TestDispatchersProvider,
         )
+    }
+
+    private fun initialiseUseCases() {
         confirm = ConfirmCapturedTransactionUseCase(
             db = db,
             capturedTransactionRepository = capturedTransactionRepository,
@@ -165,7 +173,9 @@ class SmsEnrichmentIntegrationTest {
             counterpartyCategoryRepository = counterpartyCategoryRepository,
             counterpartyNormalizer = CounterpartyNormalizer(),
         )
+    }
 
+    private suspend fun seedAccountsAndCategories() {
         accountRepository.save(account(ACCOUNT, "DTB Current", orderNum = 0.0))
         accountRepository.save(account(SAVINGS, "KCB Savings", orderNum = 1.0))
         categoryRepository.save(category(FOOD, "Food & Drinks"))
@@ -447,7 +457,7 @@ class SmsEnrichmentIntegrationTest {
             asset = AssetCode.unsafe("KES"),
             time = PAID_AT,
             counterparty = NotBlankTrimmedString.unsafe(counterparty),
-            reference = ProviderReference.unsafe("UGP7B0ITE4${UUID.randomUUID()}"),
+            reference = ProviderReference.unsafe("UGP7B0ITE4"),
             account = account?.let(::AccountId),
             category = null,
             description = null,
