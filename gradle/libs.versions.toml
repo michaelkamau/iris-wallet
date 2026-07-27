@@ -13,6 +13,7 @@ compose = "1.11.4"
 compose-material3 = "1.4.0"
 glance = "1.1.1"
 hilt = "2.60"
+androidx-hilt = "1.4.0"
 room = "2.8.4"
 androidx-work = "2.11.2"
 kotlinx-collections = "0.5.1"
@@ -105,7 +106,8 @@ datastore = { module = "androidx.datastore:datastore-preferences", version = "1.
 
 # Hilt
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
-hilt-work = { module = "androidx.hilt:hilt-work", version = "1.4.0" }
+hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "androidx-hilt" }
+hilt-work-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "androidx-hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 hilt-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
 

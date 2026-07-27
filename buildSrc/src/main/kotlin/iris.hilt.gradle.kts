@@ -11,4 +11,5 @@ dependencies {
     implementation(libs.bundles.hilt)
     implementation(libs.androidx.work)
     ksp(catalog.library("hilt-compiler"))
+    ksp(catalog.library("hilt-work-compiler"))
 }
