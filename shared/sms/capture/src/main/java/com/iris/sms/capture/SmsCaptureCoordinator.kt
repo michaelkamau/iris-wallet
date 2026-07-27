@@ -5,8 +5,11 @@ import com.iris.base.threading.DispatchersProvider
 import com.iris.data.model.sms.SenderId
 import com.iris.data.repository.CapturedTransactionRepository
 import com.iris.domain.usecase.sms.CaptureSmsUseCase
+import com.iris.domain.usecase.sms.SmsCaptureError
 import com.iris.domain.usecase.sms.SmsCaptureGate
 import com.iris.sms.parser.RawSmsMessage
+import com.iris.sms.parser.SmsParseError
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.first
@@ -58,7 +61,9 @@ class SmsCaptureCoordinator @Inject constructor(
         scope.launch {
             try {
                 capture(parts)
-            } catch (failure: Throwable) {
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (@Suppress("TooGenericExceptionCaught") failure: Exception) {
                 // A receiver that throws is a crash the user did not ask for; the finally below
                 // still releases the broadcast.
                 Timber.w("SMS capture failed: %s", failure::class.simpleName)
@@ -79,7 +84,7 @@ class SmsCaptureCoordinator @Inject constructor(
         joinSmsParts(parts).forEach { message ->
             captureSms.capture(message)
                 .onRight { captured++ }
-                .onLeft { Timber.d("Not captured: %s", it::class.simpleName) }
+                .onLeft(SmsCaptureError::logSafely)
         }
         if (captured > 0) {
             notifier.notifyCaptured(capturedTransactionRepository.pendingCount().first())
@@ -113,3 +118,42 @@ private fun SmsMessage.toPart() = SmsPart(
     body = displayMessageBody.orEmpty(),
     timestampMillis = timestampMillis,
 )
+
+/**
+ * SMS diagnostics must remain useful without turning logs into a second inbox. Only rule ids,
+ * fingerprints, error types, counts and an individual parser token are permitted (FR-006).
+ */
+private fun SmsCaptureError.logSafely() {
+    when (this) {
+        is SmsCaptureError.AlreadyProcessed ->
+            Timber.d("SMS fingerprint was already processed: %s", fingerprint.value)
+
+        is SmsCaptureError.ParseFailure -> cause.logSafely()
+        else -> Timber.d("SMS capture skipped: %s", this::class.simpleName)
+    }
+}
+
+private fun SmsParseError.logSafely() {
+    when (this) {
+        is SmsParseError.ExcludedByRule ->
+            Timber.d("SMS excluded by rule: %s", rule.value)
+
+        is SmsParseError.NoMatchingPattern ->
+            Timber.d("SMS had no matching rule in: %s", ruleSet.value)
+
+        is SmsParseError.InvalidAmount ->
+            Timber.w("SMS invalid amount: rule=%s token=%s", rule.value, raw)
+
+        is SmsParseError.InvalidDateTime ->
+            Timber.w("SMS invalid date: rule=%s token=%s", rule.value, raw)
+
+        is SmsParseError.InvalidValue ->
+            Timber.w("SMS invalid value: rule=%s field=%s", rule.value, field)
+
+        is SmsParseError.MissingField ->
+            Timber.w("SMS missing field: rule=%s field=%s", rule.value, field)
+
+        is SmsParseError.NoRuleForSender ->
+            Timber.d("SMS sender had no configured parser rule")
+    }
+}

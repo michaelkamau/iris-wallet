@@ -86,4 +86,24 @@ class ExportCsvUseCasePropertyTest {
             }
         }
     }
+
+    @Test
+    fun `CSV output excludes every transient SMS capture table`() = runTest {
+        // given CSV's typed boundary is the confirmed ledger only
+        coEvery { accountRepository.findAll() } returns emptyList()
+        coEvery { categoryRepository.findAll() } returns emptyList()
+
+        // when
+        val csv = useCase.exportCsv { emptyList() }
+
+        // then a CSV cannot expose unreviewed inbox data
+        listOf(
+            "financial_senders",
+            "captured_transactions",
+            "processed_messages",
+            "counterparty_categories",
+        ).forEach { table ->
+            csv.contains(table) shouldBe false
+        }
+    }
 }
