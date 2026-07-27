@@ -7,4 +7,9 @@
         <item quantity="one">%1$d transaction is waiting for your review</item>
         <item quantity="other">%1$d transactions are waiting for your review</item>
     </plurals>
+    <string name="sms_import_finished_notification_title">SMS import complete</string>
+    <plurals name="sms_import_finished_notification_text">
+        <item quantity="one">%1$d transaction is ready for your review</item>
+        <item quantity="other">%1$d transactions are ready for your review</item>
+    </plurals>
 </resources>

@@ -41,6 +41,19 @@ class SmsCaptureNotifier @Inject constructor(
         )
     }
 
+    /** Summarises the opt-in inbox import without putting SMS content on the lock screen. */
+    fun notifyImportFinished(capturedCount: Int) {
+        post(
+            id = IMPORT_FINISHED_NOTIFICATION_ID,
+            title = context.getString(R.string.sms_import_finished_notification_title),
+            text = context.resources.getQuantityString(
+                R.plurals.sms_import_finished_notification_text,
+                capturedCount,
+                capturedCount,
+            ),
+        )
+    }
+
     private fun post(id: Int, title: String, text: String) {
         val manager = NotificationManagerCompat.from(context)
         ensureChannel()
@@ -108,5 +121,6 @@ class SmsCaptureNotifier @Inject constructor(
         const val ACTION_REVIEW = "iris.wallet.intent.action.review_captured"
 
         private const val CAPTURED_NOTIFICATION_ID = 4_101
+        private const val IMPORT_FINISHED_NOTIFICATION_ID = 4_102
     }
 }
