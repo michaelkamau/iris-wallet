@@ -1,3 +1,5 @@
+@file:Suppress("FunctionNaming", "TooManyFunctions")
+
 package com.iris.sms.settings
 
 import android.Manifest
@@ -17,11 +19,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -51,33 +51,29 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.app.ActivityCompat
 import com.iris.navigation.screenScopedViewModel
-
-/**
- * The permissions the feature needs, asked for together.
- *
- * `READ_SMS` rides along with `RECEIVE_SMS` because the historical import (User Story 5) needs it
- * and asking twice, weeks apart, reads as the app creeping outwards. Granting `RECEIVE_SMS` alone
- * is a perfectly good outcome — it is all live capture requires.
- */
-private val SmsPermissions = arrayOf(Manifest.permission.RECEIVE_SMS, Manifest.permission.READ_SMS)
+import com.iris.ui.component.IrisBackBottomBar
 
 @Composable
 fun SmsCaptureSettingsScreenImpl() {
     val viewModel: SmsCaptureSettingsViewModel = screenScopedViewModel()
     val context = LocalContext.current
-    val launcher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions(),
+    val receiveSmsLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
     ) { granted ->
-        val received = granted[Manifest.permission.RECEIVE_SMS] == true
         viewModel.onEvent(
             SmsCaptureSettingsEvent.OnPermissionResult(
-                granted = received,
+                granted = granted,
                 // `shouldShowRequestPermissionRationale` returning false *after* a refusal is
                 // Android's only signal for "don't ask again". It is a question only an Activity
                 // can answer, so it is settled here rather than in the view model.
-                permanentlyDenied = !received && !shouldShowRationale(context),
+                permanentlyDenied = !granted && !shouldShowRationale(context),
             ),
         )
+    }
+    val readInboxLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) {
+        viewModel.onEvent(SmsCaptureSettingsEvent.OnHistoricalImportPermissionResult)
     }
 
     SmsCaptureSettingsUi(
@@ -88,7 +84,11 @@ fun SmsCaptureSettingsScreenImpl() {
                 // from the rationale panel (FR-002).
                 SmsCaptureSettingsEvent.OnRationaleAccepted -> {
                     viewModel.onEvent(event)
-                    launcher.launch(SmsPermissions)
+                    receiveSmsLauncher.launch(Manifest.permission.RECEIVE_SMS)
+                }
+
+                SmsCaptureSettingsEvent.OnRequestHistoricalImportPermission -> {
+                    readInboxLauncher.launch(Manifest.permission.READ_SMS)
                 }
 
                 else -> viewModel.onEvent(event)
@@ -132,16 +132,9 @@ fun SmsCaptureSettingsUi(
         topBar = {
             CenterAlignedTopAppBar(
                 title = { Text(text = "SMS transaction capture") },
-                navigationIcon = {
-                    IconButton(onClick = { onEvent(SmsCaptureSettingsEvent.OnClose) }) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
-                        )
-                    }
-                },
             )
         },
+        bottomBar = { IrisBackBottomBar(onBack = { onEvent(SmsCaptureSettingsEvent.OnClose) }) },
     ) { innerPadding ->
         Content(
             state = state,
@@ -183,6 +176,7 @@ private fun Content(
             if (state.pendingCount > 0) {
                 item { ReviewAction(count = state.pendingCount, onEvent = onEvent) }
             }
+            item { HistoricalImportAction(state = state, onEvent = onEvent) }
             item { SectionHeader(text = "Senders") }
             items(state.senders, key = { it.senderId }) { sender ->
                 SenderRow(sender = sender, accounts = state.accounts, onEvent = onEvent)
@@ -339,6 +333,67 @@ private fun Notice(
 }
 
 @Composable
+private fun HistoricalImportAction(
+    state: SmsCaptureSettingsState,
+    onEvent: (SmsCaptureSettingsEvent) -> Unit,
+) {
+    when (val import = state.importState) {
+        HistoricalImportUi.Available -> ImportCard(
+            body = "Import payment messages from the last 30 days. Messages stay on this device.",
+            actionLabel = "Import recent messages",
+            onAction = { onEvent(SmsCaptureSettingsEvent.OnStartHistoricalImport) },
+        )
+
+        is HistoricalImportUi.Running -> ImportCard(
+            body = "Importing recent messages. ${import.processed} processed so far.",
+            actionLabel = null,
+            onAction = {},
+        )
+
+        is HistoricalImportUi.Finished -> ImportCard(
+            body = "${import.captured} ${if (import.captured == 1) "transaction is" else "transactions are"} " +
+                "ready for review.",
+            actionLabel = null,
+            onAction = {},
+        )
+
+        HistoricalImportUi.AlreadyRun -> if (state.historicalImportPermissionRequired) {
+            ImportCard(
+                body = "You can import payment messages from the last 30 days once. " +
+                    "Iris reads them only on this device.",
+                actionLabel = "Allow inbox access",
+                onAction = {
+                    onEvent(SmsCaptureSettingsEvent.OnRequestHistoricalImportPermission)
+                },
+            )
+        }
+    }
+}
+
+@Composable
+private fun ImportCard(
+    body: String,
+    actionLabel: String?,
+    onAction: () -> Unit,
+) {
+    Card(modifier = Modifier.padding(horizontal = 16.dp)) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = "Import recent payment messages",
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(text = body, style = MaterialTheme.typography.bodyMedium)
+            if (actionLabel != null) {
+                Spacer(modifier = Modifier.height(8.dp))
+                OutlinedButton(onClick = onAction) { Text(text = actionLabel) }
+            }
+        }
+    }
+}
+
+@Composable
 private fun ReviewAction(
     count: Int,
     onEvent: (SmsCaptureSettingsEvent) -> Unit,
@@ -439,36 +494,47 @@ private fun SenderRow(
 private fun AddSenderRow(onEvent: (SmsCaptureSettingsEvent) -> Unit) {
     var raw by remember { mutableStateOf("") }
     var name by remember { mutableStateOf("") }
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        OutlinedTextField(
-            value = raw,
-            onValueChange = { raw = it },
-            label = { Text(text = "Sender") },
-            singleLine = true,
-            modifier = Modifier.weight(1f),
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        OutlinedTextField(
-            value = name,
-            onValueChange = { name = it },
-            label = { Text(text = "Name") },
-            singleLine = true,
-            modifier = Modifier.weight(1f),
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        TextButton(
-            onClick = {
-                onEvent(SmsCaptureSettingsEvent.OnAddSender(rawSender = raw, displayName = name))
-                raw = ""
-                name = ""
-            },
-        ) {
-            Text(text = "Add")
+    Card(modifier = Modifier.padding(horizontal = 16.dp)) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = "Add payment sender",
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Messages from an added sender stay pending until you map an account.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = raw,
+                onValueChange = { raw = it },
+                label = { Text(text = "Sender") },
+                singleLine = true,
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = name,
+                onValueChange = { name = it },
+                label = { Text(text = "Display name (optional)") },
+                singleLine = true,
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                enabled = raw.isNotBlank(),
+                onClick = {
+                    onEvent(SmsCaptureSettingsEvent.OnAddSender(rawSender = raw, displayName = name))
+                    raw = ""
+                    name = ""
+                },
+            ) {
+                Text(text = "Add sender")
+            }
         }
     }
 }

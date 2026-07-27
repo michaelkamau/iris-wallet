@@ -1,3 +1,5 @@
+@file:Suppress("CyclomaticComplexMethod", "LongParameterList", "TooManyFunctions")
+
 package com.iris.sms.settings
 
 import androidx.compose.runtime.Composable
@@ -9,6 +11,7 @@ import androidx.compose.runtime.setValue
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
+import com.iris.base.time.TimeProvider
 import com.iris.data.datastore.DatastoreKeys
 import com.iris.data.model.AccountId
 import com.iris.data.model.primitive.NotBlankTrimmedString
@@ -21,6 +24,8 @@ import com.iris.domain.usecase.sms.SmsCaptureGate
 import com.iris.navigation.Navigation
 import com.iris.navigation.SmsReviewScreen
 import com.iris.sms.capture.DefaultFinancialSenderCatalog
+import com.iris.sms.capture.SmsImportScheduler
+import com.iris.sms.capture.SmsImportWorkState
 import com.iris.ui.ComposeViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.collections.immutable.ImmutableList
@@ -53,6 +58,8 @@ class SmsCaptureSettingsViewModel @Inject constructor(
     private val capturedTransactionRepository: CapturedTransactionRepository,
     private val senderCatalog: DefaultFinancialSenderCatalog,
     private val captureGate: SmsCaptureGate,
+    private val importScheduler: SmsImportScheduler,
+    private val timeProvider: TimeProvider,
     private val navigation: Navigation,
 ) : ComposeViewModel<SmsCaptureSettingsState, SmsCaptureSettingsEvent>() {
 
@@ -62,6 +69,7 @@ class SmsCaptureSettingsViewModel @Inject constructor(
     private var accounts by mutableStateOf<ImmutableList<AccountPickUi>>(persistentListOf())
     private var pendingCount by mutableStateOf(0)
     private var importState by mutableStateOf<HistoricalImportUi>(HistoricalImportUi.AlreadyRun)
+    private var historicalImportPermissionRequired by mutableStateOf(false)
     private var rationaleVisible by mutableStateOf(false)
     private var command by mutableStateOf<Command?>(null)
     private var issued = 0
@@ -79,6 +87,7 @@ class SmsCaptureSettingsViewModel @Inject constructor(
             accounts = accounts,
             pendingCount = pendingCount,
             importState = importState,
+            historicalImportPermissionRequired = historicalImportPermissionRequired,
             rationaleVisible = rationaleVisible,
         )
     }
@@ -118,9 +127,11 @@ class SmsCaptureSettingsViewModel @Inject constructor(
 
             is SmsCaptureSettingsEvent.OnRemoveSender -> issue(Command.RemoveSender(event.senderId))
 
-            // User Story 5 owns the import itself. Until then the action is not offered, so this
-            // is unreachable from the UI rather than quietly doing nothing.
-            SmsCaptureSettingsEvent.OnStartHistoricalImport -> Unit
+            SmsCaptureSettingsEvent.OnStartHistoricalImport -> issue(Command.StartHistoricalImport())
+
+            SmsCaptureSettingsEvent.OnRequestHistoricalImportPermission -> Unit
+
+            SmsCaptureSettingsEvent.OnHistoricalImportPermissionResult -> issue(Command.Reload())
 
             SmsCaptureSettingsEvent.OnOpenReview -> navigation.navigateTo(SmsReviewScreen)
 
@@ -155,6 +166,12 @@ class SmsCaptureSettingsViewModel @Inject constructor(
             is Command.AddSender -> addSender(current)
             is Command.RemoveSender -> current.senderId.toSenderId()
                 ?.let { senderRepository.deleteById(it) }
+            is Command.StartHistoricalImport -> {
+                startHistoricalImport()
+                return
+            }
+
+            is Command.Reload -> Unit
         }
         reload()
     }
@@ -240,7 +257,14 @@ class SmsCaptureSettingsViewModel @Inject constructor(
             }
             .toImmutableList()
         pendingCount = capturedTransactionRepository.pendingCount().first()
-        importState = importState()
+        val completedAt = dataStore.data.first()[DatastoreKeys.SMS_HISTORICAL_IMPORT_COMPLETED_AT]
+        val canReadInbox = captureGate.canReadInbox()
+        historicalImportPermissionRequired = completedAt == null && !canReadInbox
+        importState = when {
+            completedAt != null -> HistoricalImportUi.AlreadyRun
+            canReadInbox -> HistoricalImportUi.Available
+            else -> HistoricalImportUi.AlreadyRun
+        }
     }
 
     /**
@@ -248,12 +272,20 @@ class SmsCaptureSettingsViewModel @Inject constructor(
      * (FR-030). Anything else is [HistoricalImportUi.AlreadyRun], which renders as nothing at all
      * rather than as a button that would fail.
      */
-    private suspend fun importState(): HistoricalImportUi {
+    private suspend fun startHistoricalImport() {
         val completedAt = dataStore.data.first()[DatastoreKeys.SMS_HISTORICAL_IMPORT_COMPLETED_AT]
-        return when {
-            completedAt != null -> HistoricalImportUi.AlreadyRun
-            captureGate.canReadInbox() -> HistoricalImportUi.Available
-            else -> HistoricalImportUi.AlreadyRun
+        if (completedAt != null || !captureGate.canReadInbox()) {
+            reload()
+            return
+        }
+        importState = HistoricalImportUi.Running(processed = 0)
+        importScheduler.enqueue(timeProvider.utcNow())
+        importScheduler.observe().collect { state ->
+            importState = when (state) {
+                SmsImportWorkState.Idle -> HistoricalImportUi.Available
+                is SmsImportWorkState.Running -> HistoricalImportUi.Running(state.processed)
+                is SmsImportWorkState.Finished -> HistoricalImportUi.Finished(state.captured)
+            }
         }
     }
 
@@ -313,6 +345,14 @@ class SmsCaptureSettingsViewModel @Inject constructor(
             val senderId: String,
             override val seq: Int = 0,
         ) : Command {
+            override fun withSequence(value: Int) = copy(seq = value)
+        }
+
+        data class StartHistoricalImport(override val seq: Int = 0) : Command {
+            override fun withSequence(value: Int) = copy(seq = value)
+        }
+
+        data class Reload(override val seq: Int = 0) : Command {
             override fun withSequence(value: Int) = copy(seq = value)
         }
     }

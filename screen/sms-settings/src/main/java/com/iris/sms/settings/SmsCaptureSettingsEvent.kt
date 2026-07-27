@@ -58,6 +58,12 @@ sealed interface SmsCaptureSettingsEvent {
     /** The opt-in 30-day import (FR-030). Wired in User Story 5. */
     data object OnStartHistoricalImport : SmsCaptureSettingsEvent
 
+    /** The user opted into the inbox import and should be asked for `READ_SMS`, not `RECEIVE_SMS`. */
+    data object OnRequestHistoricalImportPermission : SmsCaptureSettingsEvent
+
+    /** Re-reads the gate after Android answers the one-off `READ_SMS` request. */
+    data object OnHistoricalImportPermissionResult : SmsCaptureSettingsEvent
+
     data object OnOpenReview : SmsCaptureSettingsEvent
 
     data object OnClose : SmsCaptureSettingsEvent

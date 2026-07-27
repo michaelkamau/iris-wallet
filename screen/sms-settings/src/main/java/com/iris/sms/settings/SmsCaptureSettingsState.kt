@@ -23,6 +23,8 @@ data class SmsCaptureSettingsState(
     /** How many captured items are waiting to be reviewed, for the "Review N" action (FR-021a). */
     val pendingCount: Int,
     val importState: HistoricalImportUi,
+    /** The import has not run, but the user has not yet opted into `READ_SMS`. */
+    val historicalImportPermissionRequired: Boolean = false,
     /**
      * The pre-permission explanation (FR-002). Visible strictly *before* the system dialog, never
      * alongside it: the user is told what will be read while they still have the option to say no

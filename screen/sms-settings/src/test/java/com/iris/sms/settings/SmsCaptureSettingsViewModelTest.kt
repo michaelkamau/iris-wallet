@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.mutablePreferencesOf
+import com.iris.base.time.TimeProvider
 import com.iris.data.datastore.DatastoreKeys
 import com.iris.data.model.Account
 import com.iris.data.model.AccountId
@@ -20,6 +21,8 @@ import com.iris.domain.usecase.sms.SmsCaptureGate
 import com.iris.navigation.Navigation
 import com.iris.navigation.SmsReviewScreen
 import com.iris.sms.capture.DefaultFinancialSenderCatalog
+import com.iris.sms.capture.SmsImportScheduler
+import com.iris.sms.capture.SmsImportWorkState
 import com.iris.ui.testing.ComposeViewModelTest
 import com.iris.ui.testing.runTest
 import io.kotest.matchers.collections.shouldContainExactly
@@ -27,12 +30,15 @@ import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flowOf
 import org.junit.Before
 import org.junit.Test
+import java.time.Instant
 import java.util.UUID
 
 /**
@@ -47,6 +53,8 @@ class SmsCaptureSettingsViewModelTest : ComposeViewModelTest() {
     private val accountRepository = mockk<AccountRepository>()
     private val capturedTransactionRepository = mockk<CapturedTransactionRepository>()
     private val senderCatalog = mockk<DefaultFinancialSenderCatalog>(relaxed = true)
+    private val importScheduler = FakeSmsImportScheduler()
+    private val timeProvider = mockk<TimeProvider>()
     private val navigation = mockk<Navigation>(relaxed = true)
 
     /** `financial_senders`, so a save or a delete is observable through a reload. */
@@ -85,6 +93,7 @@ class SmsCaptureSettingsViewModelTest : ComposeViewModelTest() {
         // Seeding is the catalog's own job and is tested there; here all that matters is that
         // enabling is what triggers it.
         coEvery { senderCatalog.seed() } returns Unit
+        every { timeProvider.utcNow() } returns Instant.parse("2026-07-27T10:25:34Z")
     }
 
     // --- Off by default ------------------------------------------------------------------------
@@ -521,6 +530,18 @@ class SmsCaptureSettingsViewModelTest : ComposeViewModelTest() {
     }
 
     @Test
+    fun `the import action is hidden until the user grants read inbox access`() {
+        // given `READ_SMS` has not been requested
+        dataStore.put(DatastoreKeys.SMS_CAPTURE_ENABLED, true)
+
+        // when / then the import action itself is unavailable, but the opt-in permission affordance is not
+        viewModel().runTest {
+            importState shouldBe HistoricalImportUi.AlreadyRun
+            historicalImportPermissionRequired shouldBe true
+        }
+    }
+
+    @Test
     fun `an import that has already run is never offered again`() {
         // given
         dataStore.put(DatastoreKeys.SMS_CAPTURE_ENABLED, true)
@@ -530,7 +551,25 @@ class SmsCaptureSettingsViewModelTest : ComposeViewModelTest() {
         // when / then
         viewModel().runTest {
             importState shouldBe HistoricalImportUi.AlreadyRun
+            historicalImportPermissionRequired shouldBe false
         }
+    }
+
+    @Test
+    fun `starting an import reports worker progress and finishes with its captured count`() {
+        // given
+        dataStore.put(DatastoreKeys.SMS_CAPTURE_ENABLED, true)
+        inboxPermission = true
+        importScheduler.states = listOf(
+            SmsImportWorkState.Running(processed = 200, captured = 3),
+            SmsImportWorkState.Finished(captured = 3),
+        )
+
+        // when / then
+        viewModel().runTest(events = listOf(SmsCaptureSettingsEvent.OnStartHistoricalImport)) {
+            importState shouldBe HistoricalImportUi.Finished(captured = 3)
+        }
+        importScheduler.enqueuedAt shouldBe Instant.parse("2026-07-27T10:25:34Z")
     }
 
     private fun viewModel() = SmsCaptureSettingsViewModel(
@@ -540,8 +579,21 @@ class SmsCaptureSettingsViewModelTest : ComposeViewModelTest() {
         capturedTransactionRepository = capturedTransactionRepository,
         senderCatalog = senderCatalog,
         captureGate = captureGate,
+        importScheduler = importScheduler,
+        timeProvider = timeProvider,
         navigation = navigation,
     )
+
+    private class FakeSmsImportScheduler : SmsImportScheduler {
+        var enqueuedAt: Instant? = null
+        var states: List<SmsImportWorkState> = emptyList()
+
+        override suspend fun enqueue(now: Instant) {
+            enqueuedAt = now
+        }
+
+        override fun observe(): Flow<SmsImportWorkState> = states.asFlow()
+    }
 
     /**
      * An in-memory [DataStore].
