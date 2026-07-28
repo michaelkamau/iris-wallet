@@ -22,8 +22,15 @@ class Navigation @Inject constructor() {
     val onBackPressed: MutableMap<Screen, () -> Boolean> = mutableMapOf()
 
     private val backStack: Stack<Screen> = Stack()
-    var lastScreen: Screen? = null
-        private set
+
+    /**
+     * The screen that goes onto the back stack when the user navigates away.
+     *
+     * Tracked separately from [currentScreen] so that [resetBackStack] can drop it: after a
+     * logout the screen on display must not become somewhere the user can go back to. Private
+     * on purpose — it reads like "the previous screen" and is not.
+     */
+    private var screenToPush: Screen? = null
 
     @Deprecated("Legacy code. Don't use it, please.")
     data class ModalBackHandler(
@@ -41,8 +48,8 @@ class Navigation @Inject constructor() {
     }
 
     fun navigateTo(screen: Screen) {
-        if (lastScreen != null) {
-            backStack.push(lastScreen)
+        if (screenToPush != null) {
+            backStack.push(screenToPush)
         }
         switchScreen(screen)
     }
@@ -72,13 +79,13 @@ class Navigation @Inject constructor() {
 
     private fun switchScreen(screen: Screen) {
         this.currentScreen = screen
-        lastScreen = screen
+        screenToPush = screen
     }
 
     fun resetBackStack() {
         while (!backStackEmpty()) {
             popBackStack()
         }
-        lastScreen = null
+        screenToPush = null
     }
 }
