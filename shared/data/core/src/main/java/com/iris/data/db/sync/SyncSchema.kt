@@ -51,6 +51,7 @@ internal object SyncSchema {
             `deviceId` TEXT NOT NULL,
             `changeLoggingEnabled` INTEGER NOT NULL,
             `lastSyncedAt` INTEGER,
+            `lastPullCursor` INTEGER NOT NULL DEFAULT 0,
             `id` INTEGER NOT NULL,
             PRIMARY KEY(`id`)
         )
@@ -65,8 +66,9 @@ internal object SyncSchema {
     /** Creates the single [SyncStateEntity] row, unless it already exists. */
     fun seedSyncState(db: SupportSQLiteDatabase, deviceId: String = UUID.randomUUID().toString()) {
         db.execSQL(
-            "INSERT OR IGNORE INTO sync_state (id, deviceId, changeLoggingEnabled, lastSyncedAt) " +
-                "VALUES (${SyncStateEntity.SINGLETON_ID}, ?, 1, NULL)",
+            "INSERT OR IGNORE INTO sync_state " +
+                "(id, deviceId, changeLoggingEnabled, lastSyncedAt, lastPullCursor) " +
+                "VALUES (${SyncStateEntity.SINGLETON_ID}, ?, 1, NULL, 0)",
             arrayOf<Any>(deviceId)
         )
     }

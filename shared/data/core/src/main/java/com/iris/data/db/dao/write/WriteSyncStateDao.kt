@@ -22,4 +22,12 @@ interface WriteSyncStateDao {
         """
     )
     suspend fun setLastSyncedAt(lastSyncedAt: Long)
+
+    @Query(
+        """
+        UPDATE sync_state SET lastPullCursor = :lastPullCursor
+        WHERE id = ${SyncStateEntity.SINGLETON_ID}
+        """
+    )
+    suspend fun setLastPullCursor(lastPullCursor: Long)
 }

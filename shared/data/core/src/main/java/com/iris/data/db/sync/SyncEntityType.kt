@@ -8,18 +8,24 @@ package com.iris.data.db.sync
  */
 enum class SyncEntityType(
     val tableName: String,
-    private val idColumns: List<String>
+    val idColumns: List<String>,
+    /**
+     * Rank of the table in the reference graph. Records are created in ascending
+     * and deleted in descending order, so that a row is never applied before the
+     * rows it refers to.
+     */
+    val dependencyOrder: Int
 ) {
-    ACCOUNT("accounts", listOf("id")),
-    TRANSACTION("transactions", listOf("id")),
-    CATEGORY("categories", listOf("id")),
-    BUDGET("budgets", listOf("id")),
-    LOAN("loans", listOf("id")),
-    LOAN_RECORD("loan_records", listOf("id")),
-    PLANNED_PAYMENT_RULE("planned_payment_rules", listOf("id")),
-    SETTINGS("settings", listOf("id")),
-    TAG("tags", listOf("id")),
-    TAG_ASSOCIATION("tags_association", listOf("tagId", "associatedId"));
+    ACCOUNT("accounts", listOf("id"), dependencyOrder = 0),
+    CATEGORY("categories", listOf("id"), dependencyOrder = 0),
+    TAG("tags", listOf("id"), dependencyOrder = 0),
+    SETTINGS("settings", listOf("id"), dependencyOrder = 0),
+    BUDGET("budgets", listOf("id"), dependencyOrder = 1),
+    LOAN("loans", listOf("id"), dependencyOrder = 1),
+    TRANSACTION("transactions", listOf("id"), dependencyOrder = 2),
+    LOAN_RECORD("loan_records", listOf("id"), dependencyOrder = 2),
+    PLANNED_PAYMENT_RULE("planned_payment_rules", listOf("id"), dependencyOrder = 2),
+    TAG_ASSOCIATION("tags_association", listOf("tagId", "associatedId"), dependencyOrder = 3);
 
     /**
      * SQL expression producing the entity id of a row of this table.

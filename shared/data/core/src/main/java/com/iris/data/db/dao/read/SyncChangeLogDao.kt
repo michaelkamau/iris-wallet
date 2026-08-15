@@ -8,8 +8,14 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface SyncChangeLogDao {
 
-    @Query("SELECT * FROM sync_change_log WHERE pendingSync = 1 ORDER BY updatedAt ASC LIMIT :limit")
-    suspend fun findPending(limit: Int): List<SyncChangeLogEntity>
+    @Query(
+        """
+        SELECT * FROM sync_change_log
+        WHERE pendingSync = 1 AND attemptCount < :maxAttempts
+        ORDER BY updatedAt ASC LIMIT :limit
+        """
+    )
+    suspend fun findPending(limit: Int, maxAttempts: Int): List<SyncChangeLogEntity>
 
     @Query("SELECT COUNT(*) FROM sync_change_log WHERE pendingSync = 1")
     suspend fun countPending(): Int

@@ -31,6 +31,12 @@ data class SyncStateEntity(
     /** Epoch millis of the last successful sync, `null` when never synced. */
     @SerialName("lastSyncedAt")
     val lastSyncedAt: Long? = null,
+    /**
+     * Epoch millis of the newest remote change already applied locally, used as
+     * the cursor of the next incremental pull.
+     */
+    @SerialName("lastPullCursor")
+    val lastPullCursor: Long = 0,
     @PrimaryKey
     @SerialName("id")
     val id: Int = SINGLETON_ID

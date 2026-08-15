@@ -1,10 +1,23 @@
 package com.iris.data.db.dao.write
 
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.iris.data.db.entity.SyncChangeLogEntity
 
 @Dao
 interface WriteSyncChangeLogDao {
+
+    /**
+     * Replaces the change log entry of a record.
+     *
+     * Used when a record received from the remote is applied locally: the entry
+     * must describe the remote write, otherwise the next push would upload the
+     * remote content again under an outdated timestamp.
+     */
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun save(entity: SyncChangeLogEntity)
 
     /** Marks a change as successfully pushed to the remote. */
     @Query(
