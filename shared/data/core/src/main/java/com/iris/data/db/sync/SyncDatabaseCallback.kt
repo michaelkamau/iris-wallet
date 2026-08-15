@@ -13,11 +13,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase
  */
 class SyncDatabaseCallback : RoomDatabase.Callback() {
 
+    @Volatile
+    private var setUpDone = false
+
     override fun onCreate(db: SupportSQLiteDatabase) {
         setUp(db)
     }
 
     override fun onOpen(db: SupportSQLiteDatabase) {
+        if (setUpDone) return
         setUp(db)
     }
 
@@ -27,5 +31,6 @@ class SyncDatabaseCallback : RoomDatabase.Callback() {
         if (!SyncSchema.triggersExist(db)) {
             SyncSchema.createTriggers(db)
         }
+        setUpDone = true
     }
 }
