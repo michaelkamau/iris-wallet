@@ -63,7 +63,9 @@ class FakeSyncLocalDataSource(
         if (record.deleted) {
             rows.remove(key)
         } else {
-            rows[key] = record.payload
+            // Mirrors the Room implementation, which updates the columns it knows
+            // and leaves the other ones untouched.
+            rows[key] = rows[key].orEmpty() + record.payload
         }
         changes[key] = SyncChangeLogEntity(
             entityType = record.entityType,

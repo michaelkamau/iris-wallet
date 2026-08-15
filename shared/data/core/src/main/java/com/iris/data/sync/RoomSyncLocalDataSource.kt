@@ -1,5 +1,7 @@
 package com.iris.data.sync
 
+import android.content.ContentValues
+import android.database.sqlite.SQLiteDatabase
 import com.iris.data.db.IrisRoomDatabase
 import com.iris.data.db.dao.read.SyncChangeLogDao
 import com.iris.data.db.dao.read.SyncStateDao
@@ -67,7 +69,7 @@ class RoomSyncLocalDataSource @Inject constructor(
             if (record.deleted) {
                 deleteRow(type, record.entityId)
             } else {
-                upsertRow(type, record.payload)
+                upsertRow(type, record.entityId, record.payload)
             }
             writeSyncChangeLogDao.save(record.toChange())
         }
@@ -106,8 +108,7 @@ class RoomSyncLocalDataSource @Inject constructor(
 
     /** Reads a row as a column name to text value map, `null` when it no longer exists. */
     private fun readRow(type: SyncEntityType, entityId: String): Map<String, String?>? {
-        val where = type.idColumns.joinToString(separator = " AND ") { "`$it` = ?" }
-        val query = "SELECT * FROM `${type.tableName}` WHERE $where"
+        val query = "SELECT * FROM `${type.tableName}` WHERE ${whereId(type)}"
         return database.query(query, idValues(type, entityId)).use { cursor ->
             if (!cursor.moveToFirst()) return@use null
             (0 until cursor.columnCount).associate { index ->
@@ -117,25 +118,48 @@ class RoomSyncLocalDataSource @Inject constructor(
         }
     }
 
-    private fun upsertRow(type: SyncEntityType, payload: Map<String, String?>) {
-        val known = columnsOf(type).let { columns -> payload.filterKeys { it in columns } }
+    /**
+     * Writes the columns of [payload] known to the local schema.
+     *
+     * An existing row is updated instead of replaced, so that columns this app
+     * version does not send yet, or that the sending version did not know, keep
+     * their local value instead of being reset.
+     */
+    private fun upsertRow(type: SyncEntityType, entityId: String, payload: Map<String, String?>) {
+        val columns = columnsOf(type)
+        val known = payload.filterKeys { it in columns }
         if (known.isEmpty()) return
 
-        val columns = known.keys.joinToString(separator = ", ") { "`$it`" }
-        val placeholders = known.keys.joinToString(separator = ", ") { "?" }
-        database.openHelper.writableDatabase.execSQL(
-            "INSERT OR REPLACE INTO `${type.tableName}` ($columns) VALUES ($placeholders)",
-            known.values.toTypedArray()
+        val values = ContentValues()
+        known.forEach { (column, value) -> values.put(column, value) }
+
+        val updated = database.openHelper.writableDatabase.update(
+            type.tableName,
+            SQLiteDatabase.CONFLICT_REPLACE,
+            values,
+            whereId(type),
+            idValues(type, entityId)
         )
+        if (updated == 0) {
+            database.openHelper.writableDatabase.insert(
+                type.tableName,
+                SQLiteDatabase.CONFLICT_REPLACE,
+                values
+            )
+        }
     }
 
     private fun deleteRow(type: SyncEntityType, entityId: String) {
-        val where = type.idColumns.joinToString(separator = " AND ") { "`$it` = ?" }
-        database.openHelper.writableDatabase.execSQL(
-            "DELETE FROM `${type.tableName}` WHERE $where",
+        database.openHelper.writableDatabase.delete(
+            type.tableName,
+            whereId(type),
             idValues(type, entityId)
         )
     }
+
+    /** `WHERE` clause matching a row by its primary key columns. */
+    private fun whereId(type: SyncEntityType): String =
+        type.idColumns.joinToString(separator = " AND ") { "`$it` = ?" }
 
     /** Splits a composite entity id back into the values of the primary key columns. */
     private fun idValues(type: SyncEntityType, entityId: String): Array<Any?> {
