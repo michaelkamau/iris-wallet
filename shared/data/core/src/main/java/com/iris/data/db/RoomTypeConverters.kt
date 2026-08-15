@@ -6,6 +6,7 @@ import com.iris.base.legacy.epochMilliToDateTime
 import com.iris.base.legacy.toEpochMilli
 import com.iris.base.model.LoanRecordType
 import com.iris.base.model.TransactionType
+import com.iris.data.db.sync.SyncOperation
 import com.iris.data.model.IntervalType
 import com.iris.data.model.LoanType
 import java.time.Instant
@@ -56,6 +57,12 @@ class RoomTypeConverters {
 
     @TypeConverter
     fun parseInstant(value: Long): Instant = Instant.ofEpochMilli(value)
+
+    @TypeConverter
+    fun saveSyncOperation(value: SyncOperation): String = value.name
+
+    @TypeConverter
+    fun parseSyncOperation(value: String): SyncOperation = SyncOperation.valueOf(value)
 
     @TypeConverter
     fun saveLoanRecordType(value: LoanRecordType?): String? = value?.name

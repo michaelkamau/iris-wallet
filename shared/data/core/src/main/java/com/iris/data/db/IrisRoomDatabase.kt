@@ -11,6 +11,8 @@ import com.iris.data.db.dao.read.LoanDao
 import com.iris.data.db.dao.read.LoanRecordDao
 import com.iris.data.db.dao.read.PlannedPaymentRuleDao
 import com.iris.data.db.dao.read.SettingsDao
+import com.iris.data.db.dao.read.SyncChangeLogDao
+import com.iris.data.db.dao.read.SyncStateDao
 import com.iris.data.db.dao.read.TagDao
 import com.iris.data.db.dao.read.TagAssociationDao
 import com.iris.data.db.dao.read.TransactionDao
@@ -23,6 +25,8 @@ import com.iris.data.db.dao.write.WriteLoanDao
 import com.iris.data.db.dao.write.WriteLoanRecordDao
 import com.iris.data.db.dao.write.WritePlannedPaymentRuleDao
 import com.iris.data.db.dao.write.WriteSettingsDao
+import com.iris.data.db.dao.write.WriteSyncChangeLogDao
+import com.iris.data.db.dao.write.WriteSyncStateDao
 import com.iris.data.db.dao.write.WriteTagDao
 import com.iris.data.db.dao.write.WriteTagAssociationDao
 import com.iris.data.db.dao.write.WriteTransactionDao
@@ -34,6 +38,8 @@ import com.iris.data.db.entity.LoanEntity
 import com.iris.data.db.entity.LoanRecordEntity
 import com.iris.data.db.entity.PlannedPaymentRuleEntity
 import com.iris.data.db.entity.SettingsEntity
+import com.iris.data.db.entity.SyncChangeLogEntity
+import com.iris.data.db.entity.SyncStateEntity
 import com.iris.data.db.entity.TagEntity
 import com.iris.data.db.entity.TagAssociationEntity
 import com.iris.data.db.entity.TransactionEntity
@@ -44,6 +50,8 @@ import com.iris.data.db.migration.Migration126to127_LoanRecordType
 import com.iris.data.db.migration.Migration127to128_PaidForDateRecord
 import com.iris.data.db.migration.Migration128to129_DeleteIsDeleted
 import com.iris.data.db.migration.Migration129to130_LoanIncludeNote
+import com.iris.data.db.migration.Migration130to131_SyncChangeLog
+import com.iris.data.db.sync.SyncDatabaseCallback
 import com.iris.domain.db.RoomTypeConverters
 import com.iris.domain.db.migration.Migration105to106_TrnRecurringRules
 import com.iris.domain.db.migration.Migration106to107_Wishlist
@@ -69,7 +77,8 @@ import com.iris.domain.db.migration.Migration125to126_Tags
         AccountEntity::class, TransactionEntity::class, CategoryEntity::class,
         SettingsEntity::class, PlannedPaymentRuleEntity::class,
         UserEntity::class, ExchangeRateEntity::class, BudgetEntity::class,
-        LoanEntity::class, LoanRecordEntity::class, TagEntity::class, TagAssociationEntity::class
+        LoanEntity::class, LoanRecordEntity::class, TagEntity::class, TagAssociationEntity::class,
+        SyncChangeLogEntity::class, SyncStateEntity::class
     ],
     autoMigrations = [
         AutoMigration(
@@ -78,7 +87,7 @@ import com.iris.domain.db.migration.Migration125to126_Tags
             spec = IrisRoomDatabase.DeleteSEMigration::class
         )
     ],
-    version = 130,
+    version = 131,
     exportSchema = true
 )
 @TypeConverters(RoomTypeConverters::class)
@@ -95,6 +104,8 @@ abstract class IrisRoomDatabase : RoomDatabase() {
     abstract val loanRecordDao: LoanRecordDao
     abstract val tagDao: TagDao
     abstract val tagAssociationDao: TagAssociationDao
+    abstract val syncChangeLogDao: SyncChangeLogDao
+    abstract val syncStateDao: SyncStateDao
 
     abstract val writeAccountDao: WriteAccountDao
     abstract val writeTransactionDao: WriteTransactionDao
@@ -107,6 +118,8 @@ abstract class IrisRoomDatabase : RoomDatabase() {
     abstract val writeLoanRecordDao: WriteLoanRecordDao
     abstract val writeTagDao: WriteTagDao
     abstract val writeTagAssociationDao: WriteTagAssociationDao
+    abstract val writeSyncChangeLogDao: WriteSyncChangeLogDao
+    abstract val writeSyncStateDao: WriteSyncStateDao
 
     companion object {
         const val DB_NAME = "iriswallet.db"
@@ -135,7 +148,8 @@ abstract class IrisRoomDatabase : RoomDatabase() {
             Migration126to127_LoanRecordType(),
             Migration127to128_PaidForDateRecord(),
             Migration128to129_DeleteIsDeleted(),
-            Migration129to130_LoanIncludeNote()
+            Migration129to130_LoanIncludeNote(),
+            Migration130to131_SyncChangeLog()
         )
 
         @Suppress("SpreadOperator")
@@ -147,6 +161,7 @@ abstract class IrisRoomDatabase : RoomDatabase() {
                     DB_NAME
                 )
                 .addMigrations(*migrations())
+                .addCallback(SyncDatabaseCallback())
                 .build()
         }
     }

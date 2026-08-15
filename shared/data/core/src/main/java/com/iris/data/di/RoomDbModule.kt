@@ -10,6 +10,8 @@ import com.iris.data.db.dao.read.LoanDao
 import com.iris.data.db.dao.read.LoanRecordDao
 import com.iris.data.db.dao.read.PlannedPaymentRuleDao
 import com.iris.data.db.dao.read.SettingsDao
+import com.iris.data.db.dao.read.SyncChangeLogDao
+import com.iris.data.db.dao.read.SyncStateDao
 import com.iris.data.db.dao.read.TagAssociationDao
 import com.iris.data.db.dao.read.TagDao
 import com.iris.data.db.dao.read.TransactionDao
@@ -22,6 +24,8 @@ import com.iris.data.db.dao.write.WriteLoanDao
 import com.iris.data.db.dao.write.WriteLoanRecordDao
 import com.iris.data.db.dao.write.WritePlannedPaymentRuleDao
 import com.iris.data.db.dao.write.WriteSettingsDao
+import com.iris.data.db.dao.write.WriteSyncChangeLogDao
+import com.iris.data.db.dao.write.WriteSyncStateDao
 import com.iris.data.db.dao.write.WriteTagAssociationDao
 import com.iris.data.db.dao.write.WriteTagDao
 import com.iris.data.db.dao.write.WriteTransactionDao
@@ -161,5 +165,25 @@ object RoomDbModule {
     @Provides
     fun provideWriteTagAssociationDao(db: IrisRoomDatabase): WriteTagAssociationDao {
         return db.writeTagAssociationDao
+    }
+
+    @Provides
+    fun provideSyncChangeLogDao(db: IrisRoomDatabase): SyncChangeLogDao {
+        return db.syncChangeLogDao
+    }
+
+    @Provides
+    fun provideSyncStateDao(db: IrisRoomDatabase): SyncStateDao {
+        return db.syncStateDao
+    }
+
+    @Provides
+    fun provideWriteSyncChangeLogDao(db: IrisRoomDatabase): WriteSyncChangeLogDao {
+        return db.writeSyncChangeLogDao
+    }
+
+    @Provides
+    fun provideWriteSyncStateDao(db: IrisRoomDatabase): WriteSyncStateDao {
+        return db.writeSyncStateDao
     }
 }
