@@ -4,7 +4,8 @@
 
 # IrisWallet
 
-IrisWallet is a free and open-source Android money-management app written in Kotlin and Jetpack Compose. It helps you keep track of personal finances.
+IrisWallet is a free and open-source Android money-management app written in Kotlin and Jetpack
+Compose. It helps you keep track of personal finances.
 
 ## Quick start
 
@@ -24,15 +25,19 @@ IrisWallet is a free and open-source Android money-management app written in Kot
    cd iris-wallet
    ```
 
-2. In Android Studio, use **SDK Manager** to install Android SDK Platform 37. Android Studio normally creates `local.properties` with the SDK location. If Gradle cannot locate the SDK, create or update `local.properties` in the repository root:
+2. In Android Studio, use **SDK Manager** to install Android SDK Platform 37. Android Studio
+   normally creates `local.properties` with the SDK location. If Gradle cannot locate the SDK,
+   create or update `local.properties` in the repository root:
 
    ```properties
    sdk.dir=/absolute/path/to/Android/Sdk
    ```
 
-3. Open the repository root in Android Studio, set the Gradle JDK to JDK 17, and select **Sync Project with Gradle Files**.
+3. Open the repository root in Android Studio, set the Gradle JDK to JDK 17, and select **Sync
+   Project with Gradle Files**.
 
-   Firebase, Google Services, and Crashlytics configuration files or credentials are not required for local builds.
+   Firebase, Google Services, and Crashlytics configuration files or credentials are not required
+   for local builds.
 
 ### Build and run
 
@@ -44,7 +49,9 @@ Build the debug APK from the repository root:
 
 The APK is written to `app/build/outputs/apk/debug/app-debug.apk`.
 
-To run IrisWallet, start an emulator or connect an Android 9 (API 28) or newer device with USB debugging enabled. Select the `app` run configuration in Android Studio and click **Run**, or install the debug build with:
+To run IrisWallet, start an emulator or connect an Android 9 (API 28) or newer device with USB
+debugging enabled. Select the `app` run configuration in Android Studio and click **Run**, or
+install the debug build with:
 
 ```sh
 ./gradlew :app:installDebug
@@ -71,7 +78,8 @@ For connected-device integration tests, start an emulator or connect a device, t
 
 ## Learning materials
 
-Development resources are available in [docs/resources](docs/resources/). Read the [Developer Guidelines](docs/Guidelines.md) for technical guidance.
+Development resources are available in [docs/resources](docs/resources/). Read
+the [Developer Guidelines](docs/Guidelines.md) for technical guidance.
 
 ## Tech stack
 
@@ -125,7 +133,8 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md).
   <img alt="contributors graph" src="https://contrib.rocks/image?repo=michaelkamau/iris-wallet" />
 </a>
 
-_The [contrib.rocks](https://contrib.rocks/preview?repo=michaelkamau%2Firis-wallet) graph may take up to 24 hours to update._
+_The [contrib.rocks](https://contrib.rocks/preview?repo=michaelkamau%2Firis-wallet) graph may take
+up to 24 hours to update._
 
 ### Creative contributors
 
